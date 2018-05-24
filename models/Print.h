@@ -37,6 +37,8 @@ public:
 
 //----------------------------------------------------- Méthodes publiques
     unsigned int getPrintId() const;
+	
+	string Serialize() const;
 
 //-------------------------------------------- Constructeurs - destructeur
 	Print ( const Print & unPrint );

@@ -23,10 +23,27 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
+
 unsigned int Print::getPrintId() const
 {
     return this->id;
 }
+
+string Print::Serialize() const
+{
+	string answer = this->id;
+	answer += ";";
+	
+	list <Attribute *>::const_iterator itAtt;
+	for (itAtt = this->caract.begin(); itAtt != this->caract.end(); ++itAtt)
+	{
+		answer += (*itAtt)->GetValue() + ";"; //TODO test with value instead of GetValue(), if OK, remove GetValue()
+	}
+	answer += this->diseaseName;
+	
+	return answer;
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 ostream & operator << (ostream & os, const Print & p)
@@ -35,7 +52,8 @@ ostream & operator << (ostream & os, const Print & p)
 {
     os << "L'empreiente a pour id " << p.id <<" associé à la maladie "<< p.diseaseName << endl;
     list<Attribute *>::const_iterator itAtt;
-    for (itAtt = p.caract.begin(); itAtt != p.caract.end(); itAtt++){
+    for (itAtt = p.caract.begin(); itAtt != p.caract.end(); ++itAtt)
+	{
         os << (*itAtt)->description() << endl;
     };
     return os;

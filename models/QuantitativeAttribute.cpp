@@ -24,6 +24,12 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
+
+double QuantitativeAttribute::GetValue() const
+{
+	return this->value;
+}
+
 string QuantitativeAttribute::description() const
 // Algorithme :
 {
