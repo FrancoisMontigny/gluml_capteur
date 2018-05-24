@@ -16,7 +16,7 @@
 #include <string>
 #include <list>
 
-
+#include "Disease"
 
 //------------------------------------------------------------- Constantes
 
@@ -34,6 +34,8 @@ class PrintAnalyzer
     
 public:
 //----------------------------------------------------- Méthodes publiques
+
+	List<Disease> Analyze(Print & p);
 
 
 //-------------------------------------------- Constructeurs - destructeur

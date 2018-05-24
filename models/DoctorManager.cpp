@@ -29,7 +29,7 @@ DoctorManager * DoctorManager::singleton = nullptr;
 
 //----------------------------------------------------- Méthodes publiques
 
-static DoctorManager * Get() 
+static DoctorManager * DoctorManager::Get() 
 { 
 	if (!singleton) 
 	{
