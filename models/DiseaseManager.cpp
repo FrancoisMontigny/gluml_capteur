@@ -25,44 +25,63 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-/*Disease DiseaseManager::createDisease(string name, list<Measurement> measurements)
+Disease DiseaseManager::createDisease(string name, list<Measurement> measurements)
 // Algorithme :
 //
 {
+	Disease * newDisease = new Disease(name, measurements);
+	diseases.insert(diseases.end(), &newDisease);
 } //----- Fin de Méthode
 
-list<Disease> DiseaseManager::getDiseases()
+list<Disease> DiseaseManager::GetDiseases()
 // Algorithme :
 //
 {
-} //----- Fin de Méthode
+	return this->diseases;
+} //----- Fin de GetDiseases
 
-Disease DiseaseManager::getDisease(double id)
+Disease DiseaseManager::GetDisease(string name)
 // Algorithme :
 //
 {
-} //----- Fin de Méthode
+	list<Disease>::iterator it = this->diseases.begin();
+	
+	while (it != this->diseases.end() && (*it).GetName() != name) 
+	{
+		++it;
+	}
+	
+	if (it == this->diseases.end())
+	{
+		return nullptr;
+	}
+	
+	return (*it).GetName();
+} //----- Fin de GetDisease
 
-Disease DiseaseManager::update(Disease p, string diseaseName)
+Disease DiseaseManager::Update(Disease d)
 // Algorithme :
 //
 {
-} //----- Fin de Méthode
+	return d; //TODO
+} //----- Fin de Update
 
-int DiseaseManager::save(string path, Disease Diseases[])
+int DiseaseManager::Save(string path, Disease Diseases[])
 // Algorithme :
 //
 {
-} //----- Fin de Méthode
+	return -1; //TODO
+} //----- Fin de Save
 
-int DiseaseManager::load(string path)
+int DiseaseManager::Load(string path)
 // Algorithme :
 //
 {
-} //----- Fin de Méthode*/
+	return -1;
+} //----- Fin de Load
 
 //-------------------------------------------- Constructeurs - destructeur
-DiseaseManager::DiseaseManager ( const DiseaseManager & unDiseaseManager )
+DiseaseManager::DiseaseManager(const DiseaseManager & aDiseaseManager)
 // Algorithme :
 //
 {

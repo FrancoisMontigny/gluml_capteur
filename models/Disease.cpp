@@ -22,16 +22,24 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-void Disease::display()
+void Disease::Display()
 // Algorithme :
 //
 {
-} //----- Fin de Méthode
+	cout << "La maladie " << name << " a les caractéristiques suivantes :" << caracteristics << endl;
+} //----- Fin de Display
+
+string Disease::GetName()
+// Algorithme :
+//
+{
+	return this->name;
+} //----- Fin de GetName
 
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-Disease::Disease ( const Disease & unDisease )
+Disease::Disease(const Disease & aDisease)
 // Algorithme :
 //
 {
@@ -40,18 +48,29 @@ Disease::Disease ( const Disease & unDisease )
 #endif
 } //----- Fin de Disease (constructeur de copie)
 
-
-Disease::Disease ( )
+Disease::Disease(const string name, const list<Measurement> & caracteristics)
 // Algorithme :
 //
 {
+	this->name = name;
+	this->caracteristics = caracteristics;
 #ifdef MAP
     cout << "Appel au constructeur de <Disease>" << endl;
 #endif
 } //----- Fin de Disease
 
 
-Disease::~Disease ( )
+Disease::Disease()
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au constructeur par défaut de <Disease>" << endl;
+#endif
+} //----- Fin de Disease
+
+
+Disease::~Disease()
 // Algorithme :
 //
 {

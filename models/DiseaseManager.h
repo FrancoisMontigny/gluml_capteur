@@ -40,38 +40,38 @@ public:
     // Contrat :
     //
     
-    list<Disease> getDiseases();
+    list<Disease> GetDiseases();
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    Disease getDisease(double id);
+    Disease GetDisease(double id);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    Disease update(Disease p, string diseaseName);
+    Disease update(Disease d);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    int save(string path, Disease Diseases[]);
+    int Save(string path, Disease Diseases[]);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    int load(string path);
+    int Load(string path);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
     //-------------------------------------------- Constructeurs - destructeur
-    DiseaseManager(const DiseaseManager & unDiseaseManager);
+    DiseaseManager(const DiseaseManager & aDiseaseManager);
     // Mode d'emploi :
     //
     // Contrat :
@@ -95,7 +95,7 @@ protected:
     //----------------------------------------------------- Méthodes protégées
     
     //----------------------------------------------------- Attributs protégés
-    list<Disease> Diseases;
+    list<Disease> diseases;
 };
 
 //-------------------------------- Autres définitions dépendantes de <DiseaseManager>

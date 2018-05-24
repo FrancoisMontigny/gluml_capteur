@@ -30,26 +30,38 @@ class Disease
     
 public:
     //----------------------------------------------------- Méthodes publiques
-    void display();
+    void Display();
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+	
+	string GetName();
     // Mode d'emploi :
     //
     // Contrat :
     //
     
     //-------------------------------------------- Constructeurs - destructeur
-    Disease ( const Disease & unDisease );
+    Disease(const Disease & aDisease);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    Disease ();
+    Disease();
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+	
+	Disease(const string name, const list<Measurement> & caracteristics);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    virtual ~Disease ( );
+    virtual ~Disease();
     // Mode d'emploi :
     //
     // Contrat :
@@ -62,7 +74,7 @@ protected:
     
     //----------------------------------------------------- Attributs protégés
     string name;
-    
+    list<Measurement> caracteristics;
 };
 
 //-------------------------------- Autres définitions dépendantes de <Disease>
