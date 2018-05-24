@@ -91,7 +91,7 @@ DiseaseManager::DiseaseManager(const DiseaseManager & aDiseaseManager)
 } //----- Fin de DiseaseManager (constructeur de copie)
 
 
-DiseaseManager::DiseaseManager ( )
+DiseaseManager::DiseaseManager()
 // Algorithme :
 //
 {
@@ -101,7 +101,7 @@ DiseaseManager::DiseaseManager ( )
 } //----- Fin de DiseaseManager
 
 
-DiseaseManager::~DiseaseManager ( )
+DiseaseManager::~DiseaseManager()
 // Algorithme :
 //
 {

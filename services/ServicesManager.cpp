@@ -30,16 +30,39 @@ Doctor Connection(unsigned int id)
 // Algorithme :
 //
 {
-	DoctorManager * dm = DoctorManager::get();
+	DoctorManager * dom = DoctorManager::get();
 	
-	Doctor d = dm->GetDoctor(id);
+	Doctor d = dom->GetDoctor(id);
 	
-	if (d == dm->GetDoctors().end())
+	if (d == dom->GetDoctors().end())
 	{
 		return nullptr;
 	}
 	return d;	
-} //----- Fin de Méthode
+} //----- Fin de Connection
+
+void DisplayDiseases()
+{
+	//TODO check if singleton with DoctorManager works, apply to DiseaseManager and implement	
+}
+
+void DisplayDisease(string name)
+{
+	//TODO
+}
+
+void RunAnalysis(string path);
+{
+	//TODO
+	//read path to get printf
+	//create new print analyzer
+	//analyser.analyze(print)
+}
+
+void RunAnalysis(string[] path);
+{
+	//TODO
+}
 
 
 //-------------------------------------------- Constructeurs - destructeur
