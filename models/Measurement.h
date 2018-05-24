@@ -39,7 +39,7 @@ public:
     // Contrat :
     //
     
-    virtual ~Measurement ( );
+    virtual ~Measurement();
     // Mode d'emploi :
     //
     // Contrat :

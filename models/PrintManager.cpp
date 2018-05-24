@@ -25,7 +25,7 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-Print* PrintManager::createPrint(list<Attribute *> &attributes, string disease)
+Print * PrintManager::createPrint(list<Attribute *> &attributes, string disease)
 // Algorithme :
 //
 {

@@ -25,8 +25,9 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 
-string Attribute::description() const {
-    string s ="L'empreinte possède l'attribut " + this->name + " dont la valeur est ";
+string Attribute::description() const 
+{
+    string s = "L'empreinte possède l'attribut " + this->name + " dont la valeur est ";
     return s;
 }
 
@@ -34,7 +35,7 @@ string Attribute::description() const {
 
 //-------------------------------------------- Constructeurs - destructeur
 
-Attribute::Attribute ( )
+Attribute::Attribute ()
 // Algorithme :
 //
 {
@@ -44,7 +45,7 @@ Attribute::Attribute ( )
 } //----- Fin de Attribute
 
 
-Attribute::~Attribute ( )
+Attribute::~Attribute ()
 // Algorithme :
 //
 {

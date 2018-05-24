@@ -42,7 +42,7 @@ public:
     // Contrat :
     //
 
-    virtual ~Attribute ( );
+    virtual ~Attribute ();
     // Mode d'emploi :
     //
     // Contrat :

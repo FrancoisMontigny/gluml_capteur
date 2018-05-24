@@ -35,7 +35,7 @@ string QualitativeAttribute::description() const
 
 //-------------------------------------------- Constructeurs - destructeur
 
-QualitativeAttribute::QualitativeAttribute (const QualitativeAttribute & unQualitativeAttribute)
+QualitativeAttribute::QualitativeAttribute (const QualitativeAttribute & aQualitativeAttribute)
 // Algorithme :
 //
 {

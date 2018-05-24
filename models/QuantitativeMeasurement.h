@@ -34,7 +34,7 @@ public:
     
     //-------------------------------------------- Constructeurs - destructeur
     
-    QuantitativeMeasurement (const QuantitativeMeasurement & unQuantitativeMeasurement);
+    QuantitativeMeasurement (const QuantitativeMeasurement & aQuantitativeMeasurement);
     // Mode d'emploi :
     //
     // Contrat :
@@ -46,7 +46,7 @@ public:
     // Contrat :
     //
     
-    virtual ~QuantitativeMeasurement ( );
+    virtual ~QuantitativeMeasurement ();
     // Mode d'emploi :
     //
     // Contrat :
@@ -59,6 +59,7 @@ protected:
     
     //----------------------------------------------------- Attributs protégés
     double value;
+	double standardDeviation;
 };
 
 //-------------------------------- Autres définitions dépendantes de <QuantitativeMeasurement>

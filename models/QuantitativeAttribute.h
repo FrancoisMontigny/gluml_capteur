@@ -32,10 +32,10 @@ class QuantitativeAttribute: public Attribute
 public:
     
     //----------------------------------------------------- Méthodes publiques
-    string description()const;
+    string description() const;
     //-------------------------------------------- Constructeurs - destructeur
     
-    QuantitativeAttribute (const QuantitativeAttribute & unQuantitativeAttribute);
+    QuantitativeAttribute (const QuantitativeAttribute & aQuantitativeAttribute);
     // Mode d'emploi :
     //
     // Contrat :

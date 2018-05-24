@@ -62,7 +62,7 @@ Doctor * DoctorManager::getDoctor(unsigned int id)
 
 //-------------------------------------------- Constructeurs - destructeur
 
-DoctorManager::DoctorManager ( )
+DoctorManager::DoctorManager()
 // Algorithme :
 //
 {

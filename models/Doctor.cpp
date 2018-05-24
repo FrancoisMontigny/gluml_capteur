@@ -32,27 +32,27 @@ ostream & operator << (ostream & os, const Doctor & d)
 // Algorithme :
 // surcharge d'opérator <<  pour afficher les informations récupérée
 {
-    os << "The Doctor " << d.firstName <<" "<<d.name << " a comme spécialité " << d.speciality << " et son id est "<< d.id << endl;
+    os << "Le docteur " << d.firstName <<" "<< d.name << " a comme spécialité " << d.speciality << " et son id est "<< d.id << endl;
     return os;
 } //----- Fin de operator <<
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Doctor::Doctor ( const Doctor & unDoctor )
+Doctor::Doctor(const Doctor & aDoctor)
 // Algorithme :
 //
 {
     this->id = AutoNumber();
-    this->name = unDoctor.name;
-    this->firstName = unDoctor.firstName;
-    this->speciality = unDoctor.speciality;
+    this->name = aDoctor.name;
+    this->firstName = aDoctor.firstName;
+    this->speciality = aDoctor.speciality;
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Doctor>" << endl;
 #endif
 } //----- Fin de Doctor (constructeur de copie)
 
 
-Doctor::Doctor (string name, string firstName, string speciality)
+Doctor::Doctor(string name, string firstName, string speciality)
 // Algorithme :
 //
 {
@@ -66,7 +66,7 @@ Doctor::Doctor (string name, string firstName, string speciality)
 } //----- Fin de Doctor
 
 
-Doctor::~Doctor ( )
+Doctor::~Doctor()
 // Algorithme :
 //
 {

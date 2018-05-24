@@ -34,7 +34,7 @@ class PrintManager
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	Print* createPrint(list<Attribute*> & attributes, string disease);
+	Print * createPrint(list<Attribute *> & attributes, string disease);
     // Mode d'emploi :
     //
     // Contrat :

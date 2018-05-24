@@ -42,7 +42,7 @@ ostream & operator << (ostream & os, const Print & p)
 } //----- Fin de operator <<
 
 //-------------------------------------------- Constructeurs - destructeur
-Print::Print ( const Print & unPrint )
+Print::Print(const Print & aPrint)
 // Algorithme :
 //
 {
@@ -53,7 +53,7 @@ Print::Print ( const Print & unPrint )
 } //----- Fin de Print (constructeur de copie)
 
 
-Print::Print (list<Attribute *> & attributes, string disease)
+Print::Print(list<Attribute *> & attributes, string disease)
 // Algorithme :
 //
 {
@@ -69,7 +69,7 @@ Print::Print (list<Attribute *> & attributes, string disease)
 } //----- Fin de Print
 
 
-Print::~Print ( )
+Print::~Print()
 // Algorithme :
 //
 {

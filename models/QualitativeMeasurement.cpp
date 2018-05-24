@@ -28,7 +28,7 @@ using namespace std;
 
 //-------------------------------------------- Constructeurs - destructeur
 
-QualitativeMeasurement::QualitativeMeasurement (const QualitativeMeasurement & unQualitativeMeasurement)
+QualitativeMeasurement::QualitativeMeasurement (const QualitativeMeasurement & aQualitativeMeasurement)
 // Algorithme :
 //
 {

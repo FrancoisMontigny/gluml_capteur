@@ -21,7 +21,7 @@
 
 //------------------------------------------------------------------ Types
 
-typedef list<Doctor*> ListDoctor;
+typedef list<Doctor *> ListDoctor;
 
 //------------------------------------------------------------------------
 // Rôle de la classe <DoctorManager>
@@ -35,7 +35,7 @@ class DoctorManager
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	Doctor* createDoctor(string name, string firstName, string speciality);
+	Doctor * createDoctor(string name, string firstName, string speciality);
     // Mode d'emploi :
     //
     // Contrat :
@@ -66,13 +66,13 @@ public:
 	//
 
 //-------------------------------------------- Constructeurs - destructeur
-    DoctorManager ();
+    DoctorManager();
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~DoctorManager ( );
+    virtual ~DoctorManager();
     // Mode d'emploi :
     //
     // Contrat :

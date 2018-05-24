@@ -33,7 +33,7 @@ public:
     //----------------------------------------------------- Méthodes publiques
     
     //-------------------------------------------- Constructeurs - destructeur
-    QualitativeMeasurement (const QualitativeMeasurement & unQualitativeMeasurement);
+    QualitativeMeasurement (const QualitativeMeasurement & aQualitativeMeasurement);
     // Mode d'emploi :
     //
     // Contrat :

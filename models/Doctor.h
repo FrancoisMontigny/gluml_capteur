@@ -41,19 +41,19 @@ public:
     unsigned int getDoctorId() const;
 
 //-------------------------------------------- Constructeurs - destructeur
-	Doctor (const Doctor & unDoctor);
+	Doctor(const Doctor & aDoctor);
 	// Mode d'emploi :
 	//
 	// Contrat :
 	//
 
-    Doctor (string name, string firstName, string speciality);
+    Doctor(string name, string firstName, string speciality);
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Doctor ( );
+    virtual ~Doctor();
     // Mode d'emploi :
     //
     // Contrat :

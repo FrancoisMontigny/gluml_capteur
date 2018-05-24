@@ -51,7 +51,7 @@ public:
     // Contrat :
     //
 
-    virtual ~Print ( );
+    virtual ~Print();
     // Mode d'emploi :
     //
     // Contrat :
