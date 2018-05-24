@@ -35,42 +35,49 @@ class DoctorManager
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	Doctor * createDoctor(string name, string firstName, string speciality);
+
+	static DoctorManager * Get() 
+    // Mode d'emploi : récupérer l'instance unique de la classe. 
+    //
+    // Contrat :
+    //
+
+	Doctor * CreateDoctor(string name, string firstName, string speciality);
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-	ListDoctor getDoctors();
+	ListDoctor GetDoctors();
 	// Mode d'emploi :
 	//
 	// Contrat :
 	//
 
-	Doctor* getDoctor(unsigned int id);
+	Doctor* GetDoctor(unsigned int id);
 	// Mode d'emploi :
 	//
 	// Contrat :
 	//
 
-	int save(string path);
+	int Save(string path);
 	// Mode d'emploi :
 	//
 	// Contrat :
 	//
 
-	int load(string path);
+	int Load(string path);
 	// Mode d'emploi :
 	//
 	// Contrat :
 	//
+	
+	DoctorManager& operator = (const DoctorManager&) = delete;
 
 //-------------------------------------------- Constructeurs - destructeur
-    DoctorManager();
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+		
+	DoctorManager (const DoctorManager &) = delete;
+	// Copying a singleton is illegal	
 
     virtual ~DoctorManager();
     // Mode d'emploi :
@@ -82,9 +89,16 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
+	DoctorManager();
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
 //----------------------------------------------------- Attributs protégés
 	ListDoctor doctors;
+	
+	static DoctorManager * singleton;
 };
 
 //-------------------------------- Autres définitions dépendantes de <DoctorManager>

@@ -23,8 +23,22 @@ using namespace std;
 
 //----------------------------------------------------------------- PUBLIC
 
+// Initialisation du pointeur de singleton à null
+
+DoctorManager * DoctorManager::singleton = nullptr;
+
 //----------------------------------------------------- Méthodes publiques
-Doctor* DoctorManager::createDoctor(string name, string firstName, string speciality)
+
+static DoctorManager * Get() 
+{ 
+	if (!singleton) 
+	{
+		singleton = new DoctorManager;
+	}
+	return singleton;
+}
+
+Doctor * DoctorManager::CreateDoctor(string name, string firstName, string speciality)
 // Algorithme :
 //
 {
@@ -33,14 +47,14 @@ Doctor* DoctorManager::createDoctor(string name, string firstName, string specia
     return d;
 } //----- Fin de Méthode
 
-ListDoctor DoctorManager::getDoctors()
+ListDoctor DoctorManager::GetDoctors()
 // Algorithme :
 //
 {
     return this->doctors;
 } //----- Fin de Méthode
 
-Doctor * DoctorManager::getDoctor(unsigned int id)
+Doctor * DoctorManager::GetDoctor(unsigned int id)
 // Algorithme :
 //
 {
@@ -48,31 +62,24 @@ Doctor * DoctorManager::getDoctor(unsigned int id)
     return *findIter;
 } //----- Fin de Méthode
 
-/*int DoctorManager::save(string path)
+int DoctorManager::Save(string path)
  // Algorithme :
  //
  {
+	 return -1; //TODO
  } //----- Fin de Méthode
  
- int DoctorManager::load(string path)
+ int DoctorManager::Load(string path)
  // Algorithme :
  //
  {
- } //----- Fin de Méthode*/
+	 return -1; //TODO
+ } //----- Fin de Méthode
 
 //-------------------------------------------- Constructeurs - destructeur
 
-DoctorManager::DoctorManager()
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de <DoctorManager>" << endl;
-#endif
-} //----- Fin de DoctorManager
 
-
-DoctorManager::~DoctorManager ( )
+DoctorManager::~DoctorManager()
 // Algorithme :
 //
 {
@@ -89,5 +96,19 @@ DoctorManager::~DoctorManager ( )
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
+
+protected:
+
+
+
+DoctorManager::DoctorManager()
+// Algorithme :
+//
+{
+	//TODO : load doctors 
+#ifdef MAP
+    cout << "Appel au constructeur de <DoctorManager>" << endl;
+#endif
+} //----- Fin de DoctorManager
 
 
