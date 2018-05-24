@@ -33,6 +33,11 @@ ofstream & fileWriter::writePrint(ofstream & of, Print & p)
 	return of;
 }
 
+ofstream & fileWriter::writeDoctor(ofstream & of, Doctor & doc)
+{
+	return of;
+}
+
 //-------------------------------------------- Constructeurs - destructeur
 fileWriter::fileWriter(const fileWriter & afileWriter)
 // Algorithme :
