@@ -1,5 +1,5 @@
 /*************************************************************************
- QuantitativeAttribute  -  description
+ fileWriter  -  description
  -------------------
  début                : 30 avril 2018
  copyright            : (C) 2018 par François Montigny et Clément Guittat
@@ -7,74 +7,58 @@
  clement.guittat@insa-lyon.fr
  *************************************************************************/
 
-//---------- Réalisation de la classe <QuantitativeAttribute> (fichier QuantitativeAttribute.cpp) ------------
+//---------- Réalisation de la classe <fileWriter> (fichier fileWriter.cpp) ------------
 
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-#include <iostream>
 using namespace std;
 
-
 //------------------------------------------------------ Include personnel
-#include "QuantitativeAttribute.h"
+#include "fileWriter.h"
 
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-string QuantitativeAttribute::description() const
+void fileWriter::display()
 // Algorithme :
+//
 {
-    string s = Attribute::description() + to_string(this->value);
-    return s;
-}
+} //----- Fin de Méthode
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-
-QuantitativeAttribute::QuantitativeAttribute (const QuantitativeAttribute & aQuantitativeAttribute)
-// Algorithme :
-//
-{
-    this->value = aQuantitativeAttribute.value;
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <QuantitativeAttribute>" << endl;
-#endif
-} //----- Fin de QuantitativeAttribute (constructeur de copie)
-
-QuantitativeAttribute::QuantitativeAttribute (string name)
-// Algorithme :
-//
-{
-    this->name = name;
-    this->value = 0;
-#ifdef MAP
-    cout << "Appel au constructeur de <QuantitativeAttribute>" << endl;
-#endif
-} //----- Fin de QuantitativeAttribute
-
-QuantitativeAttribute::QuantitativeAttribute (string name, double value)
-// Algorithme :
-//
-{
-    this->name = name;
-    this->value = value;
-#ifdef MAP
-    cout << "Appel au constructeur de <QuantitativeAttribute>" << endl;
-#endif
-} //----- Fin de QuantitativeAttribute
-
-
-QuantitativeAttribute::~QuantitativeAttribute ( )
+fileWriter::fileWriter ( const fileWriter & unfileWriter )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <QuantitativeAttribute>" << endl;
+    cout << "Appel au constructeur de copie de <fileWriter>" << endl;
 #endif
-} //----- Fin de ~QuantitativeAttribute
+} //----- Fin de fileWriter (constructeur de copie)
+
+
+fileWriter::fileWriter ( )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au constructeur de <fileWriter>" << endl;
+#endif
+} //----- Fin de fileWriter
+
+
+fileWriter::~fileWriter ( )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au destructeur de <fileWriter>" << endl;
+#endif
+} //----- Fin de ~fileWriter
 
 
 //------------------------------------------------------------------ PRIVE

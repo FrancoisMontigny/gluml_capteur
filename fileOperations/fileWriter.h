@@ -1,5 +1,5 @@
 /*************************************************************************
- QualitativeAttribute  -  description
+ fileWriter  -  description
  -------------------
  début                : 30 avril 2018
  copyright            : (C) 2018 par François Montigny et Clément Guittat
@@ -7,53 +7,49 @@
  clement.guittat@insa-lyon.fr
  *************************************************************************/
 
-//---------- Interface de la classe <QualitativeAttribute> (fichier QualitativeAttribute.h) ----------------
-#if ! defined ( QualitativeAttribute_H )
-#define QualitativeAttribute_H
+//---------- Interface de la classe <fileWriter> (fichier fileWriter.h) ----------------
+#if ! defined ( fileWriter_H )
+#define fileWriter_H
 
 //--------------------------------------------------- Interfaces utilisées
 
-#include "Attribute.h"
 #include <string>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <QualitativeAttribute>
+// Rôle de la classe <fileWriter>
 //
 //
 //------------------------------------------------------------------------
 
-class QualitativeAttribute: public Attribute
+class fileWriter
 {
     //----------------------------------------------------------------- PUBLIC
     
 public:
-    
     //----------------------------------------------------- Méthodes publiques
-    string description() const;
-	
+    void display();
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
     //-------------------------------------------- Constructeurs - destructeur
-    QualitativeAttribute (const QualitativeAttribute & aQualitativeAttribute);
+    fileWriter ( const fileWriter & unfileWriter );
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    QualitativeAttribute (string name);
+    fileWriter ();
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    QualitativeAttribute (string name, string value);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-    
-    virtual ~QualitativeAttribute ( );
+    virtual ~fileWriter ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -65,10 +61,11 @@ protected:
     //----------------------------------------------------- Méthodes protégées
     
     //----------------------------------------------------- Attributs protégés
-    string value;
+    string name;
+    
 };
 
-//-------------------------------- Autres définitions dépendantes de <QualitativeAttribute>
+//-------------------------------- Autres définitions dépendantes de <fileWriter>
 
-#endif // QualitativeAttribute_H
+#endif // fileWriter_H
 

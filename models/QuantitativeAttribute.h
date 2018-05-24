@@ -41,6 +41,12 @@ public:
     // Contrat :
     //
     
+    QuantitativeAttribute (string name);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
     QuantitativeAttribute (string name, double value);
     // Mode d'emploi :
     //

@@ -39,12 +39,22 @@ QualitativeAttribute::QualitativeAttribute (const QualitativeAttribute & aQualit
 // Algorithme :
 //
 {
-    this->value = unQualitativeAttribute.value;
+    this->value = aQualitativeAttribute.value;
     #ifdef MAP
         cout << "Appel au constructeur de copie de <QualitativeAttribute>" << endl;
     #endif
 } //----- Fin de QualitativeAttribute (constructeur de copie)
 
+QualitativeAttribute::QualitativeAttribute ( string name )
+// Algorithme :
+//
+{
+    this->name = name;
+    this->value = "";
+#ifdef MAP
+    cout << "Appel au constructeur de <QualitativeAttribute>" << endl;
+#endif
+} //----- Fin de QualitativeAttribute
 
 QualitativeAttribute::QualitativeAttribute ( string name, string value )
 // Algorithme :

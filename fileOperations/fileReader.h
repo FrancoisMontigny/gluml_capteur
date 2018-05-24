@@ -1,5 +1,5 @@
 /*************************************************************************
- QualitativeAttribute  -  description
+ fileReader  -  description
  -------------------
  début                : 30 avril 2018
  copyright            : (C) 2018 par François Montigny et Clément Guittat
@@ -7,53 +7,62 @@
  clement.guittat@insa-lyon.fr
  *************************************************************************/
 
-//---------- Interface de la classe <QualitativeAttribute> (fichier QualitativeAttribute.h) ----------------
-#if ! defined ( QualitativeAttribute_H )
-#define QualitativeAttribute_H
+//---------- Interface de la classe <fileReader> (fichier fileReader.h) ----------------
+#if ! defined ( fileReader_H )
+#define fileReader_H
 
 //--------------------------------------------------- Interfaces utilisées
 
-#include "Attribute.h"
+#include <iostream>
+#include <fstream>
 #include <string>
+#include <map>
+#include <vector>
+#include "../models/Attribute.h"
+#include "../models/QualitativeAttribute.h"
+#include "../models/QuantitativeAttribute.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <QualitativeAttribute>
+// Rôle de la classe <fileReader>
 //
 //
 //------------------------------------------------------------------------
 
-class QualitativeAttribute: public Attribute
+class fileReader
 {
     //----------------------------------------------------------------- PUBLIC
     
 public:
-    
     //----------------------------------------------------- Méthodes publiques
-    string description() const;
-	
+    vector<Attribute *> descriptionFile(ifstream & fi);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
+    Attribute * attrFromFile(istream & is);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
     //-------------------------------------------- Constructeurs - destructeur
-    QualitativeAttribute (const QualitativeAttribute & aQualitativeAttribute);
+    /*fileReader ( const fileReader & unfileReader );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //*/
+    
+    fileReader ();
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    QualitativeAttribute (string name);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-    
-    QualitativeAttribute (string name, string value);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-    
-    virtual ~QualitativeAttribute ( );
+    virtual ~fileReader ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -64,11 +73,10 @@ public:
 protected:
     //----------------------------------------------------- Méthodes protégées
     
-    //----------------------------------------------------- Attributs protégés
-    string value;
+    //----------------------------------------------------- Attributs protégés    
 };
 
-//-------------------------------- Autres définitions dépendantes de <QualitativeAttribute>
+//-------------------------------- Autres définitions dépendantes de <fileReader>
 
-#endif // QualitativeAttribute_H
+#endif // fileReader_H
 
