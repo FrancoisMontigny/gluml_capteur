@@ -15,10 +15,10 @@
 #include "./fileOperations/fileReader.h"
 
 int main(int argc, const char * argv[]) {
-    DoctorManager dm = DoctorManager();
+    /*DoctorManager dm = DoctorManager();
     dm.createDoctor("Charles", "Dupond", "chirurgien");
     dm.createDoctor("Pierre", "Goutu", "neuro");
-    /*list<Doctor*> ld = dm.getDoctors();
+    list<Doctor*> ld = dm.getDoctors();
     for(ListDoctor::iterator it=ld.begin(); it!=ld.end(); ++it)
     {
         cout << *(*it);

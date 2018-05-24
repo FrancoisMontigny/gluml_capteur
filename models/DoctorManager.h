@@ -36,7 +36,7 @@ class DoctorManager
 public:
 //----------------------------------------------------- Méthodes publiques
 
-	static DoctorManager * Get() 
+    static DoctorManager * Get();
     // Mode d'emploi : récupérer l'instance unique de la classe. 
     //
     // Contrat :

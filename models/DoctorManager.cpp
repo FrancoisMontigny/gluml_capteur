@@ -29,7 +29,7 @@ DoctorManager * DoctorManager::singleton = nullptr;
 
 //----------------------------------------------------- Méthodes publiques
 
-static DoctorManager * DoctorManager::Get() 
+DoctorManager * DoctorManager::Get()
 { 
 	if (!singleton) 
 	{
@@ -96,10 +96,6 @@ DoctorManager::~DoctorManager()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-
-protected:
-
-
 
 DoctorManager::DoctorManager()
 // Algorithme :
