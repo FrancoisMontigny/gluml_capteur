@@ -13,7 +13,10 @@
 
 //--------------------------------------------------- Interfaces utilisées
 
+#include <ostream>
 #include <string>
+
+#include "Print"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -30,26 +33,24 @@ class fileWriter
     
 public:
     //----------------------------------------------------- Méthodes publiques
-    void display();
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+	
+	ofstream & writePrint(ofstream & of, Print & p);
+    
     
     //-------------------------------------------- Constructeurs - destructeur
-    fileWriter ( const fileWriter & unfileWriter );
+    fileWriter(const fileWriter & afileWriter);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    fileWriter ();
+    fileWriter();
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    virtual ~fileWriter ( );
+    virtual ~fileWriter();
     // Mode d'emploi :
     //
     // Contrat :

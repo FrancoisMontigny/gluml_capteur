@@ -22,16 +22,19 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-void fileWriter::display()
-// Algorithme :
-//
-{
-} //----- Fin de Méthode
+
 
 //------------------------------------------------- Surcharge d'opérateurs
 
+ofstream & fileWriter::writePrint(ofstream & of, Print & p)
+{
+	string print = p.Serialize();
+	of.write(print, print.size());
+	return of;
+}
+
 //-------------------------------------------- Constructeurs - destructeur
-fileWriter::fileWriter ( const fileWriter & unfileWriter )
+fileWriter::fileWriter(const fileWriter & afileWriter)
 // Algorithme :
 //
 {
@@ -41,7 +44,7 @@ fileWriter::fileWriter ( const fileWriter & unfileWriter )
 } //----- Fin de fileWriter (constructeur de copie)
 
 
-fileWriter::fileWriter ( )
+fileWriter::fileWriter()
 // Algorithme :
 //
 {

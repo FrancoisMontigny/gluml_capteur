@@ -32,6 +32,9 @@ class QuantitativeAttribute: public Attribute
 public:
     
     //----------------------------------------------------- Méthodes publiques
+	
+	double GetValue() const;
+	
     string description() const;
     //-------------------------------------------- Constructeurs - destructeur
     
