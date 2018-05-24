@@ -15,7 +15,7 @@
 using namespace std;
 #include <iostream>
 #include <string>
-#include <list>
+#include <vector>
 
 //------------------------------------------------------ Include personnel
 #include "DiseaseManager.h"
@@ -25,7 +25,7 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-Disease DiseaseManager::createDisease(string name, list<Measurement> measurements)
+Disease DiseaseManager::createDisease(string name, vector<Measurement> measurements)
 // Algorithme :
 //
 {
@@ -33,7 +33,7 @@ Disease DiseaseManager::createDisease(string name, list<Measurement> measurement
 	diseases.insert(diseases.end(), &newDisease);
 } //----- Fin de Méthode
 
-list<Disease> DiseaseManager::GetDiseases()
+vector<Disease> DiseaseManager::GetDiseases()
 // Algorithme :
 //
 {
@@ -44,7 +44,7 @@ Disease DiseaseManager::GetDisease(string name)
 // Algorithme :
 //
 {
-	list<Disease>::iterator it = this->diseases.begin();
+	vector<Disease>::iterator it = this->diseases.begin();
 	
 	while (it != this->diseases.end() && (*it).GetName() != name) 
 	{

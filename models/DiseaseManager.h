@@ -14,7 +14,7 @@
 //--------------------------------------------------- Interfaces utilisées
 
 #include <string>
-#include <list>
+#include <vector>
 
 #include "Disease.h"
 #include "Measurement.h"
@@ -34,13 +34,13 @@ class DiseaseManager
     
 public:
     //----------------------------------------------------- Méthodes publiques
-    Disease createDisease(string name, list<Measurement> measurements);
+    Disease createDisease(string name, vector<Measurement> measurements);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    list<Disease> GetDiseases();
+    vector<Disease> GetDiseases();
     // Mode d'emploi :
     //
     // Contrat :
@@ -95,7 +95,7 @@ protected:
     //----------------------------------------------------- Méthodes protégées
     
     //----------------------------------------------------- Attributs protégés
-    list<Disease> diseases;
+    vector<Disease> diseases;
 };
 
 //-------------------------------- Autres définitions dépendantes de <DiseaseManager>

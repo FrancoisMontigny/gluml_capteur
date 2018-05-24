@@ -14,14 +14,14 @@
 //--------------------------------------------------- Interfaces utilisées
 
 #include <string>
-#include <list>
+#include <vector>
 
 #include "Doctor.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
-typedef list<Doctor *> ListDoctor;
+typedef vector<Doctor *> ListDoctor;
 
 //------------------------------------------------------------------------
 // Rôle de la classe <DoctorManager>

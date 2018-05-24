@@ -14,7 +14,7 @@
 //--------------------------------------------------- Interfaces utilisées
 
 #include <string>
-#include <list>
+#include <vector>
 #include "Attribute.h"
 
 //------------------------------------------------------------- Constantes
@@ -47,7 +47,7 @@ public:
 	// Contrat :
 	//
 
-    Print (list<Attribute *> & attributes,unsigned int id, string disease);
+    Print (vector<Attribute *> & attributes,unsigned int id, string disease);
     // Mode d'emploi :
     //
     // Contrat :
@@ -68,7 +68,7 @@ protected:
 //----------------------------------------------------- Attributs protégés
 	unsigned int id;
 	string diseaseName;
-    list<Attribute *> caract;
+    vector<Attribute *> caract;
 };
 
 //-------------------------------- Autres définitions dépendantes de <Print>

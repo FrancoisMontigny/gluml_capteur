@@ -14,6 +14,9 @@
 //--------------------------------------------------- Interfaces utilisées
 
 #include <string>
+#include <vector>
+
+#include "Measurement.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -55,7 +58,7 @@ public:
     // Contrat :
     //
 	
-	Disease(const string name, const list<Measurement> & caracteristics);
+	Disease(const string name, const vector<Measurement> & caracteristics);
     // Mode d'emploi :
     //
     // Contrat :
@@ -74,7 +77,7 @@ protected:
     
     //----------------------------------------------------- Attributs protégés
     string name;
-    list<Measurement> caracteristics;
+    vector<Measurement> caracteristics;
 };
 
 //-------------------------------- Autres définitions dépendantes de <Disease>

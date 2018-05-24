@@ -43,7 +43,7 @@ int main(int argc, const char * argv[]) {
     PrintManager pm = PrintManager();
     
     cout << "Indiquer le nom du fichier de description des attributs à lire avec l'extension" << endl;
-    list<Attribute *> listeAttributs;
+    vector<Attribute *> listeAttributs;
     string nomFichierDescription;
     getline(cin,nomFichierDescription);
     string fichierOpen = "fichiersTest/"+nomFichierDescription;

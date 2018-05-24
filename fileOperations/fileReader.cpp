@@ -22,11 +22,11 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-list<Attribute *> fileReader::descriptionFile(ifstream & fi)
+vector<Attribute *> fileReader::descriptionFile(ifstream & fi)
 // Algorithme :
 //
 {
-    list<Attribute *> res;
+    vector<Attribute *> res;
     int ligne1 = 1;
     while(fi.good()) {
         string line;
@@ -62,12 +62,12 @@ Attribute * fileReader::attrFromFile(istream & is)
     return attr;
 }
 
-void fileReader::etalonFile(ifstream & fi, PrintManager & pm, list<Attribute *> & la)
+void fileReader::etalonFile(ifstream & fi, PrintManager & pm, vector<Attribute *> & la)
 // Algorithme :
 //
 {
     int ligne1 = 1;
-    list<Attribute *>::const_iterator itAtt;
+    vector<Attribute *>::const_iterator itAtt;
     for (itAtt = la.begin(); itAtt != la.end(); itAtt++){
         (*itAtt)->description();
     }

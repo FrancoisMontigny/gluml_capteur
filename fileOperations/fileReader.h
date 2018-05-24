@@ -16,7 +16,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <list>
+#include <vector>
 #include "../models/Attribute.h"
 #include "../models/QualitativeAttribute.h"
 #include "../models/QuantitativeAttribute.h"
@@ -37,7 +37,7 @@ class fileReader
     
 public:
     //----------------------------------------------------- Méthodes publiques
-    list<Attribute *> descriptionFile(ifstream & fi);
+    vector<Attribute *> descriptionFile(ifstream & fi);
     // Mode d'emploi :
     //
     // Contrat :
@@ -49,7 +49,7 @@ public:
     // Contrat :
     //
     
-    void etalonFile(ifstream & fi, PrintManager & pm, list<Attribute *> & la);
+    void etalonFile(ifstream & fi, PrintManager & pm, vector<Attribute *> & la);
     // Mode d'emploi :
     //
     // Contrat :

@@ -26,7 +26,7 @@ void Disease::Display()
 // Algorithme :
 //
 {
-	cout << "La maladie " << name << " a les caractéristiques suivantes :" << caracteristics << endl;
+	cout << "La maladie " << this->name << " a les caractéristiques suivantes :" << this->caracteristics << endl;
 } //----- Fin de Display
 
 string Disease::GetName()
@@ -48,7 +48,7 @@ Disease::Disease(const Disease & aDisease)
 #endif
 } //----- Fin de Disease (constructeur de copie)
 
-Disease::Disease(const string name, const list<Measurement> & caracteristics)
+Disease::Disease(const string name, const vector<Measurement> & caracteristics)
 // Algorithme :
 //
 {

@@ -31,14 +31,14 @@ unsigned int Print::getPrintId() const
 
 string Print::Serialize() const
 {
-	string answer = this->id;
+	string answer = "this->id";
 	answer += ";";
 	
-	list <Attribute *>::const_iterator itAtt;
-	for (itAtt = this->caract.begin(); itAtt != this->caract.end(); ++itAtt)
+	vector <Attribute *>::const_iterator itAtt;
+	/*for (itAtt = this->caract.begin(); itAtt != this->caract.end(); ++itAtt)
 	{
-		answer += (*itAtt)->GetValue() + ";"; //TODO test with value instead of GetValue(), if OK, remove GetValue()
-	}
+		answer += (*itAtt) + ";"; //TODO test with value instead of GetValue(), if OK, remove GetValue()
+	}*/
 	answer += this->diseaseName;
 	
 	return answer;
@@ -51,7 +51,7 @@ ostream & operator << (ostream & os, const Print & p)
 // surcharge d'opérator <<  pour afficher les informations récupérée
 {
     os << "L'empreiente a pour id " << p.id <<" associé à la maladie "<< p.diseaseName << endl;
-    list<Attribute *>::const_iterator itAtt;
+    vector<Attribute *>::const_iterator itAtt;
     for (itAtt = p.caract.begin(); itAtt != p.caract.end(); ++itAtt)
 	{
         os << (*itAtt)->description() << endl;
@@ -71,13 +71,13 @@ Print::Print(const Print & aPrint)
 } //----- Fin de Print (constructeur de copie)
 
 
-Print::Print(list<Attribute *> & attributes, unsigned int id, string disease)
+Print::Print(vector<Attribute *> & attributes, unsigned int id, string disease)
 // Algorithme :
 //
 {
     this->diseaseName = disease;
     this->id = id;
-    list<Attribute *>::const_iterator itAtt;
+    vector<Attribute *>::const_iterator itAtt;
     for (itAtt = attributes.begin(); itAtt != attributes.end(); itAtt++){
         this->caract.push_back(*itAtt);
     }

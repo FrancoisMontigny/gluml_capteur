@@ -14,7 +14,7 @@
 //--------------------------------------------------- Interfaces utilisées
 
 #include <string>
-#include <list>
+#include <vector>
 
 #include "Print.h"
 #include "Attribute.h"
@@ -34,13 +34,13 @@ class PrintManager
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	Print * createPrint(list<Attribute *> & attributes, string disease);
+	Print * createPrint(vector<Attribute *> & attributes, string disease);
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-	list<Print *> getPrints();
+	vector<Print *> getPrints();
 	// Mode d'emploi :
 	//
 	// Contrat :
@@ -95,7 +95,7 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-	list<Print *> prints;
+	vector<Print *> prints;
 };
 
 //-------------------------------- Autres définitions dépendantes de <PrintManager>

@@ -14,7 +14,7 @@
 //-------------------------------------------------------- Include système
 #include <iostream>
 #include <string>
-#include <list>
+#include <vector>
 using namespace std;
 
 //------------------------------------------------------ Include personnel
@@ -25,16 +25,16 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-Print * PrintManager::createPrint(list<Attribute *> &attributes, string disease)
+Print * PrintManager::createPrint(vector<Attribute *> &attributes, string disease)
 // Algorithme :
 //
 {
-    Print * p = new Print(attributes, disease);
+    Print * p = new Print(attributes, 0, disease);
     this->prints.push_back(p);
     return p;
 } //----- Fin de Méthode
 
-list<Print*> PrintManager::getPrints()
+vector<Print*> PrintManager::getPrints()
 // Algorithme :
 //
 {
@@ -45,7 +45,7 @@ Print* PrintManager::getPrint(unsigned int id)
 // Algorithme :
 //
 {
-    list<Print*>::iterator findIter = find_if(this->prints.begin(), this->prints.end(), [id](Print * p)-> bool {return (p->getPrintId() == id); } );
+    vector<Print*>::iterator findIter = find_if(this->prints.begin(), this->prints.end(), [id](Print * p)-> bool {return (p->getPrintId() == id); } );
     return *findIter;
 } //----- Fin de Méthode
 
