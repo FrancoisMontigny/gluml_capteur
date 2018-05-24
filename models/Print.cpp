@@ -53,12 +53,12 @@ Print::Print(const Print & aPrint)
 } //----- Fin de Print (constructeur de copie)
 
 
-Print::Print(list<Attribute *> & attributes, string disease)
+Print::Print(list<Attribute *> & attributes, unsigned int id, string disease)
 // Algorithme :
 //
 {
     this->diseaseName = disease;
-    this->id = AutoNumber();
+    this->id = id;
     list<Attribute *>::const_iterator itAtt;
     for (itAtt = attributes.begin(); itAtt != attributes.end(); itAtt++){
         this->caract.push_back(*itAtt);
@@ -82,8 +82,8 @@ Print::~Print()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-unsigned int Print::AutoNumber()
+/*unsigned int Print::AutoNumber()
 {
     static unsigned int ID = 0;
     return ++ID;
-}
+}*/

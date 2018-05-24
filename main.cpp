@@ -38,15 +38,26 @@ int main(int argc, const char * argv[]) {
         cout << *(*it);
     }*/
     //cout << *pm.getPrint(2);
-    vector<Attribute *> listeAttributs;
-    cout << "Indiquer le nom du fichier de description des attributs à lire avec l'extension" << endl;
-    string nomFichier;
-    getline(cin,nomFichier);
     ifstream fi;
-    string fichierOpen = "fichiersTest/"+nomFichier;
-    fi.open(fichierOpen);
     fileReader fr = fileReader();
+    PrintManager pm = PrintManager();
+    
+    cout << "Indiquer le nom du fichier de description des attributs à lire avec l'extension" << endl;
+    list<Attribute *> listeAttributs;
+    string nomFichierDescription;
+    getline(cin,nomFichierDescription);
+    string fichierOpen = "fichiersTest/"+nomFichierDescription;
+    fi.open(fichierOpen);
     listeAttributs = fr.descriptionFile(fi);
+    fi.close();
+    
+    cout << "Indiquer le nom du fichier étalon des empreintes à lire" << endl;
+    string nomFichierEtalon;
+    getline(cin,nomFichierEtalon);
+    fichierOpen = "fichiersTest/"+nomFichierEtalon;
+    fi.open(fichierOpen);
+    fr.etalonFile(fi, pm, listeAttributs);
+    fi.close();
     
     return 0;
 }

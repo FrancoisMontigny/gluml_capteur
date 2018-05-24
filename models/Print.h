@@ -45,7 +45,7 @@ public:
 	// Contrat :
 	//
 
-    Print (list<Attribute *> & attributes, string disease);
+    Print (list<Attribute *> & attributes,unsigned int id, string disease);
     // Mode d'emploi :
     //
     // Contrat :

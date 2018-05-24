@@ -16,11 +16,11 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <map>
-#include <vector>
+#include <list>
 #include "../models/Attribute.h"
 #include "../models/QualitativeAttribute.h"
 #include "../models/QuantitativeAttribute.h"
+#include "../models/PrintManager.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -37,13 +37,19 @@ class fileReader
     
 public:
     //----------------------------------------------------- Méthodes publiques
-    vector<Attribute *> descriptionFile(ifstream & fi);
+    list<Attribute *> descriptionFile(ifstream & fi);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
     Attribute * attrFromFile(istream & is);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
+    void etalonFile(ifstream & fi, PrintManager & pm, list<Attribute *> & la);
     // Mode d'emploi :
     //
     // Contrat :

@@ -12,7 +12,6 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-#include <map>
 #include <sstream>
 using namespace std;
 
@@ -23,11 +22,11 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-vector<Attribute *> fileReader::descriptionFile(ifstream & fi)
+list<Attribute *> fileReader::descriptionFile(ifstream & fi)
 // Algorithme :
 //
 {
-    vector<Attribute *> res;
+    list<Attribute *> res;
     int ligne1 = 1;
     while(fi.good()) {
         string line;
@@ -46,7 +45,7 @@ vector<Attribute *> fileReader::descriptionFile(ifstream & fi)
 } //----- Fin de Méthode
 
 Attribute * fileReader::attrFromFile(istream & is)
-//Algorithme :
+// Algorithme :
 //
 {
     Attribute * attr;
@@ -62,6 +61,27 @@ Attribute * fileReader::attrFromFile(istream & is)
     }
     return attr;
 }
+
+void fileReader::etalonFile(ifstream & fi, PrintManager & pm, list<Attribute *> & la)
+// Algorithme :
+//
+{
+    int ligne1 = 1;
+    list<Attribute *>::const_iterator itAtt;
+    for (itAtt = la.begin(); itAtt != la.end(); itAtt++){
+        (*itAtt)->description();
+    }
+    while(fi.good()){
+        string line;
+        getline ( fi, line);
+        if (ligne1 == 0) {
+            if (line.size() != 0){
+                stringstream ss (line);
+            }
+        }
+    }
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
