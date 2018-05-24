@@ -58,6 +58,11 @@ int main(int argc, const char * argv[]) {
     fi.open(fichierOpen);
     fr.etalonFile(fi, pm, listeAttributs);
     fi.close();
+    vector <Print *> listPrints;
+    listPrints = pm.getPrints();
+    for (int i =0; i< listPrints.size(); i++){
+        cout << *listPrints[i] << endl;
+    }
     
     return 0;
 }

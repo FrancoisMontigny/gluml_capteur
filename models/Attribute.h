@@ -33,7 +33,9 @@ public:
 //----------------------------------------------------- Méthodes publiques
     
     virtual string description () const;
-
+    
+    virtual void setValue(string value) = 0;
+    
 //-------------------------------------------- Constructeurs - destructeur
 
     Attribute ();

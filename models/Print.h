@@ -47,7 +47,7 @@ public:
 	// Contrat :
 	//
 
-    Print (vector<Attribute *> & attributes,unsigned int id, string disease);
+    Print (vector<Attribute *> & attributes, unsigned int id, string disease);
     // Mode d'emploi :
     //
     // Contrat :

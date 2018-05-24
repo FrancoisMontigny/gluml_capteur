@@ -34,6 +34,8 @@ public:
     //----------------------------------------------------- Méthodes publiques
 	
 	double GetValue() const;
+    
+    void setValue(string value);
 	
     string description() const;
     //-------------------------------------------- Constructeurs - destructeur

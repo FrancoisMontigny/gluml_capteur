@@ -29,6 +29,11 @@ string QualitativeAttribute::GetValue() const
 	return this->value;
 }
 
+void QualitativeAttribute::setValue(string value )
+{
+    this->value = value;
+}
+
 string QualitativeAttribute::description() const
 // Algorithme :
 {

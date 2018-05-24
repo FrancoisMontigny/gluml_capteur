@@ -25,11 +25,11 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-Print * PrintManager::createPrint(vector<Attribute *> &attributes, string disease)
+Print * PrintManager::createPrint(vector<Attribute *> &attributes, unsigned int id, string disease)
 // Algorithme :
 //
 {
-    Print * p = new Print(attributes, 0, disease);
+    Print * p = new Print(attributes, id , disease);
     this->prints.push_back(p);
     return p;
 } //----- Fin de Méthode

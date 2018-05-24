@@ -34,6 +34,8 @@ public:
     //----------------------------------------------------- Méthodes publiques
 	
 	string GetValue() const;
+        
+    void setValue(string value);
 	
     string description() const;
 	

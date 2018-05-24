@@ -13,6 +13,7 @@
 
 //-------------------------------------------------------- Include système
 #include <sstream>
+#include <vector>
 using namespace std;
 
 //------------------------------------------------------ Include personnel
@@ -27,7 +28,7 @@ vector<Attribute *> fileReader::descriptionFile(ifstream & fi)
 //
 {
     vector<Attribute *> res;
-    int ligne1 = 1;
+    int ligne1 = 2;
     while(fi.good()) {
         string line;
         getline ( fi, line);
@@ -38,7 +39,7 @@ vector<Attribute *> fileReader::descriptionFile(ifstream & fi)
             }
         }
         else {
-            ligne1 = 0;
+            ligne1 --;
         }
     }
     return res;
@@ -62,22 +63,32 @@ Attribute * fileReader::attrFromFile(istream & is)
     return attr;
 }
 
-void fileReader::etalonFile(ifstream & fi, PrintManager & pm, vector<Attribute *> & la)
+void fileReader::etalonFile(ifstream & fi, PrintManager & pm, vector<Attribute*> & la)
 // Algorithme :
 //
 {
     int ligne1 = 1;
-    vector<Attribute *>::const_iterator itAtt;
-    for (itAtt = la.begin(); itAtt != la.end(); itAtt++){
-        (*itAtt)->description();
-    }
     while(fi.good()){
         string line;
-        getline ( fi, line);
+        getline (fi, line);
         if (ligne1 == 0) {
             if (line.size() != 0){
                 stringstream ss (line);
+                string idString;
+                getline(ss,idString,';');
+                double id = stod(idString);
+                for (int i=0; i<la.size(); i++){
+                    string att;
+                    getline(ss,att,';');
+                    la[i]->setValue(att);
+                }
+                string maladie;
+                getline(ss, maladie, '\r');
+                pm.createPrint(la, id, maladie);
             }
+        }
+        else {
+            ligne1 = 0;
         }
     }
 }

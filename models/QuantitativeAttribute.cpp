@@ -30,6 +30,11 @@ double QuantitativeAttribute::GetValue() const
 	return this->value;
 }
 
+void QuantitativeAttribute::setValue(string value) {
+    double finalValue = stod(value);
+    this->value = finalValue;
+}
+
 string QuantitativeAttribute::description() const
 // Algorithme :
 {

@@ -14,6 +14,7 @@
 //-------------------------------------------------------- Include système
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 //------------------------------------------------------ Include personnel
@@ -24,8 +25,7 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-
-string Attribute::description() const 
+string Attribute::description() const
 {
     string s = "L'empreinte possède l'attribut " + this->name + " dont la valeur est ";
     return s;
@@ -34,8 +34,7 @@ string Attribute::description() const
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-
-Attribute::Attribute ()
+Attribute::Attribute()
 // Algorithme :
 //
 {
