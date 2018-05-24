@@ -25,9 +25,9 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 
-double QuantitativeAttribute::GetValue() const
+string QuantitativeAttribute::getValue() const
 {
-	return this->value;
+	return to_string(this->value);
 }
 
 void QuantitativeAttribute::setValue(string value) {

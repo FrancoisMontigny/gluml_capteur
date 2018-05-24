@@ -36,6 +36,8 @@ public:
     
     virtual void setValue(string value) = 0;
     
+    virtual string getValue()const = 0;
+    
 //-------------------------------------------- Constructeurs - destructeur
 
     Attribute ();

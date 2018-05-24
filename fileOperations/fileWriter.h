@@ -16,7 +16,8 @@
 #include <ostream>
 #include <string>
 
-#include "Print"
+#include "../models/Print.h"
+#include "../models/Doctor.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types

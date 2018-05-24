@@ -24,7 +24,7 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 
-string QualitativeAttribute::GetValue() const
+string QualitativeAttribute::getValue() const
 {
 	return this->value;
 }

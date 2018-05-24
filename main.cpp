@@ -13,6 +13,7 @@
 #include "./models/QualitativeAttribute.h"
 #include "./models/QuantitativeAttribute.h"
 #include "./fileOperations/fileReader.h"
+#include "./fileOperations/fileWriter.h"
 
 int main(int argc, const char * argv[]) {
     /*DoctorManager dm = DoctorManager();
@@ -59,10 +60,22 @@ int main(int argc, const char * argv[]) {
     fr.etalonFile(fi, pm, listeAttributs);
     fi.close();
     vector <Print *> listPrints;
-    listPrints = pm.getPrints();
-    for (int i =0; i< listPrints.size(); i++){
+    /*listPrints = pm.getPrints();
+    for (int i =0; i< listPrints.size();i++){
         cout << *listPrints[i] << endl;
-    }
+    }*/
     
+    /*ofstream of;
+    fileWriter fw = fileWriter();
+    
+    cout << "Indiquer le nom du fichier où écrire les empreintes" << endl;
+    string nomFichierEcrire;
+    getline(cin,nomFichierEcrire);
+    fichierOpen = "fichiersTest/"+nomFichierEcrire;
+    of.open(fichierOpen);
+    for (int i =0; i< listPrints.size();i++){
+        fw.writePrint(of, *listPrints[i]);
+    }
+    of.close();*/
     return 0;
 }

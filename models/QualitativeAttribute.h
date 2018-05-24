@@ -33,7 +33,7 @@ public:
     
     //----------------------------------------------------- Méthodes publiques
 	
-	string GetValue() const;
+	string getValue() const;
         
     void setValue(string value);
 	

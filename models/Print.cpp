@@ -31,15 +31,15 @@ unsigned int Print::getPrintId() const
 
 string Print::Serialize() const
 {
-	string answer = "this->id";
+	string answer = to_string(this->id);
 	answer += ";";
 	
 	vector <Attribute *>::const_iterator itAtt;
-	/*for (itAtt = this->caract.begin(); itAtt != this->caract.end(); ++itAtt)
+	for (itAtt = this->caract.begin(); itAtt != this->caract.end(); ++itAtt)
 	{
-		answer += (*itAtt) + ";"; //TODO test with value instead of GetValue(), if OK, remove GetValue()
-	}*/
-	answer += this->diseaseName;
+		answer += (*itAtt)->getValue() + ";"; //TODO test with value instead of GetValue(), if OK, remove GetValue()
+	}
+    answer += this->diseaseName;
 	
 	return answer;
 }

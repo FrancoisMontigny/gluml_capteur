@@ -12,6 +12,7 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
+#include <fstream>
 using namespace std;
 
 //------------------------------------------------------ Include personnel
@@ -29,7 +30,7 @@ using namespace std;
 ofstream & fileWriter::writePrint(ofstream & of, Print & p)
 {
 	string print = p.Serialize();
-	of.write(print, print.size());
+    of << print << endl;
 	return of;
 }
 
