@@ -32,7 +32,8 @@ using namespace std;
 
 vector<Disease> PrintAnalyzer::Analyze(Print & p)
 {
-	//TODO
+    vector<Disease> vd;
+    return vd;
 }
 
 PrintAnalyzer::~PrintAnalyzer()

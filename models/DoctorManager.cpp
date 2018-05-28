@@ -78,7 +78,6 @@ int DoctorManager::Save(string path)
 
 //-------------------------------------------- Constructeurs - destructeur
 
-
 DoctorManager::~DoctorManager()
 // Algorithme :
 //

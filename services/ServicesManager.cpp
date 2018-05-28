@@ -12,10 +12,10 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-using namespace std;
 #include <iostream>
 #include <string>
-#include <list>
+#include <vector>
+using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "ServicesManager.h"

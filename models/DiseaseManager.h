@@ -34,25 +34,31 @@ class DiseaseManager
     
 public:
     //----------------------------------------------------- Méthodes publiques
-    Disease createDisease(string name, vector<Measurement> measurements);
+    static DiseaseManager * Get();
+    // Mode d'emploi : récupérer l'instance unique de la classe.
+    //
+    // Contrat :
+    //
+    
+    Disease* createDisease(string name, vector<Measurement> measurements);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    vector<Disease> GetDiseases();
+    vector<Disease *> GetDiseases();
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    Disease GetDisease(double id);
+    Disease* GetDisease(string name);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    Disease update(Disease d);
+    Disease * update(Disease * d);
     // Mode d'emploi :
     //
     // Contrat :
@@ -71,17 +77,8 @@ public:
     //
     
     //-------------------------------------------- Constructeurs - destructeur
-    DiseaseManager(const DiseaseManager & aDiseaseManager);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-    
-    DiseaseManager ();
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    DiseaseManager (const DiseaseManager &) = delete;
+    // Copying a singleton is illegal
     
     virtual ~DiseaseManager ( );
     // Mode d'emploi :
@@ -93,9 +90,16 @@ public:
     
 protected:
     //----------------------------------------------------- Méthodes protégées
+    DiseaseManager();
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
     
     //----------------------------------------------------- Attributs protégés
-    vector<Disease> diseases;
+    vector<Disease *> diseases;
+    
+    static DiseaseManager * singleton;
 };
 
 //-------------------------------- Autres définitions dépendantes de <DiseaseManager>

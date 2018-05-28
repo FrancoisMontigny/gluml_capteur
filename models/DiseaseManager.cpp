@@ -12,10 +12,10 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-using namespace std;
 #include <iostream>
 #include <string>
 #include <vector>
+using namespace std;
 
 //------------------------------------------------------ Include personnel
 #include "DiseaseManager.h"
@@ -24,45 +24,61 @@ using namespace std;
 
 //----------------------------------------------------------------- PUBLIC
 
+// Initialisation du pointeur de singleton à null
+
+DiseaseManager *  DiseaseManager::singleton = nullptr;
+
 //----------------------------------------------------- Méthodes publiques
-Disease DiseaseManager::createDisease(string name, vector<Measurement> measurements)
+
+DiseaseManager * DiseaseManager::Get()
+{
+    if (!singleton)
+    {
+        singleton = new DiseaseManager;
+    }
+    return singleton;
+}
+
+Disease * DiseaseManager::createDisease(string name, vector<Measurement> measurements)
 // Algorithme :
 //
 {
-	Disease * newDisease = new Disease(name, measurements);
-	diseases.insert(diseases.end(), &newDisease);
+	Disease* newDisease = new Disease(name, measurements);
+    this->diseases.push_back(newDisease);
+    return newDisease;
 } //----- Fin de Méthode
 
-vector<Disease> DiseaseManager::GetDiseases()
+vector<Disease *> DiseaseManager::GetDiseases()
 // Algorithme :
 //
 {
 	return this->diseases;
 } //----- Fin de GetDiseases
 
-Disease DiseaseManager::GetDisease(string name)
+Disease* DiseaseManager::GetDisease(string name)
 // Algorithme :
 //
 {
-	vector<Disease>::iterator it = this->diseases.begin();
+	vector<Disease *>::iterator it = this->diseases.begin();
 	
-	while (it != this->diseases.end() && (*it).GetName() != name) 
+	while (it != this->diseases.end() && (*it)->GetName() != name)
 	{
 		++it;
 	}
 	
 	if (it == this->diseases.end())
 	{
-		return nullptr;
+        return nullptr;
 	}
 	
-	return (*it).GetName();
+	return *(it);
 } //----- Fin de GetDisease
 
-Disease DiseaseManager::Update(Disease d)
+Disease* DiseaseManager::update(Disease * d)
 // Algorithme :
 //
 {
+    // recalcul des valeurs de Disease
 	return d; //TODO
 } //----- Fin de Update
 
@@ -81,30 +97,15 @@ int DiseaseManager::Load(string path)
 } //----- Fin de Load
 
 //-------------------------------------------- Constructeurs - destructeur
-DiseaseManager::DiseaseManager(const DiseaseManager & aDiseaseManager)
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <DiseaseManager>" << endl;
-#endif
-} //----- Fin de DiseaseManager (constructeur de copie)
-
-
-DiseaseManager::DiseaseManager()
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de <DiseaseManager>" << endl;
-#endif
-} //----- Fin de DiseaseManager
-
 
 DiseaseManager::~DiseaseManager()
 // Algorithme :
 //
 {
+    vector<Disease *>::const_iterator ItList;
+    for (ItList = this->diseases.begin(); ItList != this->diseases.end(); ItList++){
+        delete (*ItList);
+    }
 #ifdef MAP
     cout << "Appel au destructeur de <DiseaseManager>" << endl;
 #endif
@@ -114,4 +115,12 @@ DiseaseManager::~DiseaseManager()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-
+DiseaseManager::DiseaseManager()
+// Algorithme :
+//
+{
+    //TODO : load doctors
+#ifdef MAP
+    cout << "Appel au constructeur de <DiseaseManager>" << endl;
+#endif
+} //----- Fin de DiseaseManager
