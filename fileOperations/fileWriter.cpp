@@ -36,6 +36,8 @@ ofstream & fileWriter::writePrint(ofstream & of, Print & p)
 
 ofstream & fileWriter::writeDoctor(ofstream & of, Doctor & doc)
 {
+	string doctor = doc.Serialize();
+	of << doctor << endl;
 	return of;
 }
 

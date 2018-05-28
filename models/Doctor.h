@@ -32,12 +32,14 @@ class Doctor
 
 public:
     
-    //------------------------------------------------- Surcharge d'opérateurs
+//------------------------------------------------- Surcharge d'opérateurs
     
     friend ostream & operator << (ostream &, const Doctor &);
 
 //----------------------------------------------------- Méthodes publiques
     
+	string Serialize() const;
+	
     unsigned int getDoctorId() const;
 
 //-------------------------------------------- Constructeurs - destructeur

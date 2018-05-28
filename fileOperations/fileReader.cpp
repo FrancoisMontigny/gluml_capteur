@@ -33,7 +33,7 @@ vector<Attribute *> fileReader::descriptionFile(ifstream & fi)
         string line;
         getline ( fi, line);
         if (ligne1 == 0) {
-            if (line.size() != 0){
+            if (line.size() != 0) {
                 stringstream ss (line);
                 res.push_back(this->attrFromFile(ss));
             }

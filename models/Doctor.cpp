@@ -22,10 +22,25 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
+
 unsigned int Doctor::getDoctorId() const
 {
     return this->id;
 }
+
+string Doctor::Serialize() const
+{
+	string answer = to_string(this->id);
+	answer += ";";
+	answer += this->name
+	answer += ";";
+	answer += this->firstName
+	answer += ";";
+	answer += this->speciality;	
+	
+	return answer;
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 ostream & operator << (ostream & os, const Doctor & d)
