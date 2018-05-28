@@ -18,6 +18,7 @@
 
 #include "../models/Doctor.h"
 #include "../models/DoctorManager.h"
+#include "../models/DiseaseManager.h"
 
 //------------------------------------------------------------- Constantes
 

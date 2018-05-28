@@ -46,6 +46,8 @@ Doctor * ServicesManager::CreateNewDoctor(string name, string firstName, string 
 }
 
 void ServicesManager::DisplayDiseases()
+// Algorithme :
+//
 {
 	//TODO check if singleton with DoctorManager works, apply to DiseaseManager and implement	
 }
