@@ -42,7 +42,7 @@ Doctor * DoctorManager::CreateDoctor(string name, string firstName, string speci
 // Algorithme :
 //
 {
-    Doctor * d = new Doctor (name, firstName, speciality);
+    Doctor * d = new Doctor(name, firstName, speciality);
     this->doctors.push_back(d);
     return d;
 } //----- Fin de Méthode

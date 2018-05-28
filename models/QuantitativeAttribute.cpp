@@ -41,11 +41,17 @@ string QuantitativeAttribute::description() const
     string s = Attribute::description() + to_string(this->value);
     return s;
 }
+
+QuantitativeAttribute * QuantitativeAttribute::Copy(const QuantitativeAttribute & aQuantitativeAttribute)
+{
+	return new QuantitativeAttribute(aQuantitativeAttribute);
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
 
-QuantitativeAttribute::QuantitativeAttribute (const QuantitativeAttribute & aQuantitativeAttribute)
+/*QuantitativeAttribute::QuantitativeAttribute (const QuantitativeAttribute & aQuantitativeAttribute)
 // Algorithme :
 //
 {
@@ -53,7 +59,7 @@ QuantitativeAttribute::QuantitativeAttribute (const QuantitativeAttribute & aQua
 #ifdef MAP
     cout << "Appel au constructeur de copie de <QuantitativeAttribute>" << endl;
 #endif
-} //----- Fin de QuantitativeAttribute (constructeur de copie)
+} //----- Fin de QuantitativeAttribute (constructeur de copie)*/
 
 QuantitativeAttribute::QuantitativeAttribute (string name)
 // Algorithme :

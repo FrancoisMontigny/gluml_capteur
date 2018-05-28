@@ -68,23 +68,23 @@ void fileReader::etalonFile(ifstream & fi, PrintManager & pm, vector<Attribute*>
 //
 {
     int ligne1 = 1;
-    while(fi.good()){
+    while (fi.good()) {
         string line;
         getline (fi, line);
         if (ligne1 == 0) {
-            if (line.size() != 0){
+            if (line.size() != 0) {
                 stringstream ss (line);
                 string idString;
                 getline(ss,idString,';');
                 double id = stod(idString);
-                for (int i=0; i<la.size(); i++){
+                for (unsigned int i = 0; i < la.size(); i++){
                     string att;
                     getline(ss,att,';');
                     la[i]->setValue(att);
                 }
                 string maladie;
                 getline(ss, maladie, '\r');
-                pm.createPrint(la, id, maladie);
+                pm.CreatePrint(la, id, maladie);
             }
         }
         else {

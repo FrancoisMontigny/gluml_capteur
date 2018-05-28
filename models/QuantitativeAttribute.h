@@ -38,9 +38,12 @@ public:
     void setValue(string value);
 	
     string description() const;
+	
+	QuantitativeAttribute * Copy(const QuantitativeAttribute & aQuantitativeAttribute);
+	
     //-------------------------------------------- Constructeurs - destructeur
     
-    QuantitativeAttribute (const QuantitativeAttribute & aQuantitativeAttribute);
+    //QuantitativeAttribute (const QuantitativeAttribute & aQuantitativeAttribute);
     // Mode d'emploi :
     //
     // Contrat :

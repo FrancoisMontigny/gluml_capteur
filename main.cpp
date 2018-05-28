@@ -60,9 +60,13 @@ int main(int argc, const char * argv[]) {
     fr.etalonFile(fi, pm, listeAttributs);
     fi.close();
     vector <Print *> listPrints;
-    /*listPrints = pm.getPrints();
-    for (int i =0; i< listPrints.size();i++){
-        cout << *listPrints[i] << endl;
+    listPrints = pm.GetPrints();
+	
+	for (vector<Print *>::const_iterator i = listPrints.begin(); i != listPrints.end(); ++i)
+		cout << *i << endl;
+	
+    /*for (int i =0; i< listPrints.size();i++){
+        cout << listPrints[i] << endl;
     }*/
     
     /*ofstream of;

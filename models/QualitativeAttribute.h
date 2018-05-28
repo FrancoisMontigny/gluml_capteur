@@ -39,26 +39,28 @@ public:
 	
     string description() const;
 	
+	QualitativeAttribute * Copy(const QualitativeAttribute & aQualitativeAttribute);
+	
     //-------------------------------------------- Constructeurs - destructeur
-    QualitativeAttribute (const QualitativeAttribute & aQualitativeAttribute);
+    // QualitativeAttribute(const QualitativeAttribute & aQualitativeAttribute);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    QualitativeAttribute (string name);
+    QualitativeAttribute(string name);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    QualitativeAttribute (string name, string value);
+    QualitativeAttribute(string name, string value);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    virtual ~QualitativeAttribute ( );
+    virtual ~QualitativeAttribute();
     // Mode d'emploi :
     //
     // Contrat :

@@ -24,7 +24,7 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 
-unsigned int Print::getPrintId() const
+unsigned int Print::GetId() const
 {
     return this->id;
 }
@@ -55,7 +55,7 @@ ostream & operator << (ostream & os, const Print & p)
     for (itAtt = p.caract.begin(); itAtt != p.caract.end(); ++itAtt)
 	{
         os << (*itAtt)->description() << endl;
-    };
+    }
     return os;
 } //----- Fin de operator <<
 
@@ -64,7 +64,14 @@ Print::Print(const Print & aPrint)
 // Algorithme :
 //
 {
-    
+    this->id = aPrint.id;
+	vector<Attribute *> newAttributes;
+	vector<Attribute *>::const_iterator itAtt;
+    for (itAtt = aPrint.caract.begin(); itAtt != aPrint.caract.end(); ++itAtt)
+	{
+        newAttributes.push_back((*itAtt)->Copy(**itAtt));
+    }
+	this->caract = newAttributes;
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Print>" << endl;
 #endif

@@ -41,11 +41,16 @@ string QualitativeAttribute::description() const
     return s;
 }
 
+QualitativeAttribute * QualitativeAttribute::Copy(const QualitativeAttribute & aQualitativeAttribute)
+{
+	return new QualitativeAttribute(aQualitativeAttribute);
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
 
-QualitativeAttribute::QualitativeAttribute (const QualitativeAttribute & aQualitativeAttribute)
+/*QualitativeAttribute::QualitativeAttribute (const QualitativeAttribute & aQualitativeAttribute)
 // Algorithme :
 //
 {
@@ -53,7 +58,7 @@ QualitativeAttribute::QualitativeAttribute (const QualitativeAttribute & aQualit
     #ifdef MAP
         cout << "Appel au constructeur de copie de <QualitativeAttribute>" << endl;
     #endif
-} //----- Fin de QualitativeAttribute (constructeur de copie)
+} //----- Fin de QualitativeAttribute (constructeur de copie)*/
 
 QualitativeAttribute::QualitativeAttribute ( string name )
 // Algorithme :
@@ -66,7 +71,7 @@ QualitativeAttribute::QualitativeAttribute ( string name )
 #endif
 } //----- Fin de QualitativeAttribute
 
-QualitativeAttribute::QualitativeAttribute ( string name, string value )
+QualitativeAttribute::QualitativeAttribute(string name, string value)
 // Algorithme :
 //
 {
