@@ -37,7 +37,7 @@ public:
 	
 	ofstream & writePrint(ofstream & of, Print & p);
 	
-	ofstream & writeDoctor(ofstream & of, Doctor & doc); 
+	ofstream & writeDoctor(ofstream & of, Doctor * doc); 
     
     
     //-------------------------------------------- Constructeurs - destructeur

@@ -18,6 +18,7 @@
 
 #include "./Doctor.h"
 #include "../fileOperations/fileReader.h"
+#include "../fileOperations/fileWriter.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -61,7 +62,7 @@ public:
 	// Contrat :
 	//
 
-	int Save(string path);
+	int Save(string path="identification.txt");
 	// Mode d'emploi :
 	//
 	// Contrat :

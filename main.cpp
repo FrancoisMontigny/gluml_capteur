@@ -89,7 +89,9 @@ int main(int argc, const char * argv[]) {
     {
         cout << *(*it) << endl;
     }
+    //dm->Save();
     //Doctor* medecin = sm.Connection(1);
     //cout << *medecin << endl;
+    delete(dm);
     return 0;
 }

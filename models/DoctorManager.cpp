@@ -69,7 +69,14 @@ int DoctorManager::Save(string path)
  // Algorithme :
  //
  {
-	 return -1; //TODO
+     ofstream of;
+     fileWriter fw = fileWriter();
+     of.open("fichiersTest/"+path);
+     for (int i=0; i<this->doctors.size(); i++){
+         fw.writeDoctor(of, this->doctors[i]);
+     }
+     of.close();
+     return 200;
  } //----- Fin de Méthode
  
 vector <string> DoctorManager::Load(string path)
@@ -90,6 +97,7 @@ DoctorManager::~DoctorManager()
 // Algorithme :
 //
 {
+    this->Save();
     ListDoctor::const_iterator ItList;
     for (ItList = this->doctors.begin(); ItList != this->doctors.end(); ItList++){
         delete (*ItList);
