@@ -57,12 +57,16 @@ ListDoctor DoctorManager::GetDoctors()
     return this->doctors;
 } //----- Fin de Méthode
 
-Doctor * DoctorManager::GetDoctor(unsigned int id)
+Doctor * DoctorManager::GetDoctor(string nom)
 // Algorithme :
 //
 {
-    ListDoctor::iterator findIter = find_if(this->doctors.begin(), this->doctors.end(), [id](Doctor * d)-> bool {return (d->getDoctorId() == id); } );
-    return *findIter;
+    for (int i=0; i< this->doctors.size(); i++){
+        if (this->doctors[i]->name == nom){
+            return this->doctors[i];
+        }
+    }
+    return nullptr;
 } //----- Fin de Méthode
 
 int DoctorManager::Save(string path)

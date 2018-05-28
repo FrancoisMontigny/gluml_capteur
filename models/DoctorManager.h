@@ -56,7 +56,7 @@ public:
 	// Contrat :
 	//
 
-	Doctor* GetDoctor(unsigned int id);
+	Doctor* GetDoctor(string nom);
 	// Mode d'emploi :
 	//
 	// Contrat :

@@ -35,7 +35,13 @@ class ServicesManager
     
 public:
     //----------------------------------------------------- Méthodes publiques
-    Doctor* Connection(unsigned int id);
+    Doctor* Connection(string name);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
+    Doctor * CreateNewDoctor(string name, string firstName, string speciality);
     // Mode d'emploi :
     //
     // Contrat :

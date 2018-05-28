@@ -79,8 +79,7 @@ int main(int argc, const char * argv[]) {
         fw.writePrint(of, *listPrints[i]);
     }
     of.close();*/
-    
-    ServicesManager sm = ServicesManager();
+    /*
     DoctorManager * dm = DoctorManager::Get();
     //dm->CreateDoctor("Charles", "Dupond", "chirurgien");
     dm->CreateDoctor("Pierre", "Goutu", "neuro");
@@ -92,6 +91,27 @@ int main(int argc, const char * argv[]) {
     //dm->Save();
     //Doctor* medecin = sm.Connection(1);
     //cout << *medecin << endl;
-    delete(dm);
+    delete(dm);*/
+    
+    
+    ServicesManager sm = ServicesManager();
+    cout << "Bonjour veuillez vous connecter pour continuer en entrant un nom"<< endl;
+    string nom;
+    getline(cin, nom);
+    cout << nom << endl;
+    Doctor* d = sm.Connection(nom);
+    if (d == nullptr){
+        cout << "Vous n'existez pas en tant que docteur, demandez un ajout par un administrateur" << endl;
+    }
+    else {
+        cout << "Entrez le nom, prénom et la spécialité du nouveau docteur séparé par des virgules" << endl;
+        string name;
+        string firstName;
+        string speciality;
+        getline(cin, name, ',');
+        getline(cin, firstName, ',');
+        getline(cin, speciality);
+        sm.CreateNewDoctor(name, firstName, speciality);
+    }
     return 0;
 }

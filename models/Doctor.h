@@ -35,10 +35,11 @@ public:
 //------------------------------------------------- Surcharge d'opérateurs
     
     friend ostream & operator << (ostream &, const Doctor &);
+    friend class DoctorManager;
 
 //----------------------------------------------------- Méthodes publiques
     
-	string Serialize() const;
+    string Serialize() const;
 	
     unsigned int getDoctorId() const;
 
@@ -71,7 +72,6 @@ protected:
 	string name;
 	string firstName;
 	string speciality;
-
 };
 
 //-------------------------------- Autres définitions dépendantes de <Doctor>

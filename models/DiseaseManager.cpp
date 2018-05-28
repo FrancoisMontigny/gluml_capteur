@@ -119,7 +119,7 @@ DiseaseManager::DiseaseManager()
 // Algorithme :
 //
 {
-    //TODO : load doctors
+    
 #ifdef MAP
     cout << "Appel au constructeur de <DiseaseManager>" << endl;
 #endif

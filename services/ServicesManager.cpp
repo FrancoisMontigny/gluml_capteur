@@ -26,20 +26,24 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 
-Doctor* ServicesManager::Connection(unsigned int id)
+Doctor* ServicesManager::Connection(string nom)
 // Algorithme :
 //
 {
 	DoctorManager * dom = DoctorManager::Get();
 	
-	Doctor * d = dom->GetDoctor(id);
-	
-	if (d == *dom->GetDoctors().end())
-	{
-		return nullptr;
-	}
+	Doctor * d = dom->GetDoctor(nom);
+    
 	return d;	
 } //----- Fin de Connection
+
+Doctor * ServicesManager::CreateNewDoctor(string name, string firstName, string speciality)
+// Algorithme :
+//
+{
+    DoctorManager * dom = DoctorManager::Get();
+    return dom->CreateDoctor(name, firstName, speciality);
+}
 
 void ServicesManager::DisplayDiseases()
 {
@@ -84,6 +88,8 @@ ServicesManager::~ServicesManager ( )
 // Algorithme :
 //
 {
+    DoctorManager * dom = DoctorManager::Get();
+    delete(dom);
 #ifdef MAP
     cout << "Appel au destructeur de <ServicesManager>" << endl;
 #endif
