@@ -42,7 +42,7 @@ public:
 	QualitativeAttribute * Copy(const QualitativeAttribute & aQualitativeAttribute);
 	
     //-------------------------------------------- Constructeurs - destructeur
-    // QualitativeAttribute(const QualitativeAttribute & aQualitativeAttribute);
+    QualitativeAttribute(const QualitativeAttribute & aQualitativeAttribute);
     // Mode d'emploi :
     //
     // Contrat :

@@ -35,7 +35,7 @@ class PrintManager
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	Print * CreatePrint(vector<Attribute *> & attributes, unsigned int id, string disease);
+	Print * CreatePrint(vector<Attribute *> & attributes, unsigned int id, const string disease);
     // Mode d'emploi :
     //
     // Contrat :

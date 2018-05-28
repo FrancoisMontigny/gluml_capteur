@@ -24,7 +24,7 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-Print * PrintManager::CreatePrint(vector<Attribute *> &attributes, unsigned int id, string disease)
+Print * PrintManager::CreatePrint(vector<Attribute *> & attributes, unsigned int id, const string disease)
 // Algorithme :
 //
 {

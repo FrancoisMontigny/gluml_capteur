@@ -43,7 +43,7 @@ public:
 	
     //-------------------------------------------- Constructeurs - destructeur
     
-    //QuantitativeAttribute (const QuantitativeAttribute & aQuantitativeAttribute);
+    QuantitativeAttribute (const QuantitativeAttribute & aQuantitativeAttribute);
     // Mode d'emploi :
     //
     // Contrat :

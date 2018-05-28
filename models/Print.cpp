@@ -86,8 +86,9 @@ Print::Print(vector<Attribute *> & attributes, unsigned int id, string disease)
     this->id = id;
     vector<Attribute *>::const_iterator itAtt;
     for (itAtt = attributes.begin(); itAtt != attributes.end(); itAtt++){
-        this->caract.push_back(*itAtt);
+        this->caract.push_back((*itAtt)->Copy(**itAtt));
     }
+	//this->caract = attributes;
 #ifdef MAP
     cout << "Appel au constructeur de <Print>" << endl;
 #endif

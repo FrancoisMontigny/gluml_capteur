@@ -51,15 +51,15 @@ QuantitativeAttribute * QuantitativeAttribute::Copy(const QuantitativeAttribute 
 
 //-------------------------------------------- Constructeurs - destructeur
 
-/*QuantitativeAttribute::QuantitativeAttribute (const QuantitativeAttribute & aQuantitativeAttribute)
+QuantitativeAttribute::QuantitativeAttribute (const QuantitativeAttribute & aQuantitativeAttribute)
 // Algorithme :
 //
 {
-    this->value = aQuantitativeAttribute.value;
+    this->name = aQuantitativeAttribute.name;
 #ifdef MAP
     cout << "Appel au constructeur de copie de <QuantitativeAttribute>" << endl;
 #endif
-} //----- Fin de QuantitativeAttribute (constructeur de copie)*/
+} //----- Fin de QuantitativeAttribute (constructeur de copie)
 
 QuantitativeAttribute::QuantitativeAttribute (string name)
 // Algorithme :

@@ -29,7 +29,7 @@ string QualitativeAttribute::getValue() const
 	return this->value;
 }
 
-void QualitativeAttribute::setValue(string value )
+void QualitativeAttribute::setValue(string value)
 {
     this->value = value;
 }
@@ -50,15 +50,15 @@ QualitativeAttribute * QualitativeAttribute::Copy(const QualitativeAttribute & a
 
 //-------------------------------------------- Constructeurs - destructeur
 
-/*QualitativeAttribute::QualitativeAttribute (const QualitativeAttribute & aQualitativeAttribute)
+QualitativeAttribute::QualitativeAttribute(const QualitativeAttribute & aQualitativeAttribute)
 // Algorithme :
 //
 {
-    this->value = aQualitativeAttribute.value;
+    this->name = aQualitativeAttribute.name;
     #ifdef MAP
         cout << "Appel au constructeur de copie de <QualitativeAttribute>" << endl;
     #endif
-} //----- Fin de QualitativeAttribute (constructeur de copie)*/
+} //----- Fin de QualitativeAttribute (constructeur de copie)
 
 QualitativeAttribute::QualitativeAttribute ( string name )
 // Algorithme :
