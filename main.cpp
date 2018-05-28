@@ -41,7 +41,7 @@ int main(int argc, const char * argv[]) {
         cout << *(*it);
     }*/
     //cout << *pm.getPrint(2);
-    ifstream fi;
+   /* ifstream fi;
     fileReader fr = fileReader();
     PrintManager pm = PrintManager();
     
@@ -62,7 +62,7 @@ int main(int argc, const char * argv[]) {
     fr.etalonFile(fi, pm, listeAttributs);
     fi.close();
     vector <Print *> listPrints;
-    /*listPrints = pm.getPrints();
+    listPrints = pm.getPrints();
     for (int i =0; i< listPrints.size();i++){
         cout << *listPrints[i] << endl;
     }*/
@@ -82,14 +82,14 @@ int main(int argc, const char * argv[]) {
     
     ServicesManager sm = ServicesManager();
     DoctorManager * dm = DoctorManager::Get();
-    dm->CreateDoctor("Charles", "Dupond", "chirurgien");
+    //dm->CreateDoctor("Charles", "Dupond", "chirurgien");
     dm->CreateDoctor("Pierre", "Goutu", "neuro");
-    /*vector<Doctor*> ld = dm->GetDoctors();
+    vector<Doctor*> ld = dm->GetDoctors();
     for(ListDoctor::iterator it=ld.begin(); it!=ld.end(); ++it)
     {
-        cout << *(*it);
-    }*/
-    Doctor* medecin = sm.Connection(1);
-    cout << *medecin << endl;
+        cout << *(*it) << endl;
+    }
+    //Doctor* medecin = sm.Connection(1);
+    //cout << *medecin << endl;
     return 0;
 }

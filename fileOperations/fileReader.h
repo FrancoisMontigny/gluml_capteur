@@ -21,6 +21,7 @@
 #include "../models/QualitativeAttribute.h"
 #include "../models/QuantitativeAttribute.h"
 #include "../models/PrintManager.h"
+#include "../models/Doctor.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -55,6 +56,12 @@ public:
     // Contrat :
     //
     
+    vector <string> identification(ifstream & fi);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
     //-------------------------------------------- Constructeurs - destructeur
     /*fileReader ( const fileReader & unfileReader );
     // Mode d'emploi :

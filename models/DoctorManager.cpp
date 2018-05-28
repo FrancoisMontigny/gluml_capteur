@@ -13,8 +13,10 @@
 
 //-------------------------------------------------------- Include système
 #include <string>
+#include <fstream>
 #include <vector>
 #include <algorithm>
+#include <sstream>
 using namespace std;
 
 //------------------------------------------------------ Include personnel
@@ -33,7 +35,7 @@ DoctorManager * DoctorManager::Get()
 { 
 	if (!singleton) 
 	{
-		singleton = new DoctorManager;
+		singleton = new DoctorManager();
 	}
 	return singleton;
 }
@@ -42,7 +44,8 @@ Doctor * DoctorManager::CreateDoctor(string name, string firstName, string speci
 // Algorithme :
 //
 {
-    Doctor * d = new Doctor (name, firstName, speciality);
+    unsigned int id = AutoNumber();
+    Doctor * d = new Doctor (id, name, firstName, speciality);
     this->doctors.push_back(d);
     return d;
 } //----- Fin de Méthode
@@ -69,11 +72,16 @@ int DoctorManager::Save(string path)
 	 return -1; //TODO
  } //----- Fin de Méthode
  
- int DoctorManager::Load(string path)
+vector <string> DoctorManager::Load(string path)
  // Algorithme :
  //
  {
-	 return -1; //TODO
+     ifstream fi;
+     fileReader fr = fileReader();
+     fi.open("fichiersTest/"+path);
+     vector <string> listDoc = fr.identification(fi);
+     fi.close();
+	 return listDoc;
  } //----- Fin de Méthode
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -96,11 +104,36 @@ DoctorManager::~DoctorManager()
 
 //----------------------------------------------------- Méthodes protégées
 
-DoctorManager::DoctorManager()
+unsigned int DoctorManager::AutoNumber()
+{
+    static unsigned int ID;
+    if (this->doctors.size()!=0){
+         ID = (unsigned int)this->doctors.size()+1;
+    }
+    else {
+        ID = 1;
+    }
+    return ID;
+}
+
+DoctorManager::DoctorManager(string path)
 // Algorithme :
 //
 {
-	//TODO : load doctors 
+    vector <string> listDoc = Load(path);
+    for (int i=0; i< listDoc.size(); i++){
+        stringstream ss (listDoc[i]);
+        Doctor * doc;
+        string id;
+        string name;
+        string firstName;
+        string spe;
+        getline(ss, id, ';');
+        getline(ss, name, ';');
+        getline(ss, firstName, ';');
+        getline(ss, spe, '\r');
+        doc = this->CreateDoctor(name, firstName, spe);
+    }
 #ifdef MAP
     cout << "Appel au constructeur de <DoctorManager>" << endl;
 #endif

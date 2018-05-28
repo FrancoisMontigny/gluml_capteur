@@ -98,18 +98,21 @@ void fileReader::etalonFile(ifstream & fi, PrintManager & pm, vector<Attribute*>
     }*/
 }
 
+vector <string> fileReader::identification(ifstream & fi){
+    vector <string> res;
+    while(fi.good()) {
+        string line;
+        getline ( fi, line);
+        if (line.size() != 0) {
+            res.push_back(line);
+        }
+    }
+    return res;
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
-/*fileReader::fileReader ( const fileReader & unfileReader )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <fileReader>" << endl;
-#endif
-} //----- Fin de fileReader (constructeur de copie)*/
-
 
 fileReader::fileReader ( )
 // Algorithme :

@@ -53,7 +53,7 @@ ostream & operator << (ostream & os, const Doctor & d)
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Doctor::Doctor(const Doctor & aDoctor)
+/*Doctor::Doctor(const Doctor & aDoctor)
 // Algorithme :
 //
 {
@@ -64,14 +64,14 @@ Doctor::Doctor(const Doctor & aDoctor)
 #ifdef MAP
     cout << "Appel au constructeur de copie de <Doctor>" << endl;
 #endif
-} //----- Fin de Doctor (constructeur de copie)
+} //----- Fin de Doctor (constructeur de copie)*/
 
 
-Doctor::Doctor(string name, string firstName, string speciality)
+Doctor::Doctor(unsigned int id, string name, string firstName, string speciality)
 // Algorithme :
 //
 {
-    this->id = AutoNumber();
+    this->id = id;
     this->name = name;
     this->firstName = firstName;
     this->speciality = speciality;
@@ -94,8 +94,3 @@ Doctor::~Doctor()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-unsigned int Doctor::AutoNumber()
-{
-    static unsigned int ID = 0;
-    return ++ID;
-}

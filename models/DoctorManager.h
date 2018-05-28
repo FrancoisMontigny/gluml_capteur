@@ -16,7 +16,8 @@
 #include <string>
 #include <vector>
 
-#include "Doctor.h"
+#include "./Doctor.h"
+#include "../fileOperations/fileReader.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -66,7 +67,7 @@ public:
 	// Contrat :
 	//
 
-	int Load(string path);
+	vector <string> Load(string path);
 	// Mode d'emploi :
 	//
 	// Contrat :
@@ -89,7 +90,9 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-	DoctorManager();
+    unsigned int AutoNumber();
+    
+	DoctorManager(string path = "identification.txt");
     // Mode d'emploi :
     //
     // Contrat :

@@ -43,13 +43,13 @@ public:
     unsigned int getDoctorId() const;
 
 //-------------------------------------------- Constructeurs - destructeur
-	Doctor(const Doctor & aDoctor);
+	//Doctor(const Doctor & aDoctor);
 	// Mode d'emploi :
 	//
 	// Contrat :
 	//
 
-    Doctor(string name, string firstName, string speciality);
+    Doctor(unsigned int id, string name, string firstName, string speciality);
     // Mode d'emploi :
     //
     // Contrat :
@@ -65,7 +65,6 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-    unsigned int AutoNumber();
 
 //----------------------------------------------------- Attributs protégés
 	unsigned int id;
