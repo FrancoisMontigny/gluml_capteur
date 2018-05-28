@@ -47,7 +47,7 @@ ostream & operator << (ostream & os, const Doctor & d)
 // Algorithme :
 // surcharge d'opérator <<  pour afficher les informations récupérée
 {
-    os << "Le docteur " << d.firstName << " " << d.name << " a comme spécialité " << d.speciality << " et son id est " << d.id << endl;
+    os << "Le docteur " << d.firstName << " " << d.name << " a comme spécialité " << d.speciality << " et son id est " << d.id;
     return os;
 } //----- Fin de operator <<
 

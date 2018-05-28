@@ -93,9 +93,9 @@ void fileReader::etalonFile(ifstream & fi, PrintManager & pm, vector<Attribute*>
     }
     //TU peux voir sur ton terminal que seulement les attributs ne changent pas, le reste si, donc je pense que
     //Le problème se situe juste au dessus au niveau du changement de valeur des attributs.
-    for (int i=0; i<pm.getPrints().size(); i++){
+    /*for (int i=0; i<pm.getPrints().size(); i++){
         cout << *pm.getPrints()[i] << endl;
-    }
+    }*/
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

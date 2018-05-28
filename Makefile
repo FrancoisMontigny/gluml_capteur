@@ -5,7 +5,7 @@ CXX = g++
 FDMAP = -c
 FLAG = -pedantic -Wall -std=c++11
 
-test : main.o DoctorManager.o Doctor.o PrintManager.o Print.o Attribute.o QualitativeAttribute.o QuantitativeAttribute.o fileReader.o fileWriter.o
+test : main.o DoctorManager.o Doctor.o PrintManager.o Print.o Attribute.o QualitativeAttribute.o QuantitativeAttribute.o fileReader.o fileWriter.o ServicesManager.o PrintAnalyzer.o
 	$(CXX) $(FLAG) $^ -o $@ -g
 
 
@@ -15,6 +15,8 @@ PrintManager.o : models/Print.h
 Print.o : models/Attribute.h
 fileReader.o : models/Attribute.h
 fileWriter.o : models/Print.h models/Doctor.h
+ServicesManager.o : models/Doctor.h models/DoctorManager.h
+PrintAnalyzer.o : models/Disease.h models/Print.h
 
 main.o : main.cpp
 	$(CXX) $(FDMAP) $(FLAG) main.cpp
@@ -24,6 +26,9 @@ main.o : main.cpp
 
 %.o : fileOperations/%.cpp
 	$(CXX) $(FDMAP) $(FLAG) fileOperations/$*.cpp
+
+%.o: services/%.cpp
+	$(CXX) $(FDMAP) $(FLAG) services/$*.cpp
 
 #make clean pour supprimer les fichiers temporaires
 clean :

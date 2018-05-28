@@ -14,9 +14,10 @@
 //--------------------------------------------------- Interfaces utilisées
 
 #include <string>
-#include <list>
+#include <vector>
 
-#include "Disease"
+#include "../models/Disease.h"
+#include "../models/Print.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -35,7 +36,7 @@ class PrintAnalyzer
 public:
 //----------------------------------------------------- Méthodes publiques
 
-	List<Disease> Analyze(Print & p);
+	vector<Disease> Analyze(Print & p);
 
 
 //-------------------------------------------- Constructeurs - destructeur

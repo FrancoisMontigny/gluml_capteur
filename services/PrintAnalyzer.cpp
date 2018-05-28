@@ -13,7 +13,7 @@
 
 //-------------------------------------------------------- Include système
 #include <string>
-#include <list>
+#include <vector>
 #include <algorithm>
 using namespace std;
 
@@ -30,7 +30,7 @@ using namespace std;
 
 //-------------------------------------------- Constructeurs - destructeur
 
-List<Disease> PrintAnalyzer::Analyze(Print & p)
+vector<Disease> PrintAnalyzer::Analyze(Print & p)
 {
 	//TODO
 }
@@ -48,10 +48,6 @@ PrintAnalyzer::~PrintAnalyzer()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-
-protected:
-
-
 
 PrintAnalyzer::PrintAnalyzer()
 // Algorithme :

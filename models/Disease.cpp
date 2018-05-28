@@ -12,6 +12,7 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
+#include "iostream"
 using namespace std;
 
 //------------------------------------------------------ Include personnel
@@ -26,7 +27,7 @@ void Disease::Display()
 // Algorithme :
 //
 {
-	cout << "La maladie " << this->name << " a les caractéristiques suivantes :" << this->caracteristics << endl;
+	cout << "La maladie " << this->name << " a les caractéristiques suivantes : " << "this->caracteristics" << endl;
 } //----- Fin de Display
 
 string Disease::GetName()

@@ -26,15 +26,15 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 
-Doctor ServicesManager::Connection(unsigned int id)
+Doctor* ServicesManager::Connection(unsigned int id)
 // Algorithme :
 //
 {
-	DoctorManager * dom = DoctorManager::get();
+	DoctorManager * dom = DoctorManager::Get();
 	
-	Doctor d = dom->GetDoctor(id);
+	Doctor * d = dom->GetDoctor(id);
 	
-	if (d == dom->GetDoctors().end())
+	if (d == *dom->GetDoctors().end())
 	{
 		return nullptr;
 	}
@@ -51,19 +51,13 @@ void ServicesManager::DisplayDisease(string name)
 	//TODO
 }
 
-void ServicesManager::RunAnalysis(string path);
+void ServicesManager::RunAnalysis(string path)
 {
 	//TODO
 	//read path to get printf
 	//create new print analyzer
 	//analyser.analyze(print)
 }
-
-void ServicesManager::RunAnalysis(string[] path);
-{
-	//TODO
-}
-
 
 //-------------------------------------------- Constructeurs - destructeur
 ServicesManager::ServicesManager(const ServicesManager & aServicesManager)

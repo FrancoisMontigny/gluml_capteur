@@ -14,6 +14,8 @@
 #include "./models/QuantitativeAttribute.h"
 #include "./fileOperations/fileReader.h"
 #include "./fileOperations/fileWriter.h"
+#include "./services/ServicesManager.h"
+#include "./services/PrintAnalyzer.h"
 
 int main(int argc, const char * argv[]) {
     /*DoctorManager dm = DoctorManager();
@@ -77,5 +79,17 @@ int main(int argc, const char * argv[]) {
         fw.writePrint(of, *listPrints[i]);
     }
     of.close();*/
+    
+    ServicesManager sm = ServicesManager();
+    DoctorManager * dm = DoctorManager::Get();
+    dm->CreateDoctor("Charles", "Dupond", "chirurgien");
+    dm->CreateDoctor("Pierre", "Goutu", "neuro");
+    /*vector<Doctor*> ld = dm->GetDoctors();
+    for(ListDoctor::iterator it=ld.begin(); it!=ld.end(); ++it)
+    {
+        cout << *(*it);
+    }*/
+    Doctor* medecin = sm.Connection(1);
+    cout << *medecin << endl;
     return 0;
 }

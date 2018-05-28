@@ -16,8 +16,8 @@
 #include <string>
 #include <list>
 
-#include "Doctor.h"
-#include "DoctorManager.h"
+#include "../models/Doctor.h"
+#include "../models/DoctorManager.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -35,7 +35,7 @@ class ServicesManager
     
 public:
     //----------------------------------------------------- Méthodes publiques
-    Doctor Connection(unsigned int id);
+    Doctor* Connection(unsigned int id);
     // Mode d'emploi :
     //
     // Contrat :
@@ -54,12 +54,6 @@ public:
     //
 	
 	void RunAnalysis(string path);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-	
-	void RunAnalysis(string[] path);
     // Mode d'emploi :
     //
     // Contrat :
