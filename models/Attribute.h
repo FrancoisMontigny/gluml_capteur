@@ -38,7 +38,7 @@ public:
     
     virtual string getValue() const = 0;
 	
-	virtual Attribute * Copy(const Attribute & anAttribute);
+	virtual Attribute * Copy() const = 0;
     
 //-------------------------------------------- Constructeurs - destructeur
 

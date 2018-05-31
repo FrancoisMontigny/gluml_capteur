@@ -41,9 +41,9 @@ string QualitativeAttribute::description() const
     return s;
 }
 
-QualitativeAttribute * QualitativeAttribute::Copy(const QualitativeAttribute & aQualitativeAttribute)
+QualitativeAttribute * QualitativeAttribute::Copy() const
 {
-	return new QualitativeAttribute(aQualitativeAttribute);
+	return new QualitativeAttribute(*this);
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

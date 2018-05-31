@@ -69,7 +69,7 @@ Print::Print(const Print & aPrint)
 	vector<Attribute *>::const_iterator itAtt;
     for (itAtt = aPrint.caract.begin(); itAtt != aPrint.caract.end(); ++itAtt)
 	{
-        newAttributes.push_back((*itAtt)->Copy(**itAtt));
+        newAttributes.push_back((*itAtt)->Copy());
     }
 	this->caract = newAttributes;
 #ifdef MAP
@@ -85,10 +85,7 @@ Print::Print(vector<Attribute *> & attributes, unsigned int id, string disease)
     this->diseaseName = disease;
     this->id = id;
     vector<Attribute *>::const_iterator itAtt;
-    for (itAtt = attributes.begin(); itAtt != attributes.end(); itAtt++){
-        this->caract.push_back((*itAtt)->Copy(**itAtt));
-    }
-	//this->caract = attributes;
+	this->caract = attributes;
 #ifdef MAP
     cout << "Appel au constructeur de <Print>" << endl;
 #endif

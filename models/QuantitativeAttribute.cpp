@@ -42,9 +42,9 @@ string QuantitativeAttribute::description() const
     return s;
 }
 
-QuantitativeAttribute * QuantitativeAttribute::Copy(const QuantitativeAttribute & aQuantitativeAttribute)
+QuantitativeAttribute * QuantitativeAttribute::Copy() const
 {
-	return new QuantitativeAttribute(aQuantitativeAttribute);
+	return new QuantitativeAttribute(*this);
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

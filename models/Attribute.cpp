@@ -31,8 +31,6 @@ string Attribute::description() const
     return s;
 }
 
-Attribute * Attribute::Copy(const Attribute & anAttribute) { }
-
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur

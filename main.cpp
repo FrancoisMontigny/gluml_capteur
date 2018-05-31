@@ -52,36 +52,30 @@ int main(int argc, const char * argv[]) {
     fileReader fr = fileReader();
     PrintManager pm = PrintManager();
     
-    cout << "Indiquer le nom du fichier de description des attributs à lire avec l'extension" << endl;
+    //cout << "Indiquer le nom du fichier de description des attributs à lire avec l'extension" << endl;
     vector<Attribute *> listeAttributs;
-    string nomFichierDescription;
-    getline(cin,nomFichierDescription);
-    string fichierOpen = "fichiersTest/"+nomFichierDescription;
+    //string nomFichierDescription;
+    //getline(cin,nomFichierDescription);
+    string fichierOpen = "fichiersTest/description.txt"; //+ nomFichierDescription;
     fi.open(fichierOpen);
     listeAttributs = fr.descriptionFile(fi);
     fi.close();
     
-    cout << "Indiquer le nom du fichier étalon des empreintes à lire" << endl;
-    string nomFichierEtalon;
-    getline(cin,nomFichierEtalon);
-    fichierOpen = "fichiersTest/"+nomFichierEtalon;
+    //cout << "Indiquer le nom du fichier étalon des empreintes à lire" << endl;
+    //string nomFichierEtalon;
+    //getline(cin,nomFichierEtalon);
+    fichierOpen = "fichiersTest/etalon.txt"; //+ nomFichierEtalon;
     fi.open(fichierOpen);
     fr.etalonFile(fi, pm, listeAttributs);
     fi.close();
     vector <Print *> listPrints;
     listPrints = pm.GetPrints();
 	
+	//cout << endl << endl << "AFFICHAGE FINAL" << endl; 
+	
 	for (vector<Print *>::const_iterator i = listPrints.begin(); i != listPrints.end(); ++i) {
 		cout << **i << endl;
 	}
-	
-	/*for (unsigned int i = 0; i < listPrints.size(); i++) {
-		cout << *listPrints[i] << endl;
-	}*/
-	
-    /*for (int i =0; i< listPrints.size();i++){
-        cout << listPrints[i] << endl;
-    }*/
     
     /*ofstream of;
     fileWriter fw = fileWriter();

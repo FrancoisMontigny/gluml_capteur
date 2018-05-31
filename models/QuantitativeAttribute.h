@@ -39,7 +39,7 @@ public:
 	
     string description() const;
 	
-	QuantitativeAttribute * Copy(const QuantitativeAttribute & aQuantitativeAttribute);
+	QuantitativeAttribute * Copy() const;
 	
     //-------------------------------------------- Constructeurs - destructeur
     
