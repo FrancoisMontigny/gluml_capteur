@@ -39,7 +39,6 @@ public:
 
 //------------------------------------------------- Surcharge d'opérateurs
     
-    friend class ServicesManager;
 //----------------------------------------------------- Méthodes publiques
 
 	Print * CreatePrint(vector<Attribute *> & attributes, unsigned int id, const string disease);

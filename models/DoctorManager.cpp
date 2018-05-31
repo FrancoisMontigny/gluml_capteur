@@ -13,7 +13,6 @@
 
 //-------------------------------------------------------- Include système
 #include <string>
-#include <fstream>
 #include <vector>
 #include <algorithm>
 #include <sstream>
@@ -87,11 +86,8 @@ vector <string> DoctorManager::Load(string path)
  // Algorithme :
  //
  {
-     ifstream fi;
      fileReader fr = fileReader();
-     fi.open("fichiersTest/"+path);
-     vector <string> listDoc = fr.identification(fi);
-     fi.close();
+     vector <string> listDoc = fr.identification(path);
 	 return listDoc;
  } //----- Fin de Méthode
 

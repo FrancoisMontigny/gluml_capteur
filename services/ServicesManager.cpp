@@ -52,10 +52,10 @@ void ServicesManager::initializeBDPrints(string descriptionFile, string standard
     PrintManager * pa = PrintManager::Get();
     pa->setDescriptionAttributes(descriptionFile);
     pa->createPrints(standardFile);
-    vector<Print *> vp = pa->GetPrints();
+    /*vector<Print *> vp = pa->GetPrints();
     for (int i = 0; i< vp.size(); i++){
         cout << vp[i]->Serialize() << endl;
-    }
+    }*/
 }
 
 void ServicesManager::DisplayDiseases()
@@ -70,7 +70,7 @@ void ServicesManager::DisplayDisease(string name)
 	//TODO
 }
 
-void ServicesManager::RunAnalysis(ifstream & fi)
+void ServicesManager::RunAnalysis(string file)
 {
     PrintAnalyzer pa = PrintAnalyzer();
 }

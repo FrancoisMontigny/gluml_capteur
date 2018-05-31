@@ -139,13 +139,10 @@ int AffichageMenu(ServicesManager & sm) {
         sm.CreateNewDoctor(name, firstName, speciality);
     }
     else if (!(nb.compare("3"))) {
-        ifstream fi;
         cout << "Entrez le nom du fichier avec la/les nouvelle(s) empreinte(s)" << endl;
         string nomFichier;
         getline(cin, nomFichier);
-        fi.open("fichiersTest/"+nomFichier);
-        sm.RunAnalysis(fi);
-        fi.close();
+        sm.RunAnalysis(nomFichier);
     }
     else if (!(nb.compare("4"))){
         return 0;

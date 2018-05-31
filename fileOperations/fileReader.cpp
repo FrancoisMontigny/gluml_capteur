@@ -110,7 +110,9 @@ vector<DonneesSup> fileReader::etalonFile(string standardFile, vector<Attribute 
     return vds;
 }
 
-vector <string> fileReader::identification(ifstream & fi){
+vector <string> fileReader::identification(string path){
+    ifstream fi;
+    fi.open("fichiersTest/"+path);
     vector <string> res;
     while(fi.good()) {
         string line;
@@ -119,6 +121,7 @@ vector <string> fileReader::identification(ifstream & fi){
             res.push_back(line);
         }
     }
+    fi.close();
     return res;
 }
 

@@ -34,6 +34,7 @@ class DiseaseManager
     
 public:
     //----------------------------------------------------- Méthodes publiques
+    
     static DiseaseManager * Get();
     // Mode d'emploi : récupérer l'instance unique de la classe.
     //

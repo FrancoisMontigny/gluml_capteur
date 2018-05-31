@@ -12,10 +12,9 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
-#include <string>
 #include <iostream>
+#include <string>
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 //------------------------------------------------------ Include personnel

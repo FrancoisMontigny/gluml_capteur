@@ -20,11 +20,10 @@
 #include "../models/Attribute.h"
 #include "../models/QualitativeAttribute.h"
 #include "../models/QuantitativeAttribute.h"
-#include "../models/PrintManager.h"
-#include "../models/Doctor.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
+
 struct DonneesSup
 //permet de stocker toutes les informations d'une ligne d'un fichier de logs
 {
@@ -33,7 +32,7 @@ struct DonneesSup
     vector<Attribute *> listeAtt;
     DonneesSup (unsigned int nb, string disea, vector<Attribute *> va) : idNb(nb),disease(disea)
     {
-        for (int i =0; i < va.size() ; i++) {
+        for (int i = 0; i < va.size() ; i++) {
             listeAtt.push_back(va[i]);
         }
     }
@@ -69,18 +68,13 @@ public:
     // Contrat :
     //
     
-    vector <string> identification(ifstream & fi);
+    vector <string> identification(string path);
     // Mode d'emploi :
     //
     // Contrat :
     //
 
     //-------------------------------------------- Constructeurs - destructeur
-    /*fileReader ( const fileReader & unfileReader );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //*/
     
     fileReader ();
     // Mode d'emploi :

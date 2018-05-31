@@ -67,7 +67,7 @@ public:
     // Contrat :
     //
 	
-	void RunAnalysis(ifstream & fi);
+	void RunAnalysis(string file);
     // Mode d'emploi :
     //
     // Contrat :
