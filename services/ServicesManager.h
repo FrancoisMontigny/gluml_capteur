@@ -19,6 +19,7 @@
 #include "../models/Doctor.h"
 #include "../models/DoctorManager.h"
 #include "../models/DiseaseManager.h"
+#include "./PrintAnalyzer.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -48,6 +49,12 @@ public:
     // Contrat :
     //
     
+    void initializeBDPrints(string descriptionFile, string standardFile);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
     void DisplayDiseases();
     // Mode d'emploi :
     //
@@ -60,7 +67,7 @@ public:
     // Contrat :
     //
 	
-	void RunAnalysis(string path);
+	void RunAnalysis(ifstream & fi);
     // Mode d'emploi :
     //
     // Contrat :

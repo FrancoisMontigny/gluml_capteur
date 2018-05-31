@@ -12,6 +12,7 @@
 //---------------------------------------------------------------- INCLUDE
 
 //-------------------------------------------------------- Include système
+#include <fstream>
 #include <sstream>
 #include <vector>
 using namespace std;
@@ -23,10 +24,12 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-vector<Attribute *> fileReader::descriptionFile(ifstream & fi)
+vector<Attribute *> fileReader::descriptionFile(string descriptionFile)
 // Algorithme :
 //
 {
+    ifstream fi;
+    fi.open("fichiersTest/"+descriptionFile);
     vector<Attribute *> res;
     int ligne1 = 2;
     while(fi.good()) {
@@ -42,6 +45,7 @@ vector<Attribute *> fileReader::descriptionFile(ifstream & fi)
             ligne1 --;
         }
     }
+    fi.close();
     return res;
 } //----- Fin de Méthode
 
@@ -63,10 +67,12 @@ Attribute * fileReader::attrFromFile(istream & is)
     return attr;
 }
 
-void fileReader::etalonFile(ifstream & fi, PrintManager & pm, vector<Attribute*> & la)
+void fileReader::etalonFile(string standardFile)
 // Algorithme :
 //
 {
+    ifstream fi;
+    fi.open("fichiersTest/"+standardFile);
     int ligne1 = 1;
     while (fi.good()) {
         string line;
@@ -77,7 +83,6 @@ void fileReader::etalonFile(ifstream & fi, PrintManager & pm, vector<Attribute*>
 				vector<Attribute *> attributes;
 				stringstream ss (line);
                 string idString;
-
                 getline(ss, idString, ';');
                 unsigned int id = stoi(idString);
                 
@@ -100,11 +105,7 @@ void fileReader::etalonFile(ifstream & fi, PrintManager & pm, vector<Attribute*>
             ligne1 = 0;
         }
     }
-    //TU peux voir sur ton terminal que seulement les attributs ne changent pas, le reste si, donc je pense que
-    //Le problème se situe juste au dessus au niveau du changement de valeur des attributs.
-    /*for (int i=0; i<pm.getPrints().size(); i++){
-        cout << *pm.getPrints()[i] << endl;
-    }*/
+    fi.close();
 }
 
 vector <string> fileReader::identification(ifstream & fi){

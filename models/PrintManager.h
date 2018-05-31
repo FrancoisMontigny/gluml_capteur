@@ -15,10 +15,12 @@
 
 #include <string>
 #include <vector>
+
 #include <algorithm>
 
-#include "Print.h"
-#include "Attribute.h"
+#include "./Print.h"
+#include "./Attribute.h"
+#include "../fileOperations/fileReader.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -34,14 +36,30 @@ class PrintManager
 //----------------------------------------------------------------- PUBLIC
 
 public:
+
+//------------------------------------------------- Surcharge d'opérateurs
+    
+    friend class ServicesManager;
 //----------------------------------------------------- Méthodes publiques
+
 	Print * CreatePrint(vector<Attribute *> & attributes, unsigned int id, const string disease);
+
+    static PrintManager * Get();
+    // Mode d'emploi : récupérer l'instance unique de la classe.
+    //
+    // Contrat :
+    //
+    
+    void setDescriptionAttributes(string descriptionFile);
     // Mode d'emploi :
     //
     // Contrat :
     //
 	
 	Print * CreatePrint(Print & aPrint);
+    
+	vector<Print *> createPrints(string standardFile);
+
     // Mode d'emploi :
     //
     // Contrat :
@@ -76,8 +94,11 @@ public:
 	//
 	// Contrat :
 	//
+    
+    PrintManager& operator = (const PrintManager&) = delete;
 
 //-------------------------------------------- Constructeurs - destructeur
+<<<<<<< HEAD
 	PrintManager(const PrintManager & aPrintManager);
 	// Mode d'emploi :
 	//
@@ -91,6 +112,12 @@ public:
     //
 
     virtual ~PrintManager ( );
+=======
+    PrintManager (const PrintManager &) = delete;
+    // Copying a singleton is illegal
+    
+    virtual ~PrintManager();
+>>>>>>> b2cfd08bb27ca25602c6e83a857be0317c90b2e7
     // Mode d'emploi :
     //
     // Contrat :
@@ -100,9 +127,17 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
+    PrintManager ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
 //----------------------------------------------------- Attributs protégés
+    vector<Attribute *> descriptionAttributes;
 	vector<Print *> prints;
+    
+    static PrintManager * singleton;
 };
 
 //-------------------------------- Autres définitions dépendantes de <PrintManager>

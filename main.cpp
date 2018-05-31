@@ -98,7 +98,6 @@ int main(int argc, const char * argv[]) {
     cout << "Bonjour veuillez vous connecter pour continuer en entrant un nom"<< endl;
     string nom;
     getline(cin, nom);
-    cout << nom << endl;
     Doctor* d = sm.Connection(nom);
     if (d == nullptr){
         cout << "Vous n'existez pas en tant que docteur, demandez un ajout par un administrateur" << endl;
@@ -116,34 +115,26 @@ int main(int argc, const char * argv[]) {
 int AffichageMenu(ServicesManager & sm) {
     cout << "1. Initialisation des données à partir des fichiers enregistrés" << endl;
     cout << "2. Créer un nouveau docteur" << endl;
-    cout << "3. Quitter l'app" << endl;
+    cout << "3. Analyser une/des nouvelle(s) empreinte(s)" << endl;
+    cout << "4. Quitter l'app" << endl;
     string nb;
     getline(cin,nb);
     if (!(nb.compare("1"))){
-        ifstream fi;
-        fileReader fr = fileReader();
-        PrintManager pm = PrintManager();
         cout << "Indiquer le nom du fichier de description des attributs à lire avec l'extension" << endl;
-        vector<Attribute *> listeAttributs;
         string nomFichierDescription;
         getline(cin,nomFichierDescription);
-        string fichierOpen = "fichiersTest/"+nomFichierDescription;
-        fi.open(fichierOpen);
-        listeAttributs = fr.descriptionFile(fi);
-        fi.close();
-        
         cout << "Indiquer le nom du fichier étalon des empreintes à lire" << endl;
         string nomFichierEtalon;
         getline(cin,nomFichierEtalon);
-        fichierOpen = "fichiersTest/"+nomFichierEtalon;
-        fi.open(fichierOpen);
-        fr.etalonFile(fi, pm, listeAttributs);
-        fi.close();
+        cout << nomFichierEtalon << endl;
+        sm.initializeBDPrints(nomFichierDescription, nomFichierEtalon);
+        
+        /*
         vector <Print *> listPrints;
         listPrints = pm.getPrints();
         for (int i =0; i< listPrints.size();i++){
             cout << *listPrints[i] << endl;
-        }
+        }*/
     }
     else if (!(nb.compare("2"))){
         cout << "Entrez le nom, prénom et la spécialité du nouveau docteur séparé par des virgules" << endl;
@@ -155,7 +146,16 @@ int AffichageMenu(ServicesManager & sm) {
         getline(cin, speciality);
         sm.CreateNewDoctor(name, firstName, speciality);
     }
-    else if (!(nb.compare("3"))){
+    else if (!(nb.compare("3"))) {
+        ifstream fi;
+        cout << "Entrez le nom du fichier avec la/les nouvelle(s) empreinte(s)" << endl;
+        string nomFichier;
+        getline(cin, nomFichier);
+        fi.open("fichiersTest/"+nomFichier);
+        sm.RunAnalysis(fi);
+        fi.close();
+    }
+    else if (!(nb.compare("4"))){
         return 0;
     }
     else {
