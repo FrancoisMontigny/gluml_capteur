@@ -68,23 +68,32 @@ void fileReader::etalonFile(ifstream & fi, PrintManager & pm, vector<Attribute*>
 //
 {
     int ligne1 = 1;
-    while(fi.good()){
+    while (fi.good()) {
         string line;
-        getline (fi, line);
+        getline(fi, line);
         if (ligne1 == 0) {
-            if (line.size() != 0){
-                stringstream ss (line);
+            if (line.size() != 0) {
+				
+				vector<Attribute *> attributes;
+				stringstream ss (line);
                 string idString;
-                getline(ss,idString,';');
-                double id = stod(idString);
-                for (int i=0; i<la.size(); i++){
-                    string att;
-                    getline(ss,att,';');
-                    la[i]->setValue(att);//Le problème semble être ici
-                }
+
+                getline(ss, idString, ';');
+                unsigned int id = stoi(idString);
+                
+				for (vector<Attribute *>::const_iterator it = la.begin(); it != la.end(); ++it) 
+				{
+					string att;
+                    getline(ss, att, ';');
+					Attribute * a = (*it)->Copy();
+					a->setValue(att);
+					attributes.push_back(a);
+				}
+
                 string maladie;
                 getline(ss, maladie, '\r');
-                pm.createPrint(la, id, maladie);
+                pm.CreatePrint(attributes, id, maladie);				
+				attributes.clear();								
             }
         }
         else {

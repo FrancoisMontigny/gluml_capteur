@@ -43,7 +43,6 @@ Attribute::Attribute()
 #endif
 } //----- Fin de Attribute
 
-
 Attribute::~Attribute ()
 // Algorithme :
 //

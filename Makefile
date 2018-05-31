@@ -1,5 +1,5 @@
 .SUFFIXES :
-.PHONY : clean,mrproper
+.PHONY : clean, mrproper
 
 CXX = g++
 FDMAP = -c -DMAP

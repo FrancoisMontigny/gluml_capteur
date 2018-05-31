@@ -29,7 +29,7 @@ string QualitativeAttribute::getValue() const
 	return this->value;
 }
 
-void QualitativeAttribute::setValue(string value )
+void QualitativeAttribute::setValue(string value)
 {
     this->value = value;
 }
@@ -41,15 +41,20 @@ string QualitativeAttribute::description() const
     return s;
 }
 
+QualitativeAttribute * QualitativeAttribute::Copy() const
+{
+	return new QualitativeAttribute(*this);
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
 
-QualitativeAttribute::QualitativeAttribute (const QualitativeAttribute & aQualitativeAttribute)
+QualitativeAttribute::QualitativeAttribute(const QualitativeAttribute & aQualitativeAttribute)
 // Algorithme :
 //
 {
-    this->value = aQualitativeAttribute.value;
+    this->name = aQualitativeAttribute.name;
     #ifdef MAP
         cout << "Appel au constructeur de copie de <QualitativeAttribute>" << endl;
     #endif
@@ -66,7 +71,7 @@ QualitativeAttribute::QualitativeAttribute ( string name )
 #endif
 } //----- Fin de QualitativeAttribute
 
-QualitativeAttribute::QualitativeAttribute ( string name, string value )
+QualitativeAttribute::QualitativeAttribute(string name, string value)
 // Algorithme :
 //
 {

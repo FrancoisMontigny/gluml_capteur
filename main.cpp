@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <vector>
 #include "./models/DoctorManager.h"
 #include "./models/PrintManager.h"
 #include "./models/QualitativeAttribute.h"
@@ -29,20 +30,57 @@ int main(int argc, const char * argv[]) {
         cout << *(*it);
     }*/
     //cout << *dm.getDoctor(2);
-    /*list<Attribute*> la;
-    Attribute* A1 = new QualitativeAttribute("A1", "OUI");
-    Attribute* A2 = new QuantitativeAttribute("A2", 2.2);
-    la.push_back(A1);
-    la.push_back(A2);
+    /*vector<Attribute *> l1;
+	vector<Attribute *> l2;
+	string disease = "";
+    Attribute * A1 = new QualitativeAttribute("A1", "OUI");
+	Attribute * A1bis = new QualitativeAttribute("A1", "NON");
+    Attribute * A2 = new QuantitativeAttribute("A2", 2.2);
+	Attribute * A2bis = new QuantitativeAttribute("A2", 3.3);
+    l1.push_back(A1);
+    l1.push_back(A2);
+	l2.push_back(A1bis);
+	l2.push_back(A2bis);
     PrintManager pm = PrintManager();
-    pm.createPrint(la, "-");
-    pm.createPrint(la, "M1");
-    list <Print *> lp = pm.getPrints();
-    for(list <Print *>::iterator it=lp.begin(); it!=lp.end(); ++it)
+    pm.CreatePrint(l1, 1, disease);
+    pm.CreatePrint(l2, 2, disease);
+    vector<Print *> lp = pm.GetPrints();
+    for(vector<Print *>::iterator it=lp.begin(); it!=lp.end(); ++it)
     {
-        cout << *(*it);
+        cout << **it << endl;
     }*/
+	
     //cout << *pm.getPrint(2);
+	
+    ifstream fi;
+    fileReader fr = fileReader();
+    PrintManager pm = PrintManager();
+    
+    //cout << "Indiquer le nom du fichier de description des attributs à lire avec l'extension" << endl;
+    vector<Attribute *> listeAttributs;
+    //string nomFichierDescription;
+    //getline(cin,nomFichierDescription);
+    string fichierOpen = "fichiersTest/description.txt"; //+ nomFichierDescription;
+    fi.open(fichierOpen);
+    listeAttributs = fr.descriptionFile(fi);
+    fi.close();
+    
+    //cout << "Indiquer le nom du fichier étalon des empreintes à lire" << endl;
+    //string nomFichierEtalon;
+    //getline(cin,nomFichierEtalon);
+    fichierOpen = "fichiersTest/etalon.txt"; //+ nomFichierEtalon;
+    fi.open(fichierOpen);
+    fr.etalonFile(fi, pm, listeAttributs);
+    fi.close();
+    vector <Print *> listPrints;
+    listPrints = pm.GetPrints();
+	
+	//cout << endl << endl << "AFFICHAGE FINAL" << endl; 
+	
+	for (vector<Print *>::const_iterator i = listPrints.begin(); i != listPrints.end(); ++i) {
+		cout << **i << endl;
+	}
+	
     
     /*ofstream of;
     fileWriter fw = fileWriter();

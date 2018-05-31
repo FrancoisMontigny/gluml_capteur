@@ -15,6 +15,7 @@
 
 #include <string>
 #include <vector>
+#include <algorithm>
 
 #include "Print.h"
 #include "Attribute.h"
@@ -34,44 +35,50 @@ class PrintManager
 
 public:
 //----------------------------------------------------- Méthodes publiques
-	Print * createPrint(vector<Attribute *> & attributes, unsigned int id, string disease);
+	Print * CreatePrint(vector<Attribute *> & attributes, unsigned int id, const string disease);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+	
+	Print * CreatePrint(Print & aPrint);
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-	vector<Print *> getPrints();
+	vector<Print *> GetPrints();
 	// Mode d'emploi :
 	//
 	// Contrat :
 	//
 
-	Print* getPrint(unsigned int id);
+	Print* GetPrint(unsigned int id);
 	// Mode d'emploi :
 	//
 	// Contrat :
 	//
 
-	Print* update(Print * p, string diseaseName);
+	Print* Update(Print * p, string diseaseName);
 	// Mode d'emploi :
 	//
 	// Contrat :
 	//
 
-	int save(string path, Print prints[]);
+	int Save(string path, Print prints[]);
 	// Mode d'emploi :
 	//
 	// Contrat :
 	//
 
-	int load(string path);
+	int Load(string path);
 	// Mode d'emploi :
 	//
 	// Contrat :
 	//
 
 //-------------------------------------------- Constructeurs - destructeur
-	PrintManager(const PrintManager & unPrintManager);
+	PrintManager(const PrintManager & aPrintManager);
 	// Mode d'emploi :
 	//
 	// Contrat :

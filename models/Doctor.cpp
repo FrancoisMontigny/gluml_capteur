@@ -32,9 +32,9 @@ string Doctor::Serialize() const
 {
 	string answer = to_string(this->id);
 	answer += ";";
-    answer += this->name;
+	answer += this->name;
 	answer += ";";
-    answer += this->firstName;
+	answer += this->firstName;
 	answer += ";";
 	answer += this->speciality;	
 	

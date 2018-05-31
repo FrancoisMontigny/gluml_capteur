@@ -32,21 +32,23 @@ public:
     
 //----------------------------------------------------- Méthodes publiques
     
-    virtual string description () const;
+    virtual string description() const;
     
     virtual void setValue(string value) = 0;
     
-    virtual string getValue()const = 0;
+    virtual string getValue() const = 0;
+	
+	virtual Attribute * Copy() const = 0;
     
 //-------------------------------------------- Constructeurs - destructeur
 
-    Attribute ();
+    Attribute();
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Attribute ();
+    virtual ~Attribute();
     // Mode d'emploi :
     //
     // Contrat :

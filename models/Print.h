@@ -27,6 +27,8 @@
 //
 //------------------------------------------------------------------------
 
+class PrintManager;
+
 class Print
 {
 //----------------------------------------------------------------- PUBLIC
@@ -34,24 +36,14 @@ class Print
 public:
     
     friend ostream & operator << (ostream &, const Print &);
+	friend PrintManager;
 
 //----------------------------------------------------- Méthodes publiques
-    unsigned int getPrintId() const;
+    unsigned int GetId() const;
 	
 	string Serialize() const;
 
 //-------------------------------------------- Constructeurs - destructeur
-	Print ( const Print & unPrint );
-	// Mode d'emploi :
-	//
-	// Contrat :
-	//
-
-    Print (vector<Attribute *> & attributes, unsigned int id, string disease);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
     virtual ~Print();
     // Mode d'emploi :
@@ -62,6 +54,19 @@ public:
 //------------------------------------------------------------------ PRIVE
 
 protected:
+
+	Print(const Print & aPrint);
+	// Mode d'emploi :
+	//
+	// Contrat :
+	//
+
+    Print(vector<Attribute *> & attributes, unsigned int id, string disease);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
 //----------------------------------------------------- Méthodes protégées
     unsigned int AutoNumber();
 

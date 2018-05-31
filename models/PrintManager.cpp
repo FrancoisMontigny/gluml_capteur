@@ -13,8 +13,7 @@
 
 //-------------------------------------------------------- Include système
 #include <iostream>
-#include <string>
-#include <vector>
+
 using namespace std;
 
 //------------------------------------------------------ Include personnel
@@ -25,35 +24,54 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-Print * PrintManager::createPrint(vector<Attribute *> &attributes, unsigned int id, string disease)
+Print * PrintManager::CreatePrint(vector<Attribute *> & attributes, unsigned int id, const string disease)
 // Algorithme :
 //
 {
     Print * p = new Print(attributes, id , disease);
     this->prints.push_back(p);
     return p;
-} //----- Fin de Méthode
+} //----- Fin de CreatePrint
 
-vector<Print*> PrintManager::getPrints()
+Print * PrintManager::CreatePrint(Print & aPrint)
+// Algorithme :
+//
+{
+    Print * p = new Print(aPrint);
+    this->prints.push_back(p);
+    return p;
+} //----- Fin de CreatePrint
+
+vector<Print *> PrintManager::GetPrints()
 // Algorithme :
 //
 {
     return this->prints;
-} //----- Fin de Méthode
+} //----- Fin de GetPrints
 
-Print* PrintManager::getPrint(unsigned int id)
+Print * PrintManager::GetPrint(unsigned int id)
 // Algorithme :
 //
 {
-    vector<Print*>::iterator findIter = find_if(this->prints.begin(), this->prints.end(), [id](Print * p)-> bool {return (p->getPrintId() == id); } );
+    vector<Print *>::iterator findIter = find_if(this->prints.begin(), this->prints.end(), [id](Print * p)-> bool {return (p->GetId() == id); } );
     return *findIter;
-} //----- Fin de Méthode
+} //----- Fin de GetPrint
 
-/*Print* PrintManager::update(Print* p, string diseaseName)
+Print * PrintManager::Update(Print * p, string diseaseName)
 // Algorithme :
 //
 {
-} //----- Fin de Méthode*/
+	Print * actualPrint = this->GetPrint(p->id);
+	if (actualPrint->diseaseName.size() == 0)
+	{
+		actualPrint->diseaseName = diseaseName;
+		return actualPrint;
+	}
+	Print * newPrint = this->CreatePrint(*p);
+	newPrint->diseaseName = diseaseName;
+	
+	return newPrint;
+} //----- Fin de Update
 
 /*int PrintManager::save(string path, Print Prints[])
 // Algorithme :
@@ -68,7 +86,7 @@ int PrintManager::load(string path)
 } //----- Fin de Méthode*/
 
 //-------------------------------------------- Constructeurs - destructeur
-PrintManager::PrintManager ( const PrintManager & unPrintManager )
+PrintManager::PrintManager(const PrintManager & aPrintManager)
 // Algorithme :
 //
 {
