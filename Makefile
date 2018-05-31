@@ -2,7 +2,7 @@
 .PHONY : clean, mrproper
 
 CXX = g++
-FDMAP = -c -DMAP
+FDMAP = -c
 FLAG = -pedantic -Wall -std=c++11
 
 test : main.o DoctorManager.o Doctor.o PrintManager.o Print.o Attribute.o QualitativeAttribute.o QuantitativeAttribute.o Disease.o DiseaseManager.o Measurement.o QualitativeMeasurement.o QualitativeMeasurement.o fileReader.o fileWriter.o ServicesManager.o PrintAnalyzer.o

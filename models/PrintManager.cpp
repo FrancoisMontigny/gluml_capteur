@@ -59,16 +59,16 @@ void PrintManager::setDescriptionAttributes(string file)
     }
 }
 
-vector<Print *> PrintManager::createPrints(string standardFile)
+void PrintManager::createPrints(string standardFile)
 // Algorithme :
 //
 {
     fileReader fr = fileReader();
-    fr.etalonFile(standardFile);
-    vector<Print *> res;
-    /*Print * p = new Print(attributes, id , disease);
-    this->prints.push_back(p);*/
-    return res;
+    vector<DonneesSup> vds = fr.etalonFile(standardFile, this->descriptionAttributes);
+    for (int i = 0; i< vds.size(); i++){
+        Print * p = new Print(vds[i].listeAtt, vds[i].idNb, vds[i].disease);
+        this->prints.push_back(p);
+    }
 } //----- Fin de Méthode
 
 
@@ -125,12 +125,8 @@ int PrintManager::load(string path)
 } //----- Fin de Méthode*/
 
 //-------------------------------------------- Constructeurs - destructeur
-<<<<<<< HEAD
-PrintManager::PrintManager(const PrintManager & aPrintManager)
-=======
 
 PrintManager::~PrintManager ( )
->>>>>>> b2cfd08bb27ca25602c6e83a857be0317c90b2e7
 // Algorithme :
 //
 {

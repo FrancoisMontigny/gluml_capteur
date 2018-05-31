@@ -52,7 +52,7 @@ int main(int argc, const char * argv[]) {
 	
     //cout << *pm.getPrint(2);
 	
-    ifstream fi;
+    /*ifstream fi;
     fileReader fr = fileReader();
     PrintManager pm = PrintManager();
     
@@ -79,7 +79,7 @@ int main(int argc, const char * argv[]) {
 	
 	for (vector<Print *>::const_iterator i = listPrints.begin(); i != listPrints.end(); ++i) {
 		cout << **i << endl;
-	}
+	}*/
 	
     
     /*ofstream of;
@@ -126,15 +126,7 @@ int AffichageMenu(ServicesManager & sm) {
         cout << "Indiquer le nom du fichier étalon des empreintes à lire" << endl;
         string nomFichierEtalon;
         getline(cin,nomFichierEtalon);
-        cout << nomFichierEtalon << endl;
         sm.initializeBDPrints(nomFichierDescription, nomFichierEtalon);
-        
-        /*
-        vector <Print *> listPrints;
-        listPrints = pm.getPrints();
-        for (int i =0; i< listPrints.size();i++){
-            cout << *listPrints[i] << endl;
-        }*/
     }
     else if (!(nb.compare("2"))){
         cout << "Entrez le nom, prénom et la spécialité du nouveau docteur séparé par des virgules" << endl;

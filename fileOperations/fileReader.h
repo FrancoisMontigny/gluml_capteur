@@ -25,6 +25,19 @@
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
+struct DonneesSup
+//permet de stocker toutes les informations d'une ligne d'un fichier de logs
+{
+    unsigned int idNb;
+    string disease;
+    vector<Attribute *> listeAtt;
+    DonneesSup (unsigned int nb, string disea, vector<Attribute *> va) : idNb(nb),disease(disea)
+    {
+        for (int i =0; i < va.size() ; i++) {
+            listeAtt.push_back(va[i]);
+        }
+    }
+};
 
 //------------------------------------------------------------------------
 // Rôle de la classe <fileReader>
@@ -50,7 +63,7 @@ public:
     // Contrat :
     //
     
-    void etalonFile(string standardFile);
+    vector<DonneesSup> etalonFile(string standardFile,  vector<Attribute *> & la);
     // Mode d'emploi :
     //
     // Contrat :
@@ -86,7 +99,8 @@ public:
 protected:
     //----------------------------------------------------- Méthodes protégées
     
-    //----------------------------------------------------- Attributs protégés    
+    //----------------------------------------------------- Attributs protégés
+
 };
 
 //-------------------------------- Autres définitions dépendantes de <fileReader>

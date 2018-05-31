@@ -67,13 +67,14 @@ Attribute * fileReader::attrFromFile(istream & is)
     return attr;
 }
 
-void fileReader::etalonFile(string standardFile)
+vector<DonneesSup> fileReader::etalonFile(string standardFile, vector<Attribute *> & la)
 // Algorithme :
 //
 {
     ifstream fi;
     fi.open("fichiersTest/"+standardFile);
     int ligne1 = 1;
+    vector<DonneesSup> vds;
     while (fi.good()) {
         string line;
         getline(fi, line);
@@ -97,7 +98,7 @@ void fileReader::etalonFile(string standardFile)
 
                 string maladie;
                 getline(ss, maladie, '\r');
-                pm.CreatePrint(attributes, id, maladie);				
+                vds.push_back(DonneesSup(id, maladie, attributes));
 				attributes.clear();								
             }
         }
@@ -106,6 +107,7 @@ void fileReader::etalonFile(string standardFile)
         }
     }
     fi.close();
+    return vds;
 }
 
 vector <string> fileReader::identification(ifstream & fi){

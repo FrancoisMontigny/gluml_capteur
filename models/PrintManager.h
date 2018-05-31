@@ -58,7 +58,7 @@ public:
 	
 	Print * CreatePrint(Print & aPrint);
     
-	vector<Print *> createPrints(string standardFile);
+	void createPrints(string standardFile);
 
     // Mode d'emploi :
     //
@@ -98,26 +98,11 @@ public:
     PrintManager& operator = (const PrintManager&) = delete;
 
 //-------------------------------------------- Constructeurs - destructeur
-<<<<<<< HEAD
-	PrintManager(const PrintManager & aPrintManager);
-	// Mode d'emploi :
-	//
-	// Contrat :
-	//
 
-    PrintManager ();
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-    virtual ~PrintManager ( );
-=======
     PrintManager (const PrintManager &) = delete;
     // Copying a singleton is illegal
     
     virtual ~PrintManager();
->>>>>>> b2cfd08bb27ca25602c6e83a857be0317c90b2e7
     // Mode d'emploi :
     //
     // Contrat :
