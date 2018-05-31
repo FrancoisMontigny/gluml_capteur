@@ -45,6 +45,15 @@ Doctor * ServicesManager::CreateNewDoctor(string name, string firstName, string 
     return dom->CreateDoctor(name, firstName, speciality);
 }
 
+void ServicesManager::initializeBDPrints(string descriptionFile, string standardFile)
+// Algorithme
+//
+{
+    PrintManager * pa = PrintManager::Get();
+    pa->setDescriptionAttributes(descriptionFile);
+    //pa->createPrints(standardFile);
+}
+
 void ServicesManager::DisplayDiseases()
 // Algorithme :
 //
@@ -57,12 +66,9 @@ void ServicesManager::DisplayDisease(string name)
 	//TODO
 }
 
-void ServicesManager::RunAnalysis(string path)
+void ServicesManager::RunAnalysis(ifstream & fi)
 {
-	//TODO
-	//read path to get printf
-	//create new print analyzer
-	//analyser.analyze(print)
+    PrintAnalyzer pa = PrintAnalyzer();
 }
 
 //-------------------------------------------- Constructeurs - destructeur

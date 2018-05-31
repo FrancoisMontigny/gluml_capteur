@@ -38,7 +38,7 @@ class fileReader
     
 public:
     //----------------------------------------------------- Méthodes publiques
-    vector<Attribute *> descriptionFile(ifstream & fi);
+    vector<Attribute *> descriptionFile(string descriptionFile);
     // Mode d'emploi :
     //
     // Contrat :
@@ -50,7 +50,7 @@ public:
     // Contrat :
     //
     
-    void etalonFile(ifstream & fi, PrintManager & pm, vector<Attribute *> & la);
+    void etalonFile(string standardFile);
     // Mode d'emploi :
     //
     // Contrat :

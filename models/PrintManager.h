@@ -15,9 +15,9 @@
 
 #include <string>
 #include <vector>
-
-#include "Print.h"
-#include "Attribute.h"
+#include "./Print.h"
+#include "./Attribute.h"
+#include "../fileOperations/fileReader.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -33,8 +33,25 @@ class PrintManager
 //----------------------------------------------------------------- PUBLIC
 
 public:
+
+//------------------------------------------------- Surcharge d'opérateurs
+    
+    friend class ServicesManager;
 //----------------------------------------------------- Méthodes publiques
-	Print * createPrint(vector<Attribute *> & attributes, unsigned int id, string disease);
+    
+    static PrintManager * Get();
+    // Mode d'emploi : récupérer l'instance unique de la classe.
+    //
+    // Contrat :
+    //
+    
+    void setDescriptionAttributes(string descriptionFile);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+    
+	vector<Print *> createPrints(string standardFile);
     // Mode d'emploi :
     //
     // Contrat :
@@ -69,21 +86,14 @@ public:
 	//
 	// Contrat :
 	//
+    
+    PrintManager& operator = (const PrintManager&) = delete;
 
 //-------------------------------------------- Constructeurs - destructeur
-	PrintManager(const PrintManager & unPrintManager);
-	// Mode d'emploi :
-	//
-	// Contrat :
-	//
-
-    PrintManager ();
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-    virtual ~PrintManager ( );
+    PrintManager (const PrintManager &) = delete;
+    // Copying a singleton is illegal
+    
+    virtual ~PrintManager();
     // Mode d'emploi :
     //
     // Contrat :
@@ -93,9 +103,17 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
+    PrintManager ( );
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
 
 //----------------------------------------------------- Attributs protégés
+    vector<Attribute *> descriptionAttributes;
 	vector<Print *> prints;
+    
+    static PrintManager * singleton;
 };
 
 //-------------------------------- Autres définitions dépendantes de <PrintManager>

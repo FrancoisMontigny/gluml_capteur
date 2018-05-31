@@ -24,14 +24,42 @@ using namespace std;
 
 //----------------------------------------------------------------- PUBLIC
 
+// Initialisation du pointeur de singleton à null
+
+PrintManager * PrintManager::singleton = nullptr;
+
 //----------------------------------------------------- Méthodes publiques
-Print * PrintManager::createPrint(vector<Attribute *> &attributes, unsigned int id, string disease)
+
+PrintManager * PrintManager::Get()
+{
+    if (!singleton)
+    {
+        singleton = new PrintManager();
+    }
+    return singleton;
+}
+
+void PrintManager::setDescriptionAttributes(string file)
+// Algorithme
+//
+{
+    fileReader fr = fileReader();
+    vector<Attribute *> va = fr.descriptionFile(file);
+    for (int i=0; i<va.size();i++){
+        this->descriptionAttributes.push_back(va[i]);
+    }
+}
+
+vector<Print *> PrintManager::createPrints(string standardFile)
 // Algorithme :
 //
 {
-    Print * p = new Print(attributes, id , disease);
-    this->prints.push_back(p);
-    return p;
+    fileReader fr = fileReader();
+    fr.etalonFile(standardFile);
+    vector<Print *> res;
+    /*Print * p = new Print(attributes, id , disease);
+    this->prints.push_back(p);*/
+    return res;
 } //----- Fin de Méthode
 
 vector<Print*> PrintManager::getPrints()
@@ -68,25 +96,6 @@ int PrintManager::load(string path)
 } //----- Fin de Méthode*/
 
 //-------------------------------------------- Constructeurs - destructeur
-PrintManager::PrintManager ( const PrintManager & unPrintManager )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <PrintManager>" << endl;
-#endif
-} //----- Fin de PrintManager (constructeur de copie)
-
-
-PrintManager::PrintManager ( )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de <PrintManager>" << endl;
-#endif
-} //----- Fin de PrintManager
-
 
 PrintManager::~PrintManager ( )
 // Algorithme :
@@ -101,4 +110,11 @@ PrintManager::~PrintManager ( )
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-
+PrintManager::PrintManager ( )
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au constructeur de <PrintManager>" << endl;
+#endif
+} //----- Fin de PrintManager
