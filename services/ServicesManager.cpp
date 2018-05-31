@@ -49,13 +49,24 @@ void ServicesManager::initializeBDPrints(string descriptionFile, string standard
 // Algorithme
 //
 {
-    PrintManager * pa = PrintManager::Get();
-    pa->setDescriptionAttributes(descriptionFile);
-    pa->createPrints(standardFile);
+    PrintManager * pm = PrintManager::Get();
+    pm->setDescriptionAttributes(descriptionFile);
+    pm->createPrints(standardFile);
     /*vector<Print *> vp = pa->GetPrints();
     for (int i = 0; i< vp.size(); i++){
         cout << vp[i]->Serialize() << endl;
     }*/
+}
+
+void ServicesManager::RunAnalysis(string file)
+{
+    PrintManager * pm = PrintManager::Get();
+    pm->createPrints(file);
+    vector<Print *> vp = pm->GetPrints();
+    for (int i=0; i< vp.size(); i++){
+        cout << vp[i]->Serialize() << endl;
+    }
+    //PrintAnalyzer pa = PrintAnalyzer();
 }
 
 void ServicesManager::DisplayDiseases()
@@ -68,11 +79,6 @@ void ServicesManager::DisplayDiseases()
 void ServicesManager::DisplayDisease(string name)
 {
 	//TODO
-}
-
-void ServicesManager::RunAnalysis(string file)
-{
-    PrintAnalyzer pa = PrintAnalyzer();
 }
 
 //-------------------------------------------- Constructeurs - destructeur
@@ -101,7 +107,9 @@ ServicesManager::~ServicesManager ( )
 //
 {
     DoctorManager * dom = DoctorManager::Get();
+    PrintManager * pm = PrintManager::Get();
     delete(dom);
+    delete(pm);
 #ifdef MAP
     cout << "Appel au destructeur de <ServicesManager>" << endl;
 #endif

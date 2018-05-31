@@ -14,6 +14,7 @@
 //-------------------------------------------------------- Include système
 #include <string>
 #include <vector>
+#include <fstream>
 #include <algorithm>
 #include <sstream>
 using namespace std;
@@ -73,8 +74,8 @@ int DoctorManager::Save(string path)
  //
  {
      ofstream of;
-     fileWriter fw = fileWriter();
      of.open("fichiersTest/"+path);
+     fileWriter fw = fileWriter();
      for (int i=0; i<this->doctors.size(); i++){
          fw.writeDoctor(of, this->doctors[i]);
      }

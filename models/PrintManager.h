@@ -21,6 +21,7 @@
 #include "./Print.h"
 #include "./Attribute.h"
 #include "../fileOperations/fileReader.h"
+#include "../fileOperations/fileWriter.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -55,10 +56,13 @@ public:
     // Contrat :
     //
 	
-	Print * CreatePrint(Print & aPrint);
+	Print * CreatePrintCopie(Print & aPrint);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
     
 	void createPrints(string standardFile);
-
     // Mode d'emploi :
     //
     // Contrat :
@@ -82,7 +86,7 @@ public:
 	// Contrat :
 	//
 
-	int Save(string path, Print prints[]);
+	int Save(string path="writePrints.txt");
 	// Mode d'emploi :
 	//
 	// Contrat :

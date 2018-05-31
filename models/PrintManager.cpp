@@ -13,6 +13,7 @@
 
 //-------------------------------------------------------- Include système
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -65,14 +66,21 @@ void PrintManager::createPrints(string standardFile)
 {
     fileReader fr = fileReader();
     vector<DonneesSup> vds = fr.etalonFile(standardFile, this->descriptionAttributes);
-    for (int i = 0; i< vds.size(); i++){
-        Print * p = new Print(vds[i].listeAtt, vds[i].idNb, vds[i].disease);
-        this->prints.push_back(p);
+    if (this->prints.size() == 0){
+        for (int i = 0; i< vds.size(); i++){
+            Print * p = new Print(vds[i].listeAtt, vds[i].idNb, vds[i].disease);
+            this->prints.push_back(p);
+        }
+    } else {
+        for (int i = 0; i< vds.size(); i++){
+            Print * p = new Print(vds[i].listeAtt, (unsigned int) this->prints.size(), vds[i].disease);
+            this->prints.push_back(p);
+        }
     }
 } //----- Fin de Méthode
 
 
-Print * PrintManager::CreatePrint(Print & aPrint)
+Print * PrintManager::CreatePrintCopie(Print & aPrint)
 // Algorithme :
 //
 {
@@ -106,19 +114,27 @@ Print * PrintManager::Update(Print * p, string diseaseName)
 		actualPrint->diseaseName = diseaseName;
 		return actualPrint;
 	}
-	Print * newPrint = this->CreatePrint(*p);
+	Print * newPrint = this->CreatePrintCopie(*p);
 	newPrint->diseaseName = diseaseName;
 	
 	return newPrint;
 } //----- Fin de Update
 
-/*int PrintManager::save(string path, Print Prints[])
+int PrintManager::Save(string path)
 // Algorithme :
 //
 {
+    ofstream of;
+    of.open("fichiersTest/"+path);
+    fileWriter fw = fileWriter();
+    for (int i=0; i<this->prints.size(); i++){
+        fw.writePrint(of, this->prints[i]);
+    }
+    of.close();
+    return 200;
 } //----- Fin de Méthode
 
-int PrintManager::load(string path)
+/*int PrintManager::load(string path)
 // Algorithme :
 //
 {
@@ -130,6 +146,11 @@ PrintManager::~PrintManager ( )
 // Algorithme :
 //
 {
+    this->Save();
+    vector<Print *>::const_iterator ItList;
+    for (ItList = this->prints.begin(); ItList != this->prints.end(); ItList++){
+        delete (*ItList);
+    }
 #ifdef MAP
     cout << "Appel au destructeur de <PrintManager>" << endl;
 #endif

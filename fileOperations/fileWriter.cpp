@@ -27,18 +27,18 @@ using namespace std;
 
 //------------------------------------------------- Surcharge d'opérateurs
 
-ofstream & fileWriter::writePrint(ofstream & of, Print & p)
+ofstream & fileWriter::writePrint(ofstream & of, Print * p)
 {
-	string print = p.Serialize();
+	string print = p->Serialize();
     of << print << endl;
-	return of;
+    return of;
 }
 
 ofstream & fileWriter::writeDoctor(ofstream & of, Doctor * doc)
 {
 	string doctor = doc->Serialize();
 	of << doctor << endl;
-	return of;
+    return of;
 }
 
 //-------------------------------------------- Constructeurs - destructeur

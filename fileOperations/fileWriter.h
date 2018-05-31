@@ -13,7 +13,6 @@
 
 //--------------------------------------------------- Interfaces utilisées
 
-#include <ostream>
 #include <string>
 
 #include "../models/Print.h"
@@ -35,9 +34,9 @@ class fileWriter
 public:
     //----------------------------------------------------- Méthodes publiques
 	
-	ofstream & writePrint(ofstream & of, Print & p);
+	ofstream & writePrint(ofstream & of, Print * p);
 	
-	ofstream & writeDoctor(ofstream & of, Doctor * doc); 
+	ofstream & writeDoctor(ofstream & of, Doctor * doc);
     
     
     //-------------------------------------------- Constructeurs - destructeur
