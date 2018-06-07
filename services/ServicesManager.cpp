@@ -67,15 +67,25 @@ void ServicesManager::RunAnalysis(string file)
 }
 
 void ServicesManager::DisplayDiseases()
-// Algorithme :
-//
 {
-	//TODO check if singleton with DoctorManager works, apply to DiseaseManager and implement	
+	DiseaseManager * dm = DiseaseManager::Get();
+	vector<Disease *> diseases = dm.GetDiseases();
+	
+	for (int i = 0; i < diseases.size(); i++)
+	{
+		diseases[i]->Display();
+	}
 }
 
 void ServicesManager::DisplayDisease(string name)
 {
-	//TODO
+	DiseaseManager * dm = DiseaseManager::Get();
+	Disease * disease = dm.GetDisease(name);
+	
+	for (int i = 0; i < diseases.size(); i++)
+	{
+		disease->Display();
+	}
 }
 
 //-------------------------------------------- Constructeurs - destructeur
