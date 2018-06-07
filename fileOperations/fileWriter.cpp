@@ -16,7 +16,7 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "FileWriter.h"
+#include "fileWriter.h"
 
 //------------------------------------------------------------- Constantes
 

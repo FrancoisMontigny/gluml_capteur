@@ -126,7 +126,7 @@ int AffichageMenu(ServicesManager & sm) {
         cout << "Indiquer le nom du fichier étalon des empreintes à lire" << endl;
         string nomFichierEtalon;
         getline(cin,nomFichierEtalon);
-        sm.initializeBDPrints(nomFichierDescription, nomFichierEtalon);
+        sm.InitializePrints(nomFichierDescription, nomFichierEtalon);
     }
     else if (!(nb.compare("2"))){
         cout << "Entrez le nom, prénom et la spécialité du nouveau docteur séparé par des virgules" << endl;
@@ -136,7 +136,7 @@ int AffichageMenu(ServicesManager & sm) {
         getline(cin, name, ',');
         getline(cin, firstName, ',');
         getline(cin, speciality);
-        sm.CreateNewDoctor(name, firstName, speciality);
+        sm.CreateDoctor(name, firstName, speciality);
     }
     else if (!(nb.compare("3"))) {
         cout << "Entrez le nom du fichier avec la/les nouvelle(s) empreinte(s)" << endl;

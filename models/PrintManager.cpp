@@ -53,8 +53,8 @@ void PrintManager::setDescriptionAttributes(string file)
 // Algorithme
 //
 {
-    fileReader fr = fileReader();
-    vector<Attribute *> va = fr.descriptionFile(file);
+    FileReader fr = FileReader();
+    vector<Attribute *> va = fr.ReadDescriptionFile(file);
     for (int i=0; i<va.size();i++){
         this->descriptionAttributes.push_back(va[i]);
     }
@@ -64,16 +64,16 @@ void PrintManager::createPrints(string standardFile)
 // Algorithme :
 //
 {
-    fileReader fr = fileReader();
-    vector<DonneesSup> vds = fr.etalonFile(standardFile, this->descriptionAttributes);
+    FileReader fr = FileReader();
+    vector<DataLine> vds = fr.EtalonFile(standardFile, this->descriptionAttributes);
     if (this->prints.size() == 0){
         for (int i = 0; i< vds.size(); i++){
-            Print * p = new Print(vds[i].listeAtt, vds[i].idNb, vds[i].disease);
+            Print * p = new Print(vds[i].attributes, vds[i].idNb, vds[i].disease);
             this->prints.push_back(p);
         }
     } else {
         for (int i = 0; i< vds.size(); i++){
-            Print * p = new Print(vds[i].listeAtt, (unsigned int) this->prints.size(), vds[i].disease);
+            Print * p = new Print(vds[i].attributes, (unsigned int) this->prints.size(), vds[i].disease);
             this->prints.push_back(p);
         }
     }
@@ -126,9 +126,9 @@ int PrintManager::Save(string path)
 {
     ofstream of;
     of.open("fichiersTest/"+path);
-    fileWriter fw = fileWriter();
+    FileWriter fw = FileWriter();
     for (int i=0; i<this->prints.size(); i++){
-        fw.writePrint(of, this->prints[i]);
+        fw.WritePrint(of, this->prints[i]);
     }
     of.close();
     return 200;

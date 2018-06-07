@@ -75,9 +75,9 @@ int DoctorManager::Save(string path)
  {
      ofstream of;
      of.open("fichiersTest/"+path);
-     fileWriter fw = fileWriter();
+     FileWriter fw = FileWriter();
      for (int i=0; i<this->doctors.size(); i++){
-         fw.writeDoctor(of, this->doctors[i]);
+         fw.WriteDoctor(of, this->doctors[i]);
      }
      of.close();
      return 200;
@@ -87,8 +87,8 @@ vector <string> DoctorManager::Load(string path)
  // Algorithme :
  //
  {
-     fileReader fr = fileReader();
-     vector <string> listDoc = fr.identification(path);
+     FileReader fr = FileReader();
+     vector <string> listDoc = fr.Identification(path);
 	 return listDoc;
  } //----- Fin de Méthode
 

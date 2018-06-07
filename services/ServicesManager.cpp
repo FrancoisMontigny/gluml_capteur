@@ -69,7 +69,7 @@ void ServicesManager::RunAnalysis(string file)
 void ServicesManager::DisplayDiseases()
 {
 	DiseaseManager * dm = DiseaseManager::Get();
-	vector<Disease *> diseases = dm.GetDiseases();
+    vector<Disease *> diseases = dm->GetDiseases();
 	
 	for (int i = 0; i < diseases.size(); i++)
 	{
@@ -80,12 +80,8 @@ void ServicesManager::DisplayDiseases()
 void ServicesManager::DisplayDisease(string name)
 {
 	DiseaseManager * dm = DiseaseManager::Get();
-	Disease * disease = dm.GetDisease(name);
-	
-	for (int i = 0; i < diseases.size(); i++)
-	{
-		disease->Display();
-	}
+	Disease * disease = dm->GetDisease(name);
+    disease->Display();
 }
 
 //-------------------------------------------- Constructeurs - destructeur
