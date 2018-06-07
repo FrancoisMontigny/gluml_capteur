@@ -4,7 +4,7 @@
  début                : 30 avril 2018
  copyright            : (C) 2018 par François Montigny et Clément Guittat
  e-mail               : francois.montigny@insa-lyon.fr
- clement.guittat@insa-lyon.fr
+						clement.guittat@insa-lyon.fr
  *************************************************************************/
 
 //--- Interface de la classe <PrintAnalyzer> (fichier PrintAnalyzer.h) ---
@@ -24,8 +24,9 @@
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <PrintAnalyzer>
-//
+// Rôle de la classe <PrintAnalyzer> : PrintAnalyzer permet d'analyser une
+// empreinte médicale afin de savoir pour quelles maladies il faut faire
+// un dépistage approfondi.
 //
 //------------------------------------------------------------------------
 
@@ -38,13 +39,7 @@ public:
 
 	vector<Disease> Analyze(Print & p);
 
-
 //-------------------------------------------- Constructeurs - destructeur
-    PrintAnalyzer(const PrintAnalyzer & aPrintAnalyzer);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
     
     PrintAnalyzer();
     // Mode d'emploi :

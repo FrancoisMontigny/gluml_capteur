@@ -7,7 +7,7 @@
  clement.guittat@insa-lyon.fr
  *************************************************************************/
 
-//---------- Réalisation de la classe <PrintAnalyzer> (fichier PrintAnalyzer.cpp) ------------
+//- Réalisation de la classe <PrintAnalyzer> (fichier PrintAnalyzer.cpp) -
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -37,8 +37,6 @@ vector<Disease> PrintAnalyzer::Analyze(Print & p)
 }
 
 PrintAnalyzer::~PrintAnalyzer()
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au destructeur de <PrintAnalyzer>" << endl;

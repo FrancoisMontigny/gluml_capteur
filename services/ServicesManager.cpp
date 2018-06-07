@@ -4,10 +4,10 @@
  début                : 30 avril 2018
  copyright            : (C) 2018 par François Montigny et Clément Guittat
  e-mail               : francois.montigny@insa-lyon.fr
- clement.guittat@insa-lyon.fr
+						clement.guittat@insa-lyon.fr
  *************************************************************************/
 
-//---------- Réalisation de la classe <ServicesManager> (fichier ServicesManager.cpp) ------------
+//Réalisation de la classe <ServicesManager> (fichier ServicesManager.cpp)
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -26,9 +26,7 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 
-Doctor* ServicesManager::Connection(string nom)
-// Algorithme :
-//
+Doctor * ServicesManager::Connection(string nom)
 {
 	DoctorManager * dom = DoctorManager::Get();
 	
@@ -37,21 +35,17 @@ Doctor* ServicesManager::Connection(string nom)
 	return d;	
 } //----- Fin de Connection
 
-Doctor * ServicesManager::CreateNewDoctor(string name, string firstName, string speciality)
-// Algorithme :
-//
+Doctor * ServicesManager::CreateDoctor(string name, string firstName, string speciality)
 {
     DoctorManager * dom = DoctorManager::Get();
     return dom->CreateDoctor(name, firstName, speciality);
-}
+} //----- Fin de CreateDoctor
 
-void ServicesManager::initializeBDPrints(string descriptionFile, string standardFile)
-// Algorithme
-//
+void ServicesManager::InitializePrints(string descriptionFilePath, string standardFilePath)
 {
     PrintManager * pm = PrintManager::Get();
-    pm->setDescriptionAttributes(descriptionFile);
-    pm->createPrints(standardFile);
+    pm->setDescriptionAttributes(descriptionFilePath);
+    pm->createPrints(standardFilePath);
     /*vector<Print *> vp = pa->GetPrints();
     for (int i = 0; i< vp.size(); i++){
         cout << vp[i]->Serialize() << endl;
@@ -62,11 +56,14 @@ void ServicesManager::RunAnalysis(string file)
 {
     PrintManager * pm = PrintManager::Get();
     pm->createPrints(file);
-    vector<Print *> vp = pm->GetPrints();
-    for (int i=0; i< vp.size(); i++){
-        cout << vp[i]->Serialize() << endl;
-    }
+    vector<Print *> prints = pm->GetPrints();
     //PrintAnalyzer pa = PrintAnalyzer();
+    for (int i = 0; i < prints.size(); i++)
+	{
+        cout << prints[i]->Serialize() << endl;
+		//vector<Disease> diseases = pa.Analyse(prints[i])
+		//TODO : display diseases (or a message if there are none)
+    }
 }
 
 void ServicesManager::DisplayDiseases()
@@ -82,15 +79,6 @@ void ServicesManager::DisplayDisease(string name)
 }
 
 //-------------------------------------------- Constructeurs - destructeur
-ServicesManager::ServicesManager(const ServicesManager & aServicesManager)
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <ServicesManager>" << endl;
-#endif
-} //----- Fin de ServicesManager (constructeur de copie)
-
 
 ServicesManager::ServicesManager()
 // Algorithme :
@@ -101,8 +89,7 @@ ServicesManager::ServicesManager()
 #endif
 } //----- Fin de ServicesManager
 
-
-ServicesManager::~ServicesManager ( )
+ServicesManager::~ServicesManager()
 // Algorithme :
 //
 {
