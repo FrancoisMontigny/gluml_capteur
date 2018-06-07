@@ -1,15 +1,15 @@
 /*************************************************************************
- fileWriter  -  description
+ FileWriter  -  description
  -------------------
  début                : 30 avril 2018
  copyright            : (C) 2018 par François Montigny et Clément Guittat
  e-mail               : francois.montigny@insa-lyon.fr
- clement.guittat@insa-lyon.fr
+						clement.guittat@insa-lyon.fr
  *************************************************************************/
 
-//---------- Interface de la classe <fileWriter> (fichier fileWriter.h) ----------------
-#if ! defined ( fileWriter_H )
-#define fileWriter_H
+//------ Interface de la classe <FileWriter> (fichier FileWriter.h) ------
+#if ! defined ( FileWriter_H )
+#define FileWriter_H
 
 //--------------------------------------------------- Interfaces utilisées
 
@@ -22,37 +22,40 @@
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <fileWriter>
-//
+// Rôle de la classe <FileWriter> : FileWriter permet d'écrire dans un
+// fichier à des fins de sauvegarde.
 //
 //------------------------------------------------------------------------
 
-class fileWriter
+class FileWriter
 {
     //----------------------------------------------------------------- PUBLIC
     
 public:
     //----------------------------------------------------- Méthodes publiques
 	
-	ofstream & writePrint(ofstream & of, Print * p);
+	ofstream & WritePrint(ofstream & of, Print * p);
+	// Mode d'emploi : écrire les informations liées à une empreinte médicale
+	// dans un fichier.
+	//
+	// Contrat : of est un ofstream sur un fichier existant ouvert.
 	
-	ofstream & writeDoctor(ofstream & of, Doctor * doc);
+	ofstream & WriteDoctor(ofstream & of, Doctor * doc);
+	// Mode d'emploi : écrire les informations liées à un docteur dans un 
+	// fichier.
+	//
+	// Contrat : of est un ofstream sur un fichier existant ouvert.
     
     
     //-------------------------------------------- Constructeurs - destructeur
-    fileWriter(const fileWriter & afileWriter);
+        
+    FileWriter();
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    fileWriter();
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-    
-    virtual ~fileWriter();
+    virtual ~FileWriter();
     // Mode d'emploi :
     //
     // Contrat :
@@ -68,7 +71,7 @@ protected:
     
 };
 
-//-------------------------------- Autres définitions dépendantes de <fileWriter>
+//----------------------------- Autres définitions dépendantes de <FileWriter>
 
-#endif // fileWriter_H
+#endif // FileWriter_H
 

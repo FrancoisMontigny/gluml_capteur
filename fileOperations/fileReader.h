@@ -1,15 +1,15 @@
 /*************************************************************************
- fileReader  -  description
+ FileReader  -  description
  -------------------
  début                : 30 avril 2018
  copyright            : (C) 2018 par François Montigny et Clément Guittat
  e-mail               : francois.montigny@insa-lyon.fr
- clement.guittat@insa-lyon.fr
+						clement.guittat@insa-lyon.fr
  *************************************************************************/
 
-//---------- Interface de la classe <fileReader> (fichier fileReader.h) ----------------
-#if ! defined ( fileReader_H )
-#define fileReader_H
+//------ Interface de la classe <FileReader> (fichier FileReader.h) ------
+#if ! defined ( FileReader_H )
+#define FileReader_H
 
 //--------------------------------------------------- Interfaces utilisées
 
@@ -20,55 +20,62 @@
 #include "../models/Attribute.h"
 #include "../models/QualitativeAttribute.h"
 #include "../models/QuantitativeAttribute.h"
+
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
-struct DonneesSup
-//permet de stocker toutes les informations d'une ligne d'un fichier de logs
+// Permet de stocker toutes les informations d'une ligne d'un fichier de 
+// logs
+struct DataLine
 {
     unsigned int idNb;
     string disease;
-    vector<Attribute *> listeAtt;
-    DonneesSup (unsigned int nb, string disea, vector<Attribute *> va) : idNb(nb),disease(disea)
+    vector<Attribute *> attributes;
+	
+    DataLine(unsigned int nb, string disease, vector<Attribute *> va) : idNb(nb), disease(disease)
     {
         for (int i = 0; i < va.size() ; i++) {
-            listeAtt.push_back(va[i]);
+            attributes.push_back(va[i]);
         }
     }
 };
 
 //------------------------------------------------------------------------
-// Rôle de la classe <fileReader>
-//
+// Rôle de la classe <FileReader> : FileReader permet de lire les 
+// informations contenues dans un fichier afin de reconstituer des 
+// empreintes médicales, maladies ou docteurs.
 //
 //------------------------------------------------------------------------
 
-class fileReader
+class FileReader
 {
     //----------------------------------------------------------------- PUBLIC
     
 public:
     //----------------------------------------------------- Méthodes publiques
-    vector<Attribute *> descriptionFile(string descriptionFile);
+    vector<Attribute *> ReadDescriptionFile(string path);
+    // Mode d'emploi : Lit le fichier de description du format des empreintes
+    // pour préparer la lecture du fichier d'empreintes.
+	//
+    // Contrat : Aucun.
+    //
+    
+    Attribute * ReadAttribute(istream & is);
+    // Mode d'emploi : Lit la description d'un attribut dans le fichier de
+	// description afin de construire son modèle.
+    //
+    // Contrat : is pointe sur le fichier, ouvert, de description du format 
+    // des empreintes.
+	//
+    
+    vector<DataLine> EtalonFile(string path, vector<Attribute *> & attributes);
     // Mode d'emploi :
     //
     // Contrat :
     //
     
-    Attribute * attrFromFile(istream & is);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-    
-    vector<DonneesSup> etalonFile(string standardFile,  vector<Attribute *> & la);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-    
-    vector <string> identification(string path);
+    vector<string> Identification(string path);
     // Mode d'emploi :
     //
     // Contrat :
@@ -76,17 +83,9 @@ public:
 
     //-------------------------------------------- Constructeurs - destructeur
     
-    fileReader ();
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    FileReader();
     
-    virtual ~fileReader ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    virtual ~FileReader();
     
     //------------------------------------------------------------------ PRIVE
     
@@ -97,7 +96,7 @@ protected:
 
 };
 
-//-------------------------------- Autres définitions dépendantes de <fileReader>
+//----------------------------- Autres définitions dépendantes de <FileReader>
 
-#endif // fileReader_H
+#endif // FileReader_H
 

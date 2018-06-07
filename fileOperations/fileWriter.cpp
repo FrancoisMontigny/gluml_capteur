@@ -1,13 +1,13 @@
 /*************************************************************************
- fileWriter  -  description
+ FileWriter  -  description
  -------------------
  début                : 30 avril 2018
  copyright            : (C) 2018 par François Montigny et Clément Guittat
  e-mail               : francois.montigny@insa-lyon.fr
- clement.guittat@insa-lyon.fr
+						clement.guittat@insa-lyon.fr
  *************************************************************************/
 
-//---------- Réalisation de la classe <fileWriter> (fichier fileWriter.cpp) ------------
+//---- Réalisation de la classe <FileWriter> (fichier FileWriter.cpp) ----
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -16,7 +16,7 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "fileWriter.h"
+#include "FileWriter.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -27,49 +27,36 @@ using namespace std;
 
 //------------------------------------------------- Surcharge d'opérateurs
 
-ofstream & fileWriter::writePrint(ofstream & of, Print * p)
+ofstream & FileWriter::WritePrint(ofstream & of, Print * p)
 {
 	string print = p->Serialize();
     of << print << endl;
     return of;
-}
+} //----- Fin de WritePrint
 
-ofstream & fileWriter::writeDoctor(ofstream & of, Doctor * doc)
+ofstream & FileWriter::WriteDoctor(ofstream & of, Doctor * doc)
 {
 	string doctor = doc->Serialize();
 	of << doctor << endl;
     return of;
-}
+} //----- Fin de WriteDoctor
 
 //-------------------------------------------- Constructeurs - destructeur
-fileWriter::fileWriter(const fileWriter & afileWriter)
-// Algorithme :
-//
+
+FileWriter::FileWriter()
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <fileWriter>" << endl;
+    cout << "Appel au constructeur de <FileWriter>" << endl;
 #endif
-} //----- Fin de fileWriter (constructeur de copie)
+} //----- Fin de FileWriter
 
 
-fileWriter::fileWriter()
-// Algorithme :
-//
+FileWriter::~FileWriter()
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <fileWriter>" << endl;
+    cout << "Appel au destructeur de <FileWriter>" << endl;
 #endif
-} //----- Fin de fileWriter
-
-
-fileWriter::~fileWriter ( )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au destructeur de <fileWriter>" << endl;
-#endif
-} //----- Fin de ~fileWriter
+} //----- Fin de ~FileWriter
 
 
 //------------------------------------------------------------------ PRIVE

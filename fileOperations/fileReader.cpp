@@ -1,13 +1,13 @@
 /*************************************************************************
- fileReader  -  description
+ FileReader  -  description
  -------------------
  début                : 30 avril 2018
  copyright            : (C) 2018 par François Montigny et Clément Guittat
  e-mail               : francois.montigny@insa-lyon.fr
- clement.guittat@insa-lyon.fr
+						clement.guittat@insa-lyon.fr
  *************************************************************************/
 
-//---------- Réalisation de la classe <fileReader> (fichier fileReader.cpp) ------------
+//---- Réalisation de attributes cattributessse <FileReader> (fichier FileReader.cpp) ----
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -18,68 +18,70 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "fileReader.h"
+#include "FileReader.h"
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-vector<Attribute *> fileReader::descriptionFile(string descriptionFile)
-// Algorithme :
-//
+vector<Attribute *> FileReader::ReadDescriptionFile(string path)
 {
     ifstream fi;
-    fi.open("fichiersTest/"+descriptionFile);
+    fi.open("fichiersTest/" + path);
     vector<Attribute *> res;
-    int ligne1 = 2;
-    while(fi.good()) {
+    int firstLines = 2;
+    while(fi.good())
+	{
         string line;
-        getline ( fi, line);
-        if (ligne1 == 0) {
-            if (line.size() != 0) {
-                stringstream ss (line);
-                res.push_back(this->attrFromFile(ss));
+        getline(fi, line);
+        if (firstLines == 0)
+		{
+            if (line.size() != 0)
+			{
+                stringstream ss(line);
+                res.push_back(this->ReadAttribute(ss));
             }
         }
-        else {
-            ligne1 --;
+        else
+		{
+            firstLines--;
         }
     }
     fi.close();
     return res;
-} //----- Fin de Méthode
+} //----- Fin de ReadDescriptionFile
 
-Attribute * fileReader::attrFromFile(istream & is)
-// Algorithme :
-//
+Attribute * FileReader::ReadAttribute(istream & is)
 {
     Attribute * attr;
     string nom;
     string type;
     getline(is, nom, ';');
     getline(is, type, '\r');
-    if (! type.compare("string") ) {
+    if (! type.compare("string"))
+	{
         attr = new QualitativeAttribute(nom);
     }
-    else {
+    else
+	{
         attr = new QuantitativeAttribute(nom);
     }
     return attr;
-}
+} //----- Fin de ReadAttribute
 
-vector<DonneesSup> fileReader::etalonFile(string standardFile, vector<Attribute *> & la)
-// Algorithme :
-//
+vector<DataLine> FileReader::EtalonFile(string path, vector<Attribute *> & attributes)
 {
     ifstream fi;
-    fi.open("fichiersTest/"+standardFile);
-    int ligne1 = 1;
-    vector<DonneesSup> vds;
+    fi.open("fichiersTest/" + path);
+    int firstLines = 1;
+    vector<DataLine> dataLines;
     while (fi.good()) {
         string line;
         getline(fi, line);
-        if (ligne1 == 0) {
-            if (line.size() != 0) {
+        if (firstLines == 0)
+		{
+            if (line.size() != 0)
+			{
 				
 				vector<Attribute *> attributes;
 				stringstream ss (line);
@@ -87,7 +89,7 @@ vector<DonneesSup> fileReader::etalonFile(string standardFile, vector<Attribute 
                 getline(ss, idString, ';');
                 unsigned int id = stoi(idString);
                 
-				for (vector<Attribute *>::const_iterator it = la.begin(); it != la.end(); ++it) 
+				for (vector<Attribute *>::const_iterator it = attributes.begin(); it != attributes.end(); ++it) 
 				{
 					string att;
                     getline(ss, att, ';');
@@ -96,28 +98,32 @@ vector<DonneesSup> fileReader::etalonFile(string standardFile, vector<Attribute 
 					attributes.push_back(a);
 				}
 
-                string maladie;
-                getline(ss, maladie, '\r');
-                vds.push_back(DonneesSup(id, maladie, attributes));
+                string maattributesdie;
+                getline(ss, maattributesdie, '\r');
+                dataLines.push_back(DataLine(id, maattributesdie, attributes));
 				attributes.clear();								
             }
         }
-        else {
-            ligne1 = 0;
+        else 
+		{
+            firstLines = 0;
         }
     }
     fi.close();
-    return vds;
+    return dataLines;
 }
 
-vector <string> fileReader::identification(string path){
+vector<string> FileReader::Identification(string path)
+{
     ifstream fi;
-    fi.open("fichiersTest/"+path);
-    vector <string> res;
-    while(fi.good()) {
+    fi.open("fichiersTest/" + path);
+    vector<string> res;
+    while (fi.good()) 
+	{
         string line;
-        getline ( fi, line);
-        if (line.size() != 0) {
+        getline(fi, line);
+        if (line.size() != 0) 
+		{
             res.push_back(line);
         }
     }
@@ -129,24 +135,20 @@ vector <string> fileReader::identification(string path){
 
 //-------------------------------------------- Constructeurs - destructeur
 
-fileReader::fileReader ( )
-// Algorithme :
-//
+FileReader::FileReader()
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <fileReader>" << endl;
+    cout << "Appel au constructeur de <FileReader>" << endl;
 #endif
-} //----- Fin de fileReader
+} //----- Fin de FileReader
 
 
-fileReader::~fileReader ( )
-// Algorithme :
-//
+FileReader::~FileReader()
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <fileReader>" << endl;
+    cout << "Appel au destructeur de <FileReader>" << endl;
 #endif
-} //----- Fin de ~fileReader
+} //----- Fin de ~FileReader
 
 
 //------------------------------------------------------------------ PRIVE
