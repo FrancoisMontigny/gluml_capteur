@@ -4,10 +4,10 @@
  début                : 30 avril 2018
  copyright            : (C) 2018 par François Montigny et Clément Guittat
  e-mail               : francois.montigny@insa-lyon.fr
- clement.guittat@insa-lyon.fr
+						clement.guittat@insa-lyon.fr
  *************************************************************************/
 
-//---------- Interface de la classe <DiseaseManager> (fichier DiseaseManager.h) ----------------
+//-- Interface de la classe <DiseaseManager> (fichier DiseaseManager.h) --
 #if ! defined ( DiseaseManager_H )
 #define DiseaseManager_H
 
@@ -23,8 +23,9 @@
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <DiseaseManager>
-//
+// Rôle de la classe <DiseaseManager> : DiseaseManager gère la 
+// construction, la sauvegarde et le chargement des objets Disease.
+// Ce Manager permet également de retrouver des maladies par leur nom.
 //
 //------------------------------------------------------------------------
 
@@ -36,15 +37,15 @@ public:
     //----------------------------------------------------- Méthodes publiques
     
     static DiseaseManager * Get();
-    // Mode d'emploi : récupérer l'instance unique de la classe.
+    // Mode d'emploi : Récupérer l'instance unique de la classe.
     //
-    // Contrat :
+    // Contrat : Aucun.
     //
     
-    Disease* createDisease(string name, vector<Measurement> measurements);
-    // Mode d'emploi :
+    Disease* CreateDisease(string name, vector<Measurement> measurements);
+    // Mode d'emploi : Créer un objet Disease.
     //
-    // Contrat :
+    // Contrat : Aucun.
     //
     
     vector<Disease *> GetDiseases();
@@ -53,53 +54,46 @@ public:
     // Contrat :
     //
     
-    Disease* GetDisease(string name);
-    // Mode d'emploi :
+    Disease * GetDisease(string name);
+    // Mode d'emploi : Récupérer une maladie par son nom.
     //
-    // Contrat :
-    //
-    
-    Disease * update(Disease * d);
-    // Mode d'emploi :
-    //
-    // Contrat :
+    // Contrat : Aucun.
     //
     
-    int Save(string path, Disease Diseases[]);
-    // Mode d'emploi :
+    Disease * Update(Disease * d);
+    // Mode d'emploi : Mettre à jour les caractéristiques d'une maladie.
+    //
+    // Contrat : Aucun.
+    //
+    
+    int Save(string path, Disease diseases[]);
+    // Mode d'emploi : Sauvegarder des objets Disease dans un fichier dont
+	// le chemin d'accès est donné par path.
     //
     // Contrat :
     //
     
     int Load(string path);
-    // Mode d'emploi :
+    // Mode d'emploi : Charger un fichier de Disease, path étant le chemin
+	// d'accès du fichier.
     //
-    // Contrat :
+    // Contrat : Aucun.
     //
     
     //-------------------------------------------- Constructeurs - destructeur
-    DiseaseManager (const DiseaseManager &) = delete;
-    // Copying a singleton is illegal
+    DiseaseManager(const DiseaseManager &) = delete;
+    // Copier un singleton n'est pas autorisé
     
-    virtual ~DiseaseManager ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    virtual ~DiseaseManager();
     
     //------------------------------------------------------------------ PRIVE
     
 protected:
     //----------------------------------------------------- Méthodes protégées
     DiseaseManager();
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
     
     //----------------------------------------------------- Attributs protégés
     vector<Disease *> diseases;
-    
     static DiseaseManager * singleton;
 };
 

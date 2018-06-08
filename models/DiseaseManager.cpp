@@ -4,10 +4,10 @@
  début                : 30 avril 2018
  copyright            : (C) 2018 par François Montigny et Clément Guittat
  e-mail               : francois.montigny@insa-lyon.fr
- clement.guittat@insa-lyon.fr
+						clement.guittat@insa-lyon.fr
  *************************************************************************/
 
-//---------- Réalisation de la classe <DiseaseManager> (fichier DiseaseManager.cpp) ------------
+//Réalisation de la classe <DiseaseManager> (fichier DiseaseManager.cpp) -
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -37,27 +37,21 @@ DiseaseManager * DiseaseManager::Get()
         singleton = new DiseaseManager;
     }
     return singleton;
-}
+} //----- Fin de Get
 
-Disease * DiseaseManager::createDisease(string name, vector<Measurement> measurements)
-// Algorithme :
-//
+Disease * DiseaseManager::CreateDisease(string name, vector<Measurement> measurements)
 {
-	Disease* newDisease = new Disease(name, measurements);
+	Disease * newDisease = new Disease(name, measurements);
     this->diseases.push_back(newDisease);
     return newDisease;
-} //----- Fin de Méthode
+} //----- Fin de CreateDisease
 
 vector<Disease *> DiseaseManager::GetDiseases()
-// Algorithme :
-//
 {
 	return this->diseases;
 } //----- Fin de GetDiseases
 
-Disease* DiseaseManager::GetDisease(string name)
-// Algorithme :
-//
+Disease * DiseaseManager::GetDisease(string name)
 {
 	vector<Disease *>::iterator it = this->diseases.begin();
 	
@@ -74,9 +68,7 @@ Disease* DiseaseManager::GetDisease(string name)
 	return *(it);
 } //----- Fin de GetDisease
 
-Disease* DiseaseManager::update(Disease * d)
-// Algorithme :
-//
+Disease* DiseaseManager::Update(Disease * d)
 {
     // recalcul des valeurs de Disease
 	return d; //TODO

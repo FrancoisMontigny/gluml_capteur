@@ -19,8 +19,9 @@
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Attribute>
-//
+// Rôle de la classe <Attribute> : Attribute est une classe abstraite
+// permettant de représenter n'importe quel attribut, qu'il soit 
+// qualitatif ou quantitatif, grâce à l'héritage et au polymorphisme.
 //
 //------------------------------------------------------------------------
 
@@ -32,27 +33,36 @@ public:
     
 //----------------------------------------------------- Méthodes publiques
     
-    virtual string description() const;
+    virtual string Description() const;
+    // Mode d'emploi : Affiche le nom de l'attribut et sa valeur.
+    //
+    // Contrat : Aucun.
+    //
     
-    virtual void setValue(string value) = 0;
+    virtual void SetValue(string value) = 0;
+    // Mode d'emploi : Affecte la valeur de l'attribut.
+    //
+    // Contrat : value n'est pas null.
+    //
     
-    virtual string getValue() const = 0;
+    virtual string GetValue() const = 0;
+    // Mode d'emploi : Récupère la valeur de l'attribut.
+    //
+    // Contrat : Aucun.
+    //
 	
 	virtual Attribute * Copy() const = 0;
+    // Mode d'emploi : Retourne un pointeur sur une copie de l'objet 
+	// support.
+    //
+    // Contrat : Aucun.
+    //
     
 //-------------------------------------------- Constructeurs - destructeur
 
     Attribute();
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
     virtual ~Attribute();
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 //------------------------------------------------------------------ PRIVE
 

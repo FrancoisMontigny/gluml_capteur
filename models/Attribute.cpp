@@ -7,7 +7,7 @@
 						   clement.guittat@insa-lyon.fr
 *************************************************************************/
 
-//---------- Réalisation de la classe <Attribute> (fichier Attribute.cpp) ------------
+//---- Réalisation de la classe <Attribute> (fichier Attribute.cpp) ------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -25,7 +25,7 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-string Attribute::description() const
+string Attribute::Description() const
 {
     string s = "L'empreinte possède l'attribut " + this->name + " dont la valeur est ";
     return s;
@@ -43,7 +43,7 @@ Attribute::Attribute()
 #endif
 } //----- Fin de Attribute
 
-Attribute::~Attribute ()
+Attribute::~Attribute()
 // Algorithme :
 //
 {
