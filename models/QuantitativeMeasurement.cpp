@@ -13,6 +13,7 @@
 
 //-------------------------------------------------------- Include système
 #include <iostream>
+#include <math>
 using namespace std;
 
 //------------------------------------------------------ Include personnel
@@ -31,7 +32,29 @@ string QuantitativeMeasurement::GetSerializedValue()
 
 QuantitativeMeasurement * QuantitativeMeasurement::GetSignificantValues(string diseaseName, vector<Print *> prints)
 {
+	double average, standardDeviation, sum = 0, squaredSum = 0;
+	unsigned int n = 0;
+	for (unsigned int i = 0; i < prints.size(); i++)
+	{
+		vector<Attribute *> printAttributes = prints[i]->GetAttributes();
+		for (unsigned int j = 0; j < printAttributes.size(); j++) 
+		{
+			Attribute * testedAttribute = printAttributes[j];
+			if (this->attribute.compare(testedAttribute->GetName()) == 0)
+			{
+				double value = testedAttribute->GetValue();
+				sum += value
+				squaredSum += value * value;
+				n++;
+			}
+		}
+	}
 	
+	average = sum / n;
+	
+	standardDeviation = sqrt(squaredSum / n - average * average);
+	
+	return new QuantitativeMeasurement(average, standardDeviation);
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
