@@ -35,7 +35,7 @@ struct DataLine
 	
     DataLine(unsigned int nb, string disease, vector<Attribute *> va) : idNb(nb), disease(disease)
     {
-        for (int i = 0; i < va.size() ; i++) {
+        for (unsigned int i = 0; i < va.size() ; i++) {
             attributes.push_back(va[i]);
         }
     }

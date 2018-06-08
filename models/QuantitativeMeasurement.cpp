@@ -57,13 +57,17 @@ QuantitativeMeasurement * QuantitativeMeasurement::GetSignificantValues(string d
 	return new QuantitativeMeasurement(this->attribute, average, standardDeviation);
 }
 
-int QuantitativeMeasurement::Comparison (Print & p) {
+int QuantitativeMeasurement::Comparison (Print & p) 
+{
     vector<Attribute *> va = p.GetAttributes();
-    for (int i = 0; i< va.size(); i++){
-        if (! (this->GetName().compare(va[i]->GetName())) ){
+    for (unsigned int i = 0; i< va.size(); i++)
+	{
+        if (!(this->GetName().compare(va[i]->GetName())))
+		{
             double upperBound = this->value + this->standardDeviation;
             double lowerBound = this->value - this->standardDeviation;
-            if (stod(va[i]->GetValue()) >= lowerBound && stod(va[i]->GetValue()) <= upperBound) {
+            if (stod(va[i]->GetValue()) >= lowerBound && stod(va[i]->GetValue()) <= upperBound) 
+			{
                 return 1;
             }
         }

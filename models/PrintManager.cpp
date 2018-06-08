@@ -94,7 +94,7 @@ int PrintManager::Save(string path)
     ofstream of;
     of.open("fichiersTest/"+path);
     FileWriter fw = FileWriter();
-    for (int i=0; i<this->prints.size(); i++){
+    for (unsigned int i = 0; i < this->prints.size(); i++){
         fw.WritePrint(of, this->prints[i]);
     }
     of.close();
@@ -107,13 +107,18 @@ void PrintManager::Load(string standardFile)
 {
     FileReader fr = FileReader();
     vector<DataLine> vds = fr.EtalonFile(standardFile, this->descriptionAttributes);
-    if (this->prints.size() == 0){
-        for (int i = 0; i< vds.size(); i++){
+    if (this->prints.size() == 0)
+	{
+        for (unsigned int i = 0; i< vds.size(); i++)
+		{
             Print * p = new Print(vds[i].attributes, vds[i].idNb, vds[i].disease);
             this->prints.push_back(p);
         }
-    } else {
-        for (int i = 0; i< vds.size(); i++){
+    } 
+	else 
+	{
+        for (unsigned int i = 0; i< vds.size(); i++)
+		{
             Print * p = new Print(vds[i].attributes, (unsigned int) this->prints.size(), vds[i].disease);
             this->prints.push_back(p);
         }
@@ -127,13 +132,15 @@ PrintManager::~PrintManager ( )
 //
 {
     this->Save();
-    vector<Print *>::const_iterator ItList;
-    for (ItList = this->prints.begin(); ItList != this->prints.end(); ItList++){
-        delete (*ItList);
+    vector<Print *>::const_iterator itList;
+    for (itList = this->prints.begin(); itList != this->prints.end(); itList++)
+	{
+        delete (*itList);
     }
-    vector<Attribute *>::const_iterator ItAttr;
-    for (ItAttr = this->descriptionAttributes.begin(); ItAttr != this->descriptionAttributes.end(); ItAttr++){
-        delete (*ItAttr);
+    vector<Attribute *>::const_iterator itAttr;
+    for (itAttr = this->descriptionAttributes.begin(); itAttr != this->descriptionAttributes.end(); itAttr++)
+	{
+        delete (*itAttr);
     }
 #ifdef MAP
     cout << "Appel au destructeur de <PrintManager>" << endl;
@@ -150,12 +157,13 @@ void PrintManager::setDescriptionAttributes(string file)
 {
     FileReader fr = FileReader();
     vector<Attribute *> va = fr.ReadDescriptionFile(file);
-    for (int i=0; i<va.size();i++){
+    for (unsigned int i = 0; i < va.size(); i++)
+	{
         this->descriptionAttributes.push_back(va[i]);
     }
 }
 
-PrintManager::PrintManager (string descriptionFilePath, string standardFilePath)
+PrintManager::PrintManager(string descriptionFilePath, string standardFilePath)
 // Algorithme :
 //
 {

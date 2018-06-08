@@ -46,12 +46,24 @@ void ServicesManager::RunAnalysis(string file)
     PrintManager * pm = PrintManager::Get();
     pm->Load(file);
     vector<Print *> prints = pm->GetPrints();
-    //PrintAnalyzer pa = PrintAnalyzer();
-    for (int i = 0; i < prints.size(); i++)
+    PrintAnalyzer pa = PrintAnalyzer();
+    for (unsigned int i = 0; i < prints.size(); i++)
 	{
-        cout << prints[i]->Serialize() << endl;
-		//vector<Disease> diseases = pa.Analyse(prints[i])
-		//TODO : display diseases (or a message if there are none)
+        cout << prints[i]->Serialize() << endl;		
+		vector<Disease *> diseases = pa.Analyze(*prints[i]);
+		cout << "Résultats de l'analyse pour l'empreinte :" << prints[i]->Serialize() << endl;
+		if (diseases.size() == 0)
+		{
+			cout << "Cette empreinte ne montre aucun risque de maladie." << endl;
+		}
+		else
+		{
+			cout << "Cette présente des risques ; il est possible que le patient ait la ou les maladies suivantes :" << endl;
+			for (unsigned int j = 0; j < diseases.size(); j++)
+			{
+				cout << diseases[i]->GetName() << endl;
+			}
+		}
     }
 }
 
@@ -60,7 +72,7 @@ void ServicesManager::DisplayDiseases()
 	DiseaseManager * dm = DiseaseManager::Get();
     vector<Disease *> diseases = dm->GetDiseases();
 	
-	for (int i = 0; i < diseases.size(); i++)
+	for (unsigned int i = 0; i < diseases.size(); i++)
 	{
 		diseases[i]->Display();
 	}

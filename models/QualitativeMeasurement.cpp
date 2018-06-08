@@ -66,11 +66,14 @@ QualitativeMeasurement * QualitativeMeasurement::GetSignificantValues(string dis
 	return new QualitativeMeasurement(this->attribute, significantValue);
 }
 
-int QualitativeMeasurement::Comparison (Print & p){
+int QualitativeMeasurement::Comparison (Print & p)
+{
     vector<Attribute *> va = p.GetAttributes();
-    for (int i = 0; i< va.size(); i++){
-        if (! (this->GetName().compare(va[i]->GetName())) ){
-            if (! (this->mostFrequentValue.compare(va[i]->GetValue()))){
+    for (unsigned int i = 0; i< va.size(); i++){
+        if (!this->GetName().compare(va[i]->GetName()))
+		{
+            if (!this->mostFrequentValue.compare(va[i]->GetValue()))
+			{
                 return 1;
             }
         }

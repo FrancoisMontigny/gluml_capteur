@@ -55,7 +55,7 @@ ListDoctor DoctorManager::GetDoctors()
 
 Doctor * DoctorManager::GetDoctor(string nom)
 {
-    for (int i = 0; i < this->doctors.size(); i++)
+    for (unsigned int i = 0; i < this->doctors.size(); i++)
 	{
         if (this->doctors[i]->name == nom)
 		{
@@ -70,7 +70,7 @@ int DoctorManager::Save(string path)
     ofstream of;
     of.open("fichiersTest/" + path);
     FileWriter fw = FileWriter();
-    for (int i = 0; i < this->doctors.size(); i++)
+    for (unsigned int i = 0; i < this->doctors.size(); i++)
 	{
         fw.WriteDoctor(of, this->doctors[i]);
     }
@@ -122,10 +122,9 @@ unsigned int DoctorManager::AutoNumber()
 DoctorManager::DoctorManager(string path)
 {
     vector <string> listDoc = Load(path);
-    for (int i=0; i< listDoc.size(); i++)
+    for (unsigned int i = 0; i < listDoc.size(); i++)
 	{
         stringstream ss (listDoc[i]);
-        Doctor * doc;
         string id;
         string name;
         string firstName;
@@ -134,7 +133,7 @@ DoctorManager::DoctorManager(string path)
         getline(ss, name, ';');
         getline(ss, firstName, ';');
         getline(ss, spe, '\r');
-        doc = this->CreateDoctor(name, firstName, spe);
+        this->CreateDoctor(name, firstName, spe);
     }
 #ifdef MAP
     cout << "Appel au constructeur de <DoctorManager>" << endl;
