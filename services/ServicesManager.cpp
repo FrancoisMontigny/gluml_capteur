@@ -46,13 +46,15 @@ void ServicesManager::RunAnalysis(string file)
     PrintManager * pm = PrintManager::Get();
     pm->Load(file);
     vector<Print *> prints = pm->GetPrints();
-    //PrintAnalyzer pa = PrintAnalyzer();
+    PrintAnalyzer pa = PrintAnalyzer();
     for (int i = 0; i < prints.size(); i++)
 	{
-        cout << prints[i]->Serialize() << endl;
-		//vector<Disease> diseases = pa.Analyse(prints[i])
-		//TODO : display diseases (or a message if there are none)
+        vector<Disease *> diseases = pa.Analyze(*prints[i]);
+        for (int j =0; j< diseases.size(); j++){
+            cout << diseases[j]->Serialize() << endl;
+        }
     }
+    
 }
 
 void ServicesManager::DisplayDiseases()

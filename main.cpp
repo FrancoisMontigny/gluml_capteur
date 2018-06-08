@@ -14,7 +14,10 @@
 #include <vector>
 #include "./models/PrintManager.h"
 #include "./services/ServicesManager.h"
+#include "./models/DiseaseManager.h"
 #include "./services/PrintAnalyzer.h"
+#include "./models/QualitativeMeasurement.h"
+#include "./models/QuantitativeMeasurement.h"
 
 int AffichageMenu(ServicesManager & sm);
 
@@ -47,7 +50,7 @@ int AffichageMenu(ServicesManager & sm)
     cout << "2. Analyser une ou plusieurs empreintes." << endl;
     cout << "3. Afficher les empreintes (test)" << endl;
     cout << "4. test sur les maladies" << endl;
-    cout << "4. Quitter l'application." << endl;
+    cout << "5. Quitter l'application." << endl;
     string nb;
     getline(cin,nb);
 	switch (stoi(nb)) 
@@ -83,6 +86,21 @@ int AffichageMenu(ServicesManager & sm)
         }
         break;
     case 4:
+        {
+            DiseaseManager * dm = DiseaseManager::Get();
+            QualitativeMeasurement * qlime = new QualitativeMeasurement("A1", "AA");
+            QuantitativeMeasurement * qtime= new QuantitativeMeasurement("A2", 3, 1);
+            vector <Measurement *> vme;
+            vme.push_back(qlime);
+            vme.push_back(qtime);
+            dm->CreateDisease("M1", vme);
+            vector <Disease*> v = dm->GetDiseases();
+            for (int i =0; i<v.size(); i++){
+                cout << v[i]->Serialize()<< endl;
+            }
+        }
+            break;
+    case 5:
         return 0;
 
     default:

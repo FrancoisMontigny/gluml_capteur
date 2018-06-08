@@ -36,7 +36,10 @@ string Disease::Serialize() const
 	vector<Measurement *>::const_iterator itAtt;
 	for (itAtt = this->caracteristics.begin(); itAtt != this->caracteristics.end(); ++itAtt)
 	{
-		answer += (*itAtt)->GetSerializedValue() + ";";
+		answer += (*itAtt)->GetSerializedValue();
+        if (itAtt != this->caracteristics.end()-1){
+            answer+= ';';
+        }
 	}
 	
 	return answer;
