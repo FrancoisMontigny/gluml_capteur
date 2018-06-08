@@ -34,6 +34,11 @@ class Measurement
     
 public:
     //----------------------------------------------------- Méthodes publiques
+    string GetName() const;
+    // Mode d'emploi : Récupère le nom de l'attribut lié à la mesure.
+    //
+    // Contrat : Aucun.
+    //
 	
 	virtual string GetSerializedValue() = 0;
     // Mode d'emploi : Retourne la value formatée pour serialization.
@@ -47,6 +52,8 @@ public:
     //
     // Contrat :
     //
+    
+    virtual int Comparison (Print & p) = 0;
     
     //-------------------------------------------- Constructeurs - destructeur
     

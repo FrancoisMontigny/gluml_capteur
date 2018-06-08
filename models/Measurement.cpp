@@ -23,6 +23,9 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
+string Measurement::GetName() const {
+    return this->attribute;
+}
 
 //------------------------------------------------- Surcharge d'opérateurs
 

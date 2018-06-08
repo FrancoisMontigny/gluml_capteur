@@ -30,10 +30,20 @@ using namespace std;
 
 //-------------------------------------------- Constructeurs - destructeur
 
-vector<Disease> PrintAnalyzer::Analyze(Print & p)
+vector<Disease *> PrintAnalyzer::Analyze(Print & p)
 {
-    vector<Disease> vd;
-    return vd;
+    DiseaseManager * dism = DiseaseManager::Get();
+    vector<Disease *> res;
+    vector<Disease * > vd = dism->GetDiseases();
+    for (int i=0; i< vd.size(); i++) {
+        int compt = 0;
+        vector<Measurement *> vme = vd[i]->GetMeasurements();
+        compt += vme[i]->Comparison(p);
+        if ( compt >= 0.75*vd.size() ){
+            res.push_back(vd[i]);
+        }
+    }
+    return res;
 }
 
 PrintAnalyzer::~PrintAnalyzer()

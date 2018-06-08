@@ -59,6 +59,12 @@ public:
     // Contrat : Aucun.
     //
     
+    vector<Measurement *> GetMeasurements();
+    // Mode d'emploi : Récupère les caractéristiques de la maladie.
+    //
+    // Contrat : Aucun.
+    //
+    
     //-------------------------------------------- Constructeurs - destructeur
 	
     Disease(const Disease & aDisease);

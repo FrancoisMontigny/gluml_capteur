@@ -47,6 +47,14 @@ string Disease::GetName()
 	return this->name;
 } //----- Fin de GetName
 
+vector<Measurement *> Disease::GetMeasurements() {
+    return this->caracteristics;
+}
+// Mode d'emploi : Récupère les caractéristiques de la maladie.
+//
+// Contrat : Aucun.
+//
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur

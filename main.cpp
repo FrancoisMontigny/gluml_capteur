@@ -45,7 +45,8 @@ int AffichageMenu(ServicesManager & sm)
 {
     cout << "1. Créer un nouveau docteur." << endl;
     cout << "2. Analyser une ou plusieurs empreintes." << endl;
-    cout << "3. Afficher les maladies" << endl;
+    cout << "3. Afficher les empreintes (test)" << endl;
+    cout << "4. test sur les maladies" << endl;
     cout << "4. Quitter l'application." << endl;
     string nb;
     getline(cin,nb);

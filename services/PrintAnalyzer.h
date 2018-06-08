@@ -18,6 +18,7 @@
 
 #include "../models/Disease.h"
 #include "../models/Print.h"
+#include "../models/DiseaseManager.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -37,7 +38,7 @@ class PrintAnalyzer
 public:
 //----------------------------------------------------- Méthodes publiques
 
-	vector<Disease> Analyze(Print & p);
+	vector<Disease *> Analyze(Print & p);
 
 //-------------------------------------------- Constructeurs - destructeur
     

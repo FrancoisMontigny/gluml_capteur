@@ -36,6 +36,8 @@ public:
 	
 	QualitativeMeasurement * GetSignificantValues(string diseaseName, vector<Print *> prints);
     
+    int Comparison (Print & p);
+    
     //-------------------------------------------- Constructeurs - destructeur
     
     QualitativeMeasurement();
