@@ -50,19 +50,7 @@ public:
     // Contrat :
     //
     
-    void setDescriptionAttributes(string descriptionFile);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-	
 	Print * CreatePrintCopie(Print & aPrint);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-    
-	void createPrints(string standardFile);
     // Mode d'emploi :
     //
     // Contrat :
@@ -91,12 +79,12 @@ public:
 	//
 	// Contrat :
 	//
-
-	int Load(string path);
-	// Mode d'emploi :
-	//
-	// Contrat :
-	//
+    
+    void Load(string standardFile);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
     
     PrintManager& operator = (const PrintManager&) = delete;
 
@@ -115,7 +103,13 @@ public:
 
 protected:
 //----------------------------------------------------- Méthodes protégées
-    PrintManager ( );
+    void setDescriptionAttributes(string descriptionFile);
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
+
+    PrintManager (string descriptionFilePath = "description.txt", string standardFilePath="etalon.txt");
     // Mode d'emploi :
     //
     // Contrat :

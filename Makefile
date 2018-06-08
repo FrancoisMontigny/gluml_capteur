@@ -38,4 +38,4 @@ clean :
 
 #make mrproper && make pour supprimer avant de reconstruire 
 mrproper : clean
-	rm -rf test
+	rm -rf run

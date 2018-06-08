@@ -29,17 +29,6 @@ using namespace std;
 PrintManager * PrintManager::singleton = nullptr;
 
 //----------------------------------------------------- Méthodes publiques
-
-Print * PrintManager::CreatePrint(vector<Attribute *> & attributes, unsigned int id, const string disease)
-// Algorithme :
-//
-{
-    Print * p = new Print(attributes, id , disease);
-    this->prints.push_back(p);
-    return p;
-} //----- Fin de CreatePrint
-
-
 PrintManager * PrintManager::Get()
 {
     if (!singleton)
@@ -49,36 +38,14 @@ PrintManager * PrintManager::Get()
     return singleton;
 }
 
-void PrintManager::setDescriptionAttributes(string file)
-// Algorithme
-//
-{
-    FileReader fr = FileReader();
-    vector<Attribute *> va = fr.ReadDescriptionFile(file);
-    for (int i=0; i<va.size();i++){
-        this->descriptionAttributes.push_back(va[i]);
-    }
-}
-
-void PrintManager::createPrints(string standardFile)
+Print * PrintManager::CreatePrint(vector<Attribute *> & attributes, unsigned int id, const string disease)
 // Algorithme :
 //
 {
-    FileReader fr = FileReader();
-    vector<DataLine> vds = fr.EtalonFile(standardFile, this->descriptionAttributes);
-    if (this->prints.size() == 0){
-        for (int i = 0; i< vds.size(); i++){
-            Print * p = new Print(vds[i].attributes, vds[i].idNb, vds[i].disease);
-            this->prints.push_back(p);
-        }
-    } else {
-        for (int i = 0; i< vds.size(); i++){
-            Print * p = new Print(vds[i].attributes, (unsigned int) this->prints.size(), vds[i].disease);
-            this->prints.push_back(p);
-        }
-    }
-} //----- Fin de Méthode
-
+    Print * p = new Print(attributes, id , disease);
+    this->prints.push_back(p);
+    return p;
+} //----- Fin de CreatePrint
 
 Print * PrintManager::CreatePrintCopie(Print & aPrint)
 // Algorithme :
@@ -134,11 +101,24 @@ int PrintManager::Save(string path)
     return 200;
 } //----- Fin de Méthode
 
-/*int PrintManager::load(string path)
+void PrintManager::Load(string standardFile)
 // Algorithme :
 //
 {
-} //----- Fin de Méthode*/
+    FileReader fr = FileReader();
+    vector<DataLine> vds = fr.EtalonFile(standardFile, this->descriptionAttributes);
+    if (this->prints.size() == 0){
+        for (int i = 0; i< vds.size(); i++){
+            Print * p = new Print(vds[i].attributes, vds[i].idNb, vds[i].disease);
+            this->prints.push_back(p);
+        }
+    } else {
+        for (int i = 0; i< vds.size(); i++){
+            Print * p = new Print(vds[i].attributes, (unsigned int) this->prints.size(), vds[i].disease);
+            this->prints.push_back(p);
+        }
+    }
+} //----- Fin de Méthode
 
 //-------------------------------------------- Constructeurs - destructeur
 
@@ -160,10 +140,23 @@ PrintManager::~PrintManager ( )
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-PrintManager::PrintManager ( )
+void PrintManager::setDescriptionAttributes(string file)
+// Algorithme
+//
+{
+    FileReader fr = FileReader();
+    vector<Attribute *> va = fr.ReadDescriptionFile(file);
+    for (int i=0; i<va.size();i++){
+        this->descriptionAttributes.push_back(va[i]);
+    }
+}
+
+PrintManager::PrintManager (string descriptionFilePath, string standardFilePath)
 // Algorithme :
 //
 {
+    this->setDescriptionAttributes(descriptionFilePath);
+    this->Load(standardFilePath);
 #ifdef MAP
     cout << "Appel au constructeur de <PrintManager>" << endl;
 #endif

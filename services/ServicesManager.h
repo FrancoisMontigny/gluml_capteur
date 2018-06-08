@@ -51,12 +51,6 @@ public:
     // Contrat :
     //
     
-    void InitializePrints(string descriptionFile, string standardFile);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-    
     void DisplayDiseases();
     // Mode d'emploi :
     //

@@ -14,10 +14,6 @@
 #include <vector>
 #include "./models/DoctorManager.h"
 #include "./models/PrintManager.h"
-#include "./models/QualitativeAttribute.h"
-#include "./models/QuantitativeAttribute.h"
-#include "./fileOperations/FileReader.h"
-#include "./fileOperations/FileWriter.h"
 #include "./services/ServicesManager.h"
 #include "./services/PrintAnalyzer.h"
 
@@ -25,7 +21,6 @@ int AffichageMenu(ServicesManager & sm);
 
 int main(int argc, const char * argv[])
 {
-
     ServicesManager sm = ServicesManager();
     cout << "Bonjour, veuillez vous connecter pour continuer en entrant un nom"<< endl;
     string nom;
@@ -49,26 +44,15 @@ int main(int argc, const char * argv[])
 
 int AffichageMenu(ServicesManager & sm)
 {
-    cout << "1. Initialisation des données à partir des fichiers enregistrés." << endl;
-    cout << "2. Créer un nouveau docteur." << endl;
-    cout << "3. Analyser une ou plusieurs empreintes." << endl;
+    cout << "1. Créer un nouveau docteur." << endl;
+    cout << "2. Analyser une ou plusieurs empreintes." << endl;
+    cout << "3. Afficher les maladies" << endl;
     cout << "4. Quitter l'application." << endl;
     string nb;
     getline(cin,nb);
 	switch (stoi(nb)) 
 	{
     case 1:
-        {
-            cout << "Indiquer le nom du fichier de description des attributs à lire avec l'extension" << endl;
-            string descriptionFileName;
-            getline(cin, descriptionFileName);
-            cout << "Indiquer le nom du fichier étalon des empreintes à lire" << endl;
-            string etalonFileName;
-            getline(cin, etalonFileName);
-            sm.InitializePrints(descriptionFileName, etalonFileName);
-        }
-		break;
-    case 2:
         {
             cout << "Entrez le nom, prénom et la spécialité du nouveau docteur, séparés par des virgules" << endl;
             string name;
@@ -80,7 +64,7 @@ int AffichageMenu(ServicesManager & sm)
             sm.CreateDoctor(name, firstName, speciality);
         }
 		break;
-    case 3:
+    case 2:
         {
             cout << "Entrez le nom du fichier avec la/les nouvelle(s) empreinte(s)" << endl;
             string fileName;
@@ -88,6 +72,16 @@ int AffichageMenu(ServicesManager & sm)
             sm.RunAnalysis(fileName);
         }
 		break;
+    
+    case 3:
+        {
+            PrintManager * pm = PrintManager::Get();
+            vector<Print *> vpm = pm->GetPrints();
+            for (int i =0; i< vpm.size(); i++){
+                cout << vpm[i]->Serialize() << endl;
+            }
+        }
+        break;
     case 4:
         return 0;
 
