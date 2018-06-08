@@ -131,6 +131,10 @@ PrintManager::~PrintManager ( )
     for (ItList = this->prints.begin(); ItList != this->prints.end(); ItList++){
         delete (*ItList);
     }
+    vector<Attribute *>::const_iterator ItAttr;
+    for (ItAttr = this->descriptionAttributes.begin(); ItAttr != this->descriptionAttributes.end(); ItAttr++){
+        delete (*ItAttr);
+    }
 #ifdef MAP
     cout << "Appel au destructeur de <PrintManager>" << endl;
 #endif

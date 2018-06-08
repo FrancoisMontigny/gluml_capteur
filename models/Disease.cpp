@@ -85,6 +85,11 @@ Disease::~Disease()
 // Algorithme :
 //
 {
+    vector<Measurement *>::const_iterator itList;
+    for (itList = this->caracteristics.begin(); itList != this->caracteristics.end(); itList++)
+    {
+        delete (*itList);
+    }
 #ifdef MAP
     cout << "Appel au destructeur de <Disease>" << endl;
 #endif

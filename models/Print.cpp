@@ -101,6 +101,11 @@ Print::~Print()
 // Algorithme :
 //
 {
+    vector<Attribute *>::const_iterator itList;
+    for (itList = this->caract.begin(); itList != this->caract.end(); itList++)
+    {
+        delete (*itList);
+    }
 #ifdef MAP
     cout << "Appel au destructeur de <Print>" << endl;
 #endif
