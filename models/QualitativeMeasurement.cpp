@@ -63,7 +63,7 @@ QualitativeMeasurement * QualitativeMeasurement::GetSignificantValues(string dis
 		}
 	}
 	
-	return new QualitativeMeasurement(significantValue);
+	return new QualitativeMeasurement(this->attribute, significantValue);
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -79,7 +79,7 @@ QualitativeMeasurement::QualitativeMeasurement()
 #endif
 } //----- Fin de QualitativeMeasurement
 
-QualitativeMeasurement::QualitativeMeasurement(string value):mostFrequentValue(value)
+QualitativeMeasurement::QualitativeMeasurement(string attribute, string value): Measurement(attribute), mostFrequentValue(value)
 // Algorithme :
 //
 {

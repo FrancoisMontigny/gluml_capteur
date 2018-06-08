@@ -36,22 +36,25 @@ public:
     //----------------------------------------------------- Méthodes publiques
 	
 	virtual string GetSerializedValue() = 0;
+    // Mode d'emploi : Retourne la value formatée pour serialization.
+    //
+    // Contrat :
+    //
 	
 	virtual Measurement * GetSignificantValues(string diseaseName, vector<Print *> prints) = 0;
+    // Mode d'emploi : Retourne la valeur pertinente de l'attribut pour 
+	// la maladie diseaseName, calculée sur prints.
+    //
+    // Contrat :
+    //
     
     //-------------------------------------------- Constructeurs - destructeur
     
     Measurement();
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+	
+	Measurement(string attributeName);
     
     virtual ~Measurement();
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
     
     //------------------------------------------------------------------ PRIVE
     

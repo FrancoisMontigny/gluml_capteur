@@ -39,6 +39,8 @@ public:
     //-------------------------------------------- Constructeurs - destructeur
     
     QuantitativeMeasurement();
+	
+	QuantitativeMeasurement(string attribute, double average, double stdDeviation);
     
     virtual ~QuantitativeMeasurement();
     

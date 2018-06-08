@@ -13,7 +13,7 @@
 
 //-------------------------------------------------------- Include système
 #include <iostream>
-#include <math>
+#include <math.h>
 using namespace std;
 
 //------------------------------------------------------ Include personnel
@@ -42,8 +42,8 @@ QuantitativeMeasurement * QuantitativeMeasurement::GetSignificantValues(string d
 			Attribute * testedAttribute = printAttributes[j];
 			if (this->attribute.compare(testedAttribute->GetName()) == 0)
 			{
-				double value = testedAttribute->GetValue();
-				sum += value
+				double value = stod(testedAttribute->GetValue());
+				sum += value;
 				squaredSum += value * value;
 				n++;
 			}
@@ -54,7 +54,7 @@ QuantitativeMeasurement * QuantitativeMeasurement::GetSignificantValues(string d
 	
 	standardDeviation = sqrt(squaredSum / n - average * average);
 	
-	return new QuantitativeMeasurement(average, standardDeviation);
+	return new QuantitativeMeasurement(this->attribute, average, standardDeviation);
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -62,18 +62,20 @@ QuantitativeMeasurement * QuantitativeMeasurement::GetSignificantValues(string d
 //-------------------------------------------- Constructeurs - destructeur
 
 QuantitativeMeasurement::QuantitativeMeasurement()
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au constructeur de <QuantitativeMeasurement>" << endl;
 #endif
 } //----- Fin de QuantitativeMeasurement
 
+QuantitativeMeasurement::QuantitativeMeasurement(string attribute, double average, double stdDeviation): Measurement(attribute), value(average), standardDeviation(stdDeviation)
+{
+#ifdef MAP
+    cout << "Appel au constructeur de <QuantitativeMeasurement>" << endl;
+#endif
+} //----- Fin de QuantitativeMeasurement
 
 QuantitativeMeasurement::~QuantitativeMeasurement()
-// Algorithme :
-//
 {
 #ifdef MAP
     cout << "Appel au destructeur de <QuantitativeMeasurement>" << endl;

@@ -28,7 +28,16 @@ using namespace std;
 
 //-------------------------------------------- Constructeurs - destructeur
 
-Measurement::Measurement ( )
+Measurement::Measurement()
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au constructeur de <Measurement>" << endl;
+#endif
+} //----- Fin de Measurement
+
+Measurement::Measurement(string attributeName): attribute(attributeName)
 // Algorithme :
 //
 {
@@ -38,7 +47,7 @@ Measurement::Measurement ( )
 } //----- Fin de Measurement
 
 
-Measurement::~Measurement ( )
+Measurement::~Measurement()
 // Algorithme :
 //
 {

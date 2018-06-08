@@ -40,7 +40,7 @@ public:
     
     QualitativeMeasurement();
 	
-	QualitativeMeasurement(string value);
+	QualitativeMeasurement(string attribute, string value);
     
     virtual ~QualitativeMeasurement();
     
