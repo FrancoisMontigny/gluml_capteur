@@ -4,10 +4,10 @@
  début                : 30 avril 2018
  copyright            : (C) 2018 par François Montigny et Clément Guittat
  e-mail               : francois.montigny@insa-lyon.fr
- clement.guittat@insa-lyon.fr
+						clement.guittat@insa-lyon.fr
  *************************************************************************/
 
-//---------- Réalisation de la classe <QuantitativeMeasurement> (fichier QuantitativeMeasurement.cpp) ------------
+// Réalisation de la classe <QuantitativeMeasurement> (fichier QuantitativeMeasurement.cpp)
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -24,21 +24,16 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 
+string GetSerializedValue()
+{
+	return value + ':' + standardDeviation;
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur
 
-QuantitativeMeasurement::QuantitativeMeasurement (const QuantitativeMeasurement & aQuantitativeMeasurement)
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <QuantitativeMeasurement>" << endl;
-#endif
-} //----- Fin de QuantitativeMeasurement (constructeur de copie)
-
-
-QuantitativeMeasurement::QuantitativeMeasurement ( )
+QuantitativeMeasurement::QuantitativeMeasurement()
 // Algorithme :
 //
 {
@@ -48,7 +43,7 @@ QuantitativeMeasurement::QuantitativeMeasurement ( )
 } //----- Fin de QuantitativeMeasurement
 
 
-QuantitativeMeasurement::~QuantitativeMeasurement ( )
+QuantitativeMeasurement::~QuantitativeMeasurement()
 // Algorithme :
 //
 {

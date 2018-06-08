@@ -62,7 +62,7 @@ public:
 	// Contrat :
 	//
 
-	int Save(string path="identification.txt");
+	int Save(string path = "identification.txt");
 	// Mode d'emploi :
 	//
 	// Contrat :
@@ -79,7 +79,7 @@ public:
 //-------------------------------------------- Constructeurs - destructeur
 		
 	DoctorManager (const DoctorManager &) = delete;
-	// Copying a singleton is illegal	
+	// Copier un singleton est illégal
 
     virtual ~DoctorManager();
     // Mode d'emploi :

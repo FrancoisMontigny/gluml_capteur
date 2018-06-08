@@ -66,8 +66,8 @@ public:
     // Contrat : Aucun.
     //
     
-    int Save(string path, Disease diseases[]);
-    // Mode d'emploi : Sauvegarder des objets Disease dans un fichier dont
+    int Save(string path);
+    // Mode d'emploi : Sauvegarder les objets Disease dans un fichier dont
 	// le chemin d'accès est donné par path.
     //
     // Contrat :

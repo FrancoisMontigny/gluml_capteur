@@ -34,6 +34,13 @@ ofstream & FileWriter::WritePrint(ofstream & of, Print * p)
     return of;
 } //----- Fin de WritePrint
 
+ofstream & FileWriter::WritePrint(ofstream & of, Disease * d)
+{
+	string disease = d->Serialize();
+    of << disease << endl;
+    return of;
+} //----- Fin de WritePrint
+
 ofstream & FileWriter::WriteDoctor(ofstream & of, Doctor * doc)
 {
 	string doctor = doc->Serialize();

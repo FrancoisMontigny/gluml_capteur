@@ -41,26 +41,13 @@ public:
     
     string Serialize() const;
 	
-    unsigned int getDoctorId() const;
+    unsigned int GetId() const;
 
 //-------------------------------------------- Constructeurs - destructeur
-	//Doctor(const Doctor & aDoctor);
-	// Mode d'emploi :
-	//
-	// Contrat :
-	//
 
     Doctor(unsigned int id, string name, string firstName, string speciality);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
     virtual ~Doctor();
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 //------------------------------------------------------------------ PRIVE
 

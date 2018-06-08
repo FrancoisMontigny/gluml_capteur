@@ -40,6 +40,12 @@ public:
 	//
 	// Contrat : of est un ofstream sur un fichier existant ouvert.
 	
+	ofstream & WriteDisease(ofstream & of, Disease * d);
+	// Mode d'emploi : écrire les informations liées à une maladie
+	// dans un fichier.
+	//
+	// Contrat : of est un ofstream sur un fichier existant ouvert.
+	
 	ofstream & WriteDoctor(ofstream & of, Doctor * doc);
 	// Mode d'emploi : écrire les informations liées à un docteur dans un 
 	// fichier.

@@ -16,14 +16,15 @@
 #include "./models/PrintManager.h"
 #include "./models/QualitativeAttribute.h"
 #include "./models/QuantitativeAttribute.h"
-#include "./fileOperations/fileReader.h"
-#include "./fileOperations/fileWriter.h"
+#include "./fileOperations/FileReader.h"
+#include "./fileOperations/FileWriter.h"
 #include "./services/ServicesManager.h"
 #include "./services/PrintAnalyzer.h"
 
 int AffichageMenu(ServicesManager & sm);
 
-int main(int argc, const char * argv[]) {
+int main(int argc, const char * argv[])
+{
 
     ServicesManager sm = ServicesManager();
     cout << "Bonjour, veuillez vous connecter pour continuer en entrant un nom"<< endl;
@@ -46,11 +47,12 @@ int main(int argc, const char * argv[]) {
     return 0;
 }
 
-int AffichageMenu(ServicesManager & sm) {
-    cout << "1. Initialisation des données à partir des fichiers enregistrés" << endl;
-    cout << "2. Créer un nouveau docteur" << endl;
-    cout << "3. Analyser une/des nouvelle(s) empreinte(s)" << endl;
-    cout << "4. Quitter l'app" << endl;
+int AffichageMenu(ServicesManager & sm)
+{
+    cout << "1. Initialisation des données à partir des fichiers enregistrés." << endl;
+    cout << "2. Créer un nouveau docteur." << endl;
+    cout << "3. Analyser une ou plusieurs empreintes." << endl;
+    cout << "4. Quitter l'application." << endl;
     string nb;
     getline(cin,nb);
 	switch (stoi(nb)) 

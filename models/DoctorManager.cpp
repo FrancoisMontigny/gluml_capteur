@@ -38,70 +38,62 @@ DoctorManager * DoctorManager::Get()
 		singleton = new DoctorManager();
 	}
 	return singleton;
-}
+} //----- Fin de Get
 
 Doctor * DoctorManager::CreateDoctor(string name, string firstName, string speciality)
-// Algorithme :
-//
 {
     unsigned int id = AutoNumber();
     Doctor * d = new Doctor (id, name, firstName, speciality);
     this->doctors.push_back(d);
     return d;
-} //----- Fin de Méthode
+} //----- Fin de CreateDoctor
 
 ListDoctor DoctorManager::GetDoctors()
-// Algorithme :
-//
 {
     return this->doctors;
-} //----- Fin de Méthode
+} //----- Fin de GetDoctors
 
 Doctor * DoctorManager::GetDoctor(string nom)
-// Algorithme :
-//
 {
-    for (int i=0; i< this->doctors.size(); i++){
-        if (this->doctors[i]->name == nom){
+    for (int i = 0; i < this->doctors.size(); i++)
+	{
+        if (this->doctors[i]->name == nom)
+		{
             return this->doctors[i];
         }
     }
     return nullptr;
-} //----- Fin de Méthode
+} //----- Fin de GetDoctor
 
 int DoctorManager::Save(string path)
- // Algorithme :
- //
- {
-     ofstream of;
-     of.open("fichiersTest/"+path);
-     FileWriter fw = FileWriter();
-     for (int i=0; i<this->doctors.size(); i++){
-         fw.WriteDoctor(of, this->doctors[i]);
-     }
-     of.close();
-     return 200;
- } //----- Fin de Méthode
+{
+    ofstream of;
+    of.open("fichiersTest/" + path);
+    FileWriter fw = FileWriter();
+    for (int i = 0; i < this->doctors.size(); i++)
+	{
+        fw.WriteDoctor(of, this->doctors[i]);
+    }
+    of.close();
+    return 0;
+} //----- Fin de Save
  
 vector <string> DoctorManager::Load(string path)
- // Algorithme :
- //
- {
-     FileReader fr = FileReader();
-     vector <string> listDoc = fr.Identification(path);
-	 return listDoc;
- } //----- Fin de Méthode
+{
+    FileReader fr = FileReader();
+    vector <string> listDoc = fr.Identification(path);
+	return listDoc;
+} //----- Fin de Load
 
 //-------------------------------------------- Constructeurs - destructeur
 
 DoctorManager::~DoctorManager()
-// Algorithme :
-//
 {
     this->Save();
-    ListDoctor::const_iterator ItList;
-    for (ItList = this->doctors.begin(); ItList != this->doctors.end(); ItList++){
-        delete (*ItList);
+    ListDoctor::const_iterator itList;
+    for (itList = this->doctors.begin(); itList != this->doctors.end(); itList++)
+	{
+        delete (*itList);
     }
 #ifdef MAP
     cout << "Appel au destructeur de <DoctorManager>" << endl;
@@ -116,21 +108,22 @@ DoctorManager::~DoctorManager()
 unsigned int DoctorManager::AutoNumber()
 {
     static unsigned int ID;
-    if (this->doctors.size()!=0){
-         ID = (unsigned int)this->doctors.size()+1;
+    if (this->doctors.size() != 0)
+	{
+         ID = (unsigned int)this->doctors.size() + 1;
     }
-    else {
+    else
+	{
         ID = 1;
     }
     return ID;
 }
 
 DoctorManager::DoctorManager(string path)
-// Algorithme :
-//
 {
     vector <string> listDoc = Load(path);
-    for (int i=0; i< listDoc.size(); i++){
+    for (int i=0; i< listDoc.size(); i++)
+	{
         stringstream ss (listDoc[i]);
         Doctor * doc;
         string id;

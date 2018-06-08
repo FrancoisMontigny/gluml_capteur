@@ -4,10 +4,10 @@
  début                : 30 avril 2018
  copyright            : (C) 2018 par François Montigny et Clément Guittat
  e-mail               : francois.montigny@insa-lyon.fr
- clement.guittat@insa-lyon.fr
+						clement.guittat@insa-lyon.fr
  *************************************************************************/
 
-//---------- Interface de la classe <QualitativeMeasurement> (fichier QualitativeMeasurement.h) ----------------
+//Interface de la classe <QualitativeMeasurement> (fichier QualitativeMeasurement.h)
 #if ! defined ( QualitativeMeasurement_H )
 #define QualitativeMeasurement_H
 
@@ -20,8 +20,8 @@
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <QualitativeMeasurement>
-//
+// Rôle de la classe <QualitativeMeasurement> : QualitativeMeasurement
+// représente un mesurement qualitatif (attribut string).
 //
 //------------------------------------------------------------------------
 
@@ -31,25 +31,14 @@ class QualitativeMeasurement: public Measurement
     
 public:
     //----------------------------------------------------- Méthodes publiques
+	
+	string GetSerializedValue();
     
     //-------------------------------------------- Constructeurs - destructeur
-    QualitativeMeasurement (const QualitativeMeasurement & aQualitativeMeasurement);
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
     
-    QualitativeMeasurement ();
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    QualitativeMeasurement();
     
-    virtual ~QualitativeMeasurement ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+    virtual ~QualitativeMeasurement();
     
     //------------------------------------------------------------------ PRIVE
     

@@ -68,7 +68,7 @@ Disease * DiseaseManager::GetDisease(string name)
 	return *(it);
 } //----- Fin de GetDisease
 
-Disease* DiseaseManager::Update(Disease * d)
+Disease * DiseaseManager::Update(Disease * d)
 {
     // recalcul des valeurs de Disease
 	return d; //TODO
@@ -78,7 +78,15 @@ int DiseaseManager::Save(string path, Disease Diseases[])
 // Algorithme :
 //
 {
-	return -1; //TODO
+	ofstream of;
+    of.open("fichiersTest/" + path);
+    FileWriter fw = FileWriter();
+    for (int i = 0; i < this->diseases.size(); i++)
+	{
+        fw.WriteDisease(of, this->diseases[i]);
+    }
+    of.close();
+    return 0;
 } //----- Fin de Save
 
 int DiseaseManager::Load(string path)

@@ -23,7 +23,7 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 
-unsigned int Doctor::getDoctorId() const
+unsigned int Doctor::GetId() const
 {
     return this->id;
 }
@@ -53,19 +53,6 @@ ostream & operator << (ostream & os, const Doctor & d)
 
 
 //-------------------------------------------- Constructeurs - destructeur
-/*Doctor::Doctor(const Doctor & aDoctor)
-// Algorithme :
-//
-{
-    this->id = AutoNumber();
-    this->name = aDoctor.name;
-    this->firstName = aDoctor.firstName;
-    this->speciality = aDoctor.speciality;
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <Doctor>" << endl;
-#endif
-} //----- Fin de Doctor (constructeur de copie)*/
-
 
 Doctor::Doctor(unsigned int id, string name, string firstName, string speciality)
 // Algorithme :

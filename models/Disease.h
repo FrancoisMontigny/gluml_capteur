@@ -41,6 +41,13 @@ public:
     // Contrat : Aucun.
     //
 	
+	string Serialize() const;
+	// Mode d'emploi : Récupérer une string décrivant la maladie pour 
+	// écriture dans un fichier.
+    //
+    // Contrat : Aucun.
+    //
+	
 	string GetName();
     // Mode d'emploi : Récupère le nom de la maladie.
     //

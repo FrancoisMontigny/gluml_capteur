@@ -105,8 +105,3 @@ Print::~Print()
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-/*unsigned int Print::AutoNumber()
-{
-    static unsigned int ID = 0;
-    return ++ID;
-}*/

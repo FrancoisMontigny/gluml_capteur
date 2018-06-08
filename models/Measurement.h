@@ -19,8 +19,8 @@
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Measurement>
-//
+// Rôle de la classe <Measurement> : Measurement désigne une mesure faite
+// pour un attribut et une maladie.
 //
 //------------------------------------------------------------------------
 
@@ -30,10 +30,12 @@ class Measurement
     
 public:
     //----------------------------------------------------- Méthodes publiques
+	
+	virtual string GetSerializedValue() = 0;
     
     //-------------------------------------------- Constructeurs - destructeur
     
-    Measurement ();
+    Measurement();
     // Mode d'emploi :
     //
     // Contrat :
