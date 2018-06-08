@@ -16,7 +16,7 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "fileWriter.h"
+#include "FileWriter.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -34,7 +34,7 @@ ofstream & FileWriter::WritePrint(ofstream & of, Print * p)
     return of;
 } //----- Fin de WritePrint
 
-ofstream & FileWriter::WritePrint(ofstream & of, Disease * d)
+ofstream & FileWriter::WriteDisease(ofstream & of, Disease * d)
 {
 	string disease = d->Serialize();
     of << disease << endl;

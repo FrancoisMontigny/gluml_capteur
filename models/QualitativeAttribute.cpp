@@ -24,20 +24,20 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 
-string QualitativeAttribute::getValue() const
+string QualitativeAttribute::GetValue() const
 {
 	return this->value;
 }
 
-void QualitativeAttribute::setValue(string value)
+void QualitativeAttribute::SetValue(string value)
 {
     this->value = value;
 }
 
-string QualitativeAttribute::description() const
+string QualitativeAttribute::Description() const
 // Algorithme :
 {
-    string s = Attribute::description() + this->value;
+    string s = Attribute::Description() + this->value;
     return s;
 }
 

@@ -17,8 +17,8 @@
 #include <vector>
 
 #include "./Doctor.h"
-#include "../fileOperations/fileReader.h"
-#include "../fileOperations/fileWriter.h"
+#include "../fileOperations/FileReader.h"
+#include "../fileOperations/FileWriter.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types

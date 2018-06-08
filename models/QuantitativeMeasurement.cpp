@@ -24,9 +24,9 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 
-string GetSerializedValue()
+string QuantitativeMeasurement::GetSerializedValue()
 {
-	return value + ':' + standardDeviation;
+	return to_string(value) + ':' + to_string(standardDeviation);
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

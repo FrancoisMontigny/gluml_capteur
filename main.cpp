@@ -58,33 +58,39 @@ int AffichageMenu(ServicesManager & sm)
 	switch (stoi(nb)) 
 	{
     case 1:
-        cout << "Indiquer le nom du fichier de description des attributs à lire avec l'extension" << endl;
-        string descriptionFileName;
-        getline(cin, descriptionFileName);
-        cout << "Indiquer le nom du fichier étalon des empreintes à lire" << endl;
-        string etalonFileName;
-        getline(cin, etalonFileName);
-        sm.InitializePrints(descriptionFileName, etalonFileName);
+        {
+            cout << "Indiquer le nom du fichier de description des attributs à lire avec l'extension" << endl;
+            string descriptionFileName;
+            getline(cin, descriptionFileName);
+            cout << "Indiquer le nom du fichier étalon des empreintes à lire" << endl;
+            string etalonFileName;
+            getline(cin, etalonFileName);
+            sm.InitializePrints(descriptionFileName, etalonFileName);
+        }
 		break;
     case 2:
-        cout << "Entrez le nom, prénom et la spécialité du nouveau docteur, séparés par des virgules" << endl;
-        string name;
-        string firstName;
-        string speciality;
-        getline(cin, name, ',');
-        getline(cin, firstName, ',');
-        getline(cin, speciality);
-        sm.CreateDoctor(name, firstName, speciality);
+        {
+            cout << "Entrez le nom, prénom et la spécialité du nouveau docteur, séparés par des virgules" << endl;
+            string name;
+            string firstName;
+            string speciality;
+            getline(cin, name, ',');
+            getline(cin, firstName, ',');
+            getline(cin, speciality);
+            sm.CreateDoctor(name, firstName, speciality);
+        }
 		break;
     case 3:
-        cout << "Entrez le nom du fichier avec la/les nouvelle(s) empreinte(s)" << endl;
-        string fileName;
-        getline(cin, fileName);
-        sm.RunAnalysis(fileName);
+        {
+            cout << "Entrez le nom du fichier avec la/les nouvelle(s) empreinte(s)" << endl;
+            string fileName;
+            getline(cin, fileName);
+            sm.RunAnalysis(fileName);
+        }
 		break;
     case 4:
         return 0;
-		
+
     default:
         cout << "Choix non autorisé." << endl;
 		break;

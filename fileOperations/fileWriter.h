@@ -17,6 +17,7 @@
 
 #include "../models/Print.h"
 #include "../models/Doctor.h"
+#include "../models/Disease.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types

@@ -15,6 +15,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 using namespace std;
 
 //------------------------------------------------------ Include personnel
@@ -39,7 +40,7 @@ DiseaseManager * DiseaseManager::Get()
     return singleton;
 } //----- Fin de Get
 
-Disease * DiseaseManager::CreateDisease(string name, vector<Measurement> measurements)
+Disease * DiseaseManager::CreateDisease(string name, vector<Measurement *> measurements)
 {
 	Disease * newDisease = new Disease(name, measurements);
     this->diseases.push_back(newDisease);
@@ -74,7 +75,7 @@ Disease * DiseaseManager::Update(Disease * d)
 	return d; //TODO
 } //----- Fin de Update
 
-int DiseaseManager::Save(string path, Disease Diseases[])
+int DiseaseManager::Save(string path)
 // Algorithme :
 //
 {

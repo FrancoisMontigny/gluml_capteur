@@ -17,6 +17,7 @@
 #include <vector>
 
 #include "./Measurement.h"
+#include "./Print.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -60,7 +61,7 @@ public:
     
     Disease();
 	
-	Disease(const string name, const vector<Measurement> & caracteristics);
+	Disease(const string name, const vector<Measurement *> & caracteristics);
     
     virtual ~Disease();
 	
@@ -71,7 +72,7 @@ protected:
     
     //----------------------------------------------------- Attributs protégés
     string name;
-    vector<Measurement> caracteristics;
+    vector<Measurement *> caracteristics;
 };
 
 //-------------------------------- Autres définitions dépendantes de <Disease>

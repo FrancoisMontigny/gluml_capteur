@@ -18,6 +18,7 @@
 
 #include "Disease.h"
 #include "Measurement.h"
+#include "../fileOperations/FileWriter.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -42,7 +43,7 @@ public:
     // Contrat : Aucun.
     //
     
-    Disease* CreateDisease(string name, vector<Measurement> measurements);
+    Disease* CreateDisease(string name, vector<Measurement *> measurements);
     // Mode d'emploi : Créer un objet Disease.
     //
     // Contrat : Aucun.

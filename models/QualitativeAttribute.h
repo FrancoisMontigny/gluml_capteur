@@ -33,11 +33,11 @@ public:
     
     //----------------------------------------------------- Méthodes publiques
 	
-	string getValue() const;
+	string GetValue() const;
         
-    void setValue(string value);
+    void SetValue(string value);
 	
-    string description() const;
+    string Description() const;
 	
 	QualitativeAttribute * Copy() const;
 	

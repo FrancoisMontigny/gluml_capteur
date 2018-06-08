@@ -25,20 +25,20 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 
-string QuantitativeAttribute::getValue() const
+string QuantitativeAttribute::GetValue() const
 {
 	return to_string(this->value);
 }
 
-void QuantitativeAttribute::setValue(string value) {
+void QuantitativeAttribute::SetValue(string value) {
     double finalValue = stod(value);
     this->value = finalValue;
 }
 
-string QuantitativeAttribute::description() const
+string QuantitativeAttribute::Description() const
 // Algorithme :
 {
-    string s = Attribute::description() + to_string(this->value);
+    string s = Attribute::Description() + to_string(this->value);
     return s;
 }
 

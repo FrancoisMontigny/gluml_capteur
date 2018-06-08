@@ -24,9 +24,9 @@ using namespace std;
 
 //----------------------------------------------------- Méthodes publiques
 
-string GetSerializedValue()
+string QualitativeMeasurement::GetSerializedValue()
 {
-	return mostFrequentValue;
+	return this->mostFrequentValue;
 }
 
 //------------------------------------------------- Surcharge d'opérateurs

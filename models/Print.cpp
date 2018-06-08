@@ -37,7 +37,7 @@ string Print::Serialize() const
 	vector <Attribute *>::const_iterator itAtt;
 	for (itAtt = this->caract.begin(); itAtt != this->caract.end(); ++itAtt)
 	{
-		answer += (*itAtt)->getValue() + ";"; //TODO test with value instead of GetValue(), if OK, remove GetValue()
+		answer += (*itAtt)->GetValue() + ";"; //TODO test with value instead of GetValue(), if OK, remove GetValue()
 	}
     answer += this->diseaseName;
 	
@@ -54,7 +54,7 @@ ostream & operator << (ostream & os, const Print & p)
     vector<Attribute *>::const_iterator itAtt;
     for (itAtt = p.caract.begin(); itAtt != p.caract.end(); ++itAtt)
 	{
-        os << (*itAtt)->description() << endl;
+        os << (*itAtt)->Description() << endl;
     }
     return os;
 } //----- Fin de operator <<

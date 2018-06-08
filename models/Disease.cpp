@@ -28,14 +28,12 @@ void Disease::Display()
 	cout << "La maladie " << this->name << " a les caractéristiques suivantes : " << "this->caracteristics" << endl;
 } //----- Fin de Display
 
-string Print::Serialize() const
+string Disease::Serialize() const
 {
-	string answer = to_string(this->id);
-	answer += ";";
-	
+    string answer;
 	vector <Measurement *>::const_iterator itAtt;
-	for (itAtt = this->caracteristics.begin(); itAtt != this->caracteristics.end(); ++itAtt)
-	{
+    for (itAtt = this->caracteristics.begin(); itAtt != this->caracteristics.end(); ++itAtt)
+    {
 		answer += (*itAtt)->GetSerializedValue() + ";"; //TODO test with value instead of GetValue(), if OK, remove GetValue()
 	}
     answer += this->name;
@@ -60,7 +58,7 @@ Disease::Disease(const Disease & aDisease)
 #endif
 } //----- Fin de Disease (constructeur de copie)
 
-Disease::Disease(const string name, const vector<Measurement> & caracteristics)
+Disease::Disease(const string name, const vector<Measurement *> & caracteristics)
 // Algorithme :
 //
 {

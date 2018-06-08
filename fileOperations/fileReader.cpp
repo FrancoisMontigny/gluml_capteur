@@ -18,7 +18,7 @@
 using namespace std;
 
 //------------------------------------------------------ Include personnel
-#include "fileReader.h"
+#include "FileReader.h"
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
@@ -94,7 +94,7 @@ vector<DataLine> FileReader::EtalonFile(string path, vector<Attribute *> & attri
 					string att;
                     getline(ss, att, ';');
 					Attribute * a = (*it)->Copy();
-					a->setValue(att);
+					a->SetValue(att);
 					attributes.push_back(a);
 				}
 

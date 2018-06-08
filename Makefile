@@ -5,7 +5,7 @@ CXX = g++
 FDMAP = -c
 FLAG = -pedantic -Wall -std=c++11
 
-test : main.o DoctorManager.o Doctor.o PrintManager.o Print.o Attribute.o QualitativeAttribute.o QuantitativeAttribute.o Disease.o DiseaseManager.o Measurement.o QualitativeMeasurement.o QualitativeMeasurement.o fileReader.o fileWriter.o ServicesManager.o PrintAnalyzer.o
+test : main.o DoctorManager.o Doctor.o PrintManager.o Print.o Attribute.o QualitativeAttribute.o QuantitativeAttribute.o Disease.o DiseaseManager.o Measurement.o QualitativeMeasurement.o QualitativeMeasurement.o FileReader.o FileWriter.o ServicesManager.o PrintAnalyzer.o
 	$(CXX) $(FLAG) $^ -o $@ -g
 
 
@@ -15,8 +15,8 @@ PrintManager.o : models/Print.h
 Print.o : models/Attribute.h
 DiseaseManager.o : models/Disease.h models/Measurement.h
 Disease.o : models/Measurement.h
-fileReader.o : models/Attribute.h
-fileWriter.o : models/Print.h models/Doctor.h
+FileReader.o : models/Attribute.h
+FileWriter.o : models/Print.h models/Doctor.h
 ServicesManager.o : models/Doctor.h models/DoctorManager.h
 PrintAnalyzer.o : models/Disease.h models/Print.h
 
