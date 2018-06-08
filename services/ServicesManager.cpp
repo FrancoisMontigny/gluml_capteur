@@ -49,9 +49,8 @@ void ServicesManager::RunAnalysis(string file)
     PrintAnalyzer pa = PrintAnalyzer();
     for (unsigned int i = 0; i < prints.size(); i++)
 	{
-        cout << prints[i]->Serialize() << endl;		
 		vector<Disease *> diseases = pa.Analyze(*prints[i]);
-		cout << "Résultats de l'analyse pour l'empreinte :" << prints[i]->Serialize() << endl;
+        cout << "Résultats de l'analyse pour l'empreinte " << prints[i]->GetId()<<" :" << endl;
 		if (diseases.size() == 0)
 		{
 			cout << "Cette empreinte ne montre aucun risque de maladie." << endl;
