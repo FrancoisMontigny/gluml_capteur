@@ -16,6 +16,7 @@
 #include <string>
 #include <vector>
 
+#include "PrintManager.h"
 #include "Disease.h"
 #include "Measurement.h"
 #include "../fileOperations/FileWriter.h"

@@ -29,7 +29,7 @@ string QuantitativeMeasurement::GetSerializedValue()
 	return to_string(value) + ':' + to_string(standardDeviation);
 }
 
-QuantitativeMeasurement * QuantitativeMeasurement::GetSignificantValues(string diseaseName, PrintManager * pm)
+QuantitativeMeasurement * QuantitativeMeasurement::GetSignificantValues(string diseaseName, vector<Print *> prints)
 {
 	
 }

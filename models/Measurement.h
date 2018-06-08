@@ -14,7 +14,9 @@
 //--------------------------------------------------- Interfaces utilisées
 
 #include <string>
-#include "./PrintManager.h"
+#include <map>
+#include <vector>
+#include "Print.h"
 
 //------------------------------------------------------------- Constantes
 
@@ -35,7 +37,7 @@ public:
 	
 	virtual string GetSerializedValue() = 0;
 	
-	virtual Measurement * GetSignificantValues(string diseaseName, PrintManager * pm) = 0;
+	virtual Measurement * GetSignificantValues(string diseaseName, vector<Print *> prints) = 0;
     
     //-------------------------------------------- Constructeurs - destructeur
     

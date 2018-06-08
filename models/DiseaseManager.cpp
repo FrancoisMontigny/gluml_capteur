@@ -77,11 +77,12 @@ Disease * DiseaseManager::Update(Disease * d)
 //
 {
 	PrintManager * pm;
+	pm = PrintManager::Get();
 	vector<Measurement *> newCaracteristics;
 	
 	for (unsigned int i = 0; i < d->caracteristics.size(); i++)
 	{
-		Measurement * newMeasurement = d->caracteristics[i]->GetSignificantValues(d->GetName(), pm);
+		Measurement * newMeasurement = d->caracteristics[i]->GetSignificantValues(d->GetName(), pm->GetPrints());
 		newCaracteristics.push_back(newMeasurement);
 	}
 	

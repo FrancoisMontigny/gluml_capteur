@@ -34,7 +34,7 @@ public:
 	
 	string GetSerializedValue();
     
-	QuantitativeMeasurement * GetSignificantValues(string diseaseName, PrintManager * pm);
+	QuantitativeMeasurement * GetSignificantValues(string diseaseName, vector<Print *> prints);
 	
     //-------------------------------------------- Constructeurs - destructeur
     

@@ -34,11 +34,13 @@ public:
 	
 	string GetSerializedValue();
 	
-	QualitativeMeasurement * GetSignificantValues(string diseaseName, PrintManager * pm);
+	QualitativeMeasurement * GetSignificantValues(string diseaseName, vector<Print *> prints);
     
     //-------------------------------------------- Constructeurs - destructeur
     
     QualitativeMeasurement();
+	
+	QualitativeMeasurement(string value);
     
     virtual ~QualitativeMeasurement();
     

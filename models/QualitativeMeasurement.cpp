@@ -29,13 +29,12 @@ string QualitativeMeasurement::GetSerializedValue()
 	return this->mostFrequentValue;
 }
 
-QualitativeMeasurement * QualitativeMeasurement::GetSignificantValues(string diseaseName, PrintManager * pm)
+QualitativeMeasurement * QualitativeMeasurement::GetSignificantValues(string diseaseName, vector<Print *> prints)
 {
 	map<string, unsigned int> values;
-	vector<Print *> prints = pm->GetPrints;
 	for (unsigned int i = 0; i < prints.size(); i++)
 	{
-		vector<Attribute *> printAttributes = prints[i]->GetAttributes;
+		vector<Attribute *> printAttributes = prints[i]->GetAttributes();
 		for (unsigned int j = 0; j < printAttributes.size(); j++) 
 		{
 			Attribute * testedAttribute = printAttributes[j];
@@ -55,16 +54,16 @@ QualitativeMeasurement * QualitativeMeasurement::GetSignificantValues(string dis
 	
 	string significantValue;
 	unsigned int max = 0;
-	for (i = 0; i < values.size(); i++)
+	for (map<string, unsigned int>::iterator it = values.begin(); it != values.end(); ++it)
 	{
-		if (values[i]->second > max)
+		if (it->second > max)
 		{
-			max = values[i]->second;
-			significantValue = values[i]->first;
+			max = it->second;
+			significantValue = it->first;
 		}
 	}
 	
-	return significantValue;
+	return new QualitativeMeasurement(significantValue);
 }
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -72,6 +71,15 @@ QualitativeMeasurement * QualitativeMeasurement::GetSignificantValues(string dis
 //-------------------------------------------- Constructeurs - destructeur
 
 QualitativeMeasurement::QualitativeMeasurement()
+// Algorithme :
+//
+{
+#ifdef MAP
+    cout << "Appel au constructeur de <QualitativeMeasurement>" << endl;
+#endif
+} //----- Fin de QualitativeMeasurement
+
+QualitativeMeasurement::QualitativeMeasurement(string value):mostFrequentValue(value)
 // Algorithme :
 //
 {
