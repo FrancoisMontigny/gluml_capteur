@@ -122,6 +122,7 @@ DiseaseManager::~DiseaseManager()
 // Algorithme :
 //
 {
+    this->Save();
     vector<Disease *>::const_iterator ItList;
     for (ItList = this->diseases.begin(); ItList != this->diseases.end(); ItList++){
         delete (*ItList);

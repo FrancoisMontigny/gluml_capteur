@@ -14,7 +14,10 @@
 #include <vector>
 #include "./models/PrintManager.h"
 #include "./services/ServicesManager.h"
+#include "./models/DiseaseManager.h"
 #include "./services/PrintAnalyzer.h"
+#include "./models/QualitativeMeasurement.h"
+#include "./models/QuantitativeMeasurement.h"
 
 DiseaseManager * dm;
 
@@ -94,6 +97,7 @@ int AffichageMenu(ServicesManager & sm)
                 cout << vpm[i]->Serialize() << endl;
             }
         }
+
         break;*/
 	case 4:		
 		{

@@ -69,7 +69,7 @@ public:
     // Contrat : Aucun.
     //
     
-    int Save(string path);
+    int Save(string path = "maladieFile.txt");
     // Mode d'emploi : Sauvegarder les objets Disease dans un fichier dont
 	// le chemin d'accès est donné par path.
     //
