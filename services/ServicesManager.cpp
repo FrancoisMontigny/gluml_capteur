@@ -44,7 +44,7 @@ Doctor * ServicesManager::CreateDoctor(string name, string firstName, string spe
 void ServicesManager::RunAnalysis(string file)
 {
     PrintManager * pm = PrintManager::Get();
-    int posInList = pm->Load(file);
+    unsigned int posInList = pm->Load(file);
     vector<Print *> prints = pm->GetPrints();
     PrintAnalyzer pa = PrintAnalyzer();
     for (unsigned int i = posInList; i < prints.size(); i++)

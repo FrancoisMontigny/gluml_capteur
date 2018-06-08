@@ -40,7 +40,7 @@ main.o : main.cpp
 #make clean pour supprimer les fichiers temporaires
 clean :
 	rm -rf *.o
+	rm -rf run
 
 #make mrproper && make pour supprimer avant de reconstruire 
 mrproper : clean
-	rm -rf run
