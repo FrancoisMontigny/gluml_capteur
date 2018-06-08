@@ -38,7 +38,9 @@ vector<Disease *> PrintAnalyzer::Analyze(Print & p)
     for (int i=0; i< vd.size(); i++) {
         int compt = 0;
         vector<Measurement *> vme = vd[i]->GetMeasurements();
-        compt += vme[i]->Comparison(p);
+        for (int j=0; j< vme.size(); j++){
+            compt += vme[j]->Comparison(p);
+        }
         if ( compt >= 0.75*vd.size() ){
             res.push_back(vd[i]);
         }
