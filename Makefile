@@ -5,7 +5,7 @@ CXX = g++
 FDMAP = -c
 FLAG = -pedantic -Wall -std=c++11
 
-test : main.o DoctorManager.o Doctor.o PrintManager.o Print.o Attribute.o QualitativeAttribute.o QuantitativeAttribute.o Disease.o DiseaseManager.o Measurement.o QualitativeMeasurement.o QualitativeMeasurement.o FileReader.o FileWriter.o ServicesManager.o PrintAnalyzer.o
+run : main.o DoctorManager.o Doctor.o PrintManager.o Print.o Attribute.o QualitativeAttribute.o QuantitativeAttribute.o Disease.o DiseaseManager.o Measurement.o QualitativeMeasurement.o QualitativeMeasurement.o FileReader.o FileWriter.o ServicesManager.o PrintAnalyzer.o
 	$(CXX) $(FLAG) $^ -o $@ -g
 
 
