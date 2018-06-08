@@ -31,6 +31,11 @@ string Attribute::Description() const
     return s;
 }
 
+string Attribute::GetName() const
+{
+	return this->name;
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur

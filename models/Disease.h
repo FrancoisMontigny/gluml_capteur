@@ -17,7 +17,6 @@
 #include <vector>
 
 #include "./Measurement.h"
-#include "./Print.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -30,11 +29,16 @@
 //
 //------------------------------------------------------------------------
 
+class DiseaseManager;
+
 class Disease
 {
     //----------------------------------------------------------------- PUBLIC
     
 public:
+
+	friend DiseaseManager;
+
     //----------------------------------------------------- Méthodes publiques
     void Display();
     // Mode d'emploi : Affiche la maladie et ses caractéristiques.

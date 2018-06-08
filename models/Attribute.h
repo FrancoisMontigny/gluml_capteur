@@ -51,6 +51,12 @@ public:
     // Contrat : Aucun.
     //
 	
+	string GetName() const;
+    // Mode d'emploi : Récupère le nom de l'attribut.
+    //
+    // Contrat : Aucun.
+    //
+	
 	virtual Attribute * Copy() const = 0;
     // Mode d'emploi : Retourne un pointeur sur une copie de l'objet 
 	// support.

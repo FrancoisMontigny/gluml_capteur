@@ -30,13 +30,14 @@ void Disease::Display()
 
 string Disease::Serialize() const
 {
-    string answer;
-	vector <Measurement *>::const_iterator itAtt;
-    for (itAtt = this->caracteristics.begin(); itAtt != this->caracteristics.end(); ++itAtt)
-    {
-		answer += (*itAtt)->GetSerializedValue() + ";"; //TODO test with value instead of GetValue(), if OK, remove GetValue()
+	string answer = this->name;
+	answer += ";";
+	
+	vector<Measurement *>::const_iterator itAtt;
+	for (itAtt = this->caracteristics.begin(); itAtt != this->caracteristics.end(); ++itAtt)
+	{
+		answer += (*itAtt)->GetSerializedValue() + ";";
 	}
-    answer += this->name;
 	
 	return answer;
 } //----- Fin de Serialize

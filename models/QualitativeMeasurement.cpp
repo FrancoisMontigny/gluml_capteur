@@ -29,6 +29,44 @@ string QualitativeMeasurement::GetSerializedValue()
 	return this->mostFrequentValue;
 }
 
+QualitativeMeasurement * QualitativeMeasurement::GetSignificantValues(string diseaseName, PrintManager * pm)
+{
+	map<string, unsigned int> values;
+	vector<Print *> prints = pm->GetPrints;
+	for (unsigned int i = 0; i < prints.size(); i++)
+	{
+		vector<Attribute *> printAttributes = prints[i]->GetAttributes;
+		for (unsigned int j = 0; j < printAttributes.size(); j++) 
+		{
+			Attribute * testedAttribute = printAttributes[j];
+			if (this->attribute.compare(testedAttribute->GetName()) == 0)
+			{
+				if (values.find(testedAttribute->GetValue()) != values.end()) //La valeur a déjà été vue
+				{
+					values.find(testedAttribute->GetValue())->second++;
+				}
+				else
+				{
+					values.insert(make_pair(testedAttribute->GetName(), 1));
+				}
+			}
+		}
+	}
+	
+	string significantValue;
+	unsigned int max = 0;
+	for (i = 0; i < values.size(); i++)
+	{
+		if (values[i]->second > max)
+		{
+			max = values[i]->second;
+			significantValue = values[i]->first;
+		}
+	}
+	
+	return significantValue;
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur

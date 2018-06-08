@@ -44,6 +44,11 @@ string Print::Serialize() const
 	return answer;
 }
 
+vector<Attribute *> Print::GetAttributes() const
+{
+	return this->caract;
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 ostream & operator << (ostream & os, const Print & p)

@@ -70,9 +70,25 @@ Disease * DiseaseManager::GetDisease(string name)
 } //----- Fin de GetDisease
 
 Disease * DiseaseManager::Update(Disease * d)
+// Algorithme : on regarde chaque attribut caractéristique pour la maladie
+// et on recalcule sa mesure en cherchant la valeur moyenne et l'écart-type ou
+// la valeur la plus fréquente sur toutes les empreintes associées à cette
+// maladie.
+//
 {
-    // recalcul des valeurs de Disease
-	return d; //TODO
+	PrintManager * pm;
+	vector<Measurement *> newCaracteristics;
+	
+	for (unsigned int i = 0; i < d->caracteristics.size(); i++)
+	{
+		Measurement * newMeasurement = d->caracteristics[i]->GetSignificantValues(d->GetName(), pm);
+		newCaracteristics.push_back(newMeasurement);
+	}
+	
+	
+	d->caracteristics = newCaracteristics;
+	
+	return d;
 } //----- Fin de Update
 
 int DiseaseManager::Save(string path)
@@ -82,7 +98,7 @@ int DiseaseManager::Save(string path)
 	ofstream of;
     of.open("fichiersTest/" + path);
     FileWriter fw = FileWriter();
-    for (int i = 0; i < this->diseases.size(); i++)
+    for (unsigned int i = 0; i < this->diseases.size(); i++)
 	{
         fw.WriteDisease(of, this->diseases[i]);
     }

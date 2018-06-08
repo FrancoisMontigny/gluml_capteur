@@ -29,6 +29,11 @@ string QuantitativeMeasurement::GetSerializedValue()
 	return to_string(value) + ':' + to_string(standardDeviation);
 }
 
+QuantitativeMeasurement * QuantitativeMeasurement::GetSignificantValues(string diseaseName, PrintManager * pm)
+{
+	
+}
+
 //------------------------------------------------- Surcharge d'opérateurs
 
 //-------------------------------------------- Constructeurs - destructeur

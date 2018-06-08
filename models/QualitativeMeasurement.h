@@ -33,6 +33,8 @@ public:
     //----------------------------------------------------- Méthodes publiques
 	
 	string GetSerializedValue();
+	
+	QualitativeMeasurement * GetSignificantValues(string diseaseName, PrintManager * pm);
     
     //-------------------------------------------- Constructeurs - destructeur
     

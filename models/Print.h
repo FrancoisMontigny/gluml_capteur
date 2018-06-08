@@ -42,6 +42,8 @@ public:
     unsigned int GetId() const;
 	
 	string Serialize() const;
+	
+	vector<Attribute *> GetAttributes() const;
 
 //-------------------------------------------- Constructeurs - destructeur
 
