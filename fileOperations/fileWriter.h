@@ -14,7 +14,6 @@
 //--------------------------------------------------- Interfaces utilisées
 
 #include <string>
-
 #include "../models/Print.h"
 #include "../models/Doctor.h"
 #include "../models/Disease.h"
@@ -41,8 +40,8 @@ public:
 	//
 	// Contrat : of est un ofstream sur un fichier existant ouvert.
 	
-	ofstream & WriteDisease(ofstream & of, Disease * d);
-	// Mode d'emploi : écrire les informations liées à une maladie
+    ofstream & WriteDisease(ofstream & of, Disease * d);
+    // Mode d'emploi : écrire les informations liées à une maladie
 	// dans un fichier.
 	//
 	// Contrat : of est un ofstream sur un fichier existant ouvert.

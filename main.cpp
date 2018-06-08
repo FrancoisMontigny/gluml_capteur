@@ -12,7 +12,6 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include "./models/DoctorManager.h"
 #include "./models/PrintManager.h"
 #include "./services/ServicesManager.h"
 #include "./services/PrintAnalyzer.h"
