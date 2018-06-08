@@ -41,21 +41,10 @@ Doctor * ServicesManager::CreateDoctor(string name, string firstName, string spe
     return dom->CreateDoctor(name, firstName, speciality);
 } //----- Fin de CreateDoctor
 
-void ServicesManager::InitializePrints(string descriptionFilePath, string standardFilePath)
-{
-    PrintManager * pm = PrintManager::Get();
-    pm->setDescriptionAttributes(descriptionFilePath);
-    pm->createPrints(standardFilePath);
-    /*vector<Print *> vp = pa->GetPrints();
-    for (int i = 0; i< vp.size(); i++){
-        cout << vp[i]->Serialize() << endl;
-    }*/
-}
-
 void ServicesManager::RunAnalysis(string file)
 {
     PrintManager * pm = PrintManager::Get();
-    pm->createPrints(file);
+    pm->Load(file);
     vector<Print *> prints = pm->GetPrints();
     //PrintAnalyzer pa = PrintAnalyzer();
     for (int i = 0; i < prints.size(); i++)
@@ -90,6 +79,9 @@ ServicesManager::ServicesManager()
 // Algorithme :
 //
 {
+    PrintManager::Get();
+    DoctorManager::Get();
+    DiseaseManager::Get();
 #ifdef MAP
     cout << "Appel au constructeur de <ServicesManager>" << endl;
 #endif
@@ -101,8 +93,10 @@ ServicesManager::~ServicesManager()
 {
     DoctorManager * dom = DoctorManager::Get();
     PrintManager * pm = PrintManager::Get();
+    DiseaseManager * dism = DiseaseManager::Get();
     delete(dom);
     delete(pm);
+    delete(dism);
 #ifdef MAP
     cout << "Appel au destructeur de <ServicesManager>" << endl;
 #endif

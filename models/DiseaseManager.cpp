@@ -35,7 +35,7 @@ DiseaseManager * DiseaseManager::Get()
 {
     if (!singleton)
     {
-        singleton = new DiseaseManager;
+        singleton = new DiseaseManager();
     }
     return singleton;
 } //----- Fin de Get
@@ -94,6 +94,8 @@ int DiseaseManager::Load(string path)
 // Algorithme :
 //
 {
+    FileReader fr = FileReader();
+    
 	return -1;
 } //----- Fin de Load
 

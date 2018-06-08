@@ -19,6 +19,7 @@
 #include "Disease.h"
 #include "Measurement.h"
 #include "../fileOperations/FileWriter.h"
+#include "../fileOperations/FileReader.h"
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -92,6 +93,10 @@ public:
 protected:
     //----------------------------------------------------- Méthodes protégées
     DiseaseManager();
+    // Mode d'emploi :
+    //
+    // Contrat :
+    //
     
     //----------------------------------------------------- Attributs protégés
     vector<Disease *> diseases;
