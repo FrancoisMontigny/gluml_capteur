@@ -44,10 +44,10 @@ Doctor * ServicesManager::CreateDoctor(string name, string firstName, string spe
 void ServicesManager::RunAnalysis(string file)
 {
     PrintManager * pm = PrintManager::Get();
-    pm->Load(file);
+    int posInList = pm->Load(file);
     vector<Print *> prints = pm->GetPrints();
     PrintAnalyzer pa = PrintAnalyzer();
-    for (unsigned int i = 0; i < prints.size(); i++)
+    for (unsigned int i = posInList; i < prints.size(); i++)
 	{
 		vector<Disease *> diseases = pa.Analyze(*prints[i]);
         cout << "Résultats de l'analyse pour l'empreinte " << prints[i]->GetId()<<" :" << endl;

@@ -101,10 +101,11 @@ int PrintManager::Save(string path)
     return 200;
 } //----- Fin de Méthode
 
-void PrintManager::Load(string standardFile)
+int PrintManager::Load(string standardFile)
 // Algorithme :
 //
 {
+    int firstPrintLoaded = 0;
     FileReader fr = FileReader();
     vector<DataLine> vds = fr.EtalonFile(standardFile, this->descriptionAttributes);
     if (this->prints.size() == 0)
@@ -117,12 +118,14 @@ void PrintManager::Load(string standardFile)
     } 
 	else 
 	{
+        firstPrintLoaded = (int) this->prints.size();
         for (unsigned int i = 0; i< vds.size(); i++)
 		{
             Print * p = new Print(vds[i].attributes, (unsigned int) this->prints.size(), vds[i].disease);
             this->prints.push_back(p);
         }
     }
+    return firstPrintLoaded;
 } //----- Fin de Méthode
 
 //-------------------------------------------- Constructeurs - destructeur

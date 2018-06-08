@@ -80,7 +80,7 @@ public:
 	// Contrat :
 	//
     
-    void Load(string standardFile);
+    int Load(string standardFile);
     // Mode d'emploi :
     //
     // Contrat :
