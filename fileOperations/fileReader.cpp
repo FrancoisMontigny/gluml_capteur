@@ -98,9 +98,9 @@ vector<DataLine> FileReader::EtalonFile(string path, vector<Attribute *> & attri
 					attributes.push_back(a);
 				}
 
-                string maattributesdie;
-                getline(ss, maattributesdie, '\r');
-                dataLines.push_back(DataLine(id, maattributesdie, attributes));
+                string maladie;
+                getline(ss, maladie, '\r');
+                dataLines.push_back(DataLine(id, maladie, attributes));
 				attributes.clear();								
             }
         }
